@@ -1,91 +1,65 @@
 @import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin,latin-ext);
 html { 
-     -webkit-font-smoothing: antialiased; 
-     background-image: url('bg.gif');	  
-                           background-attachment: fixed;
-no-repeat center; center; fixed;
--webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-min-height: 100%;
-
+    -webkit-font-smoothing: antialiased; 
+    background-image: url('bg.gif');	  
+    background-attachment: fixed;
+    no-repeat center; center; fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100%;
 }
 
 body {
-     margin:40px
-	   auto;
-	    max-width:650px;
+    margin:40px auto;
+    max-width:650px;
     font-size: 10pt;
-/*    font-family: "Oswald-light", "Oswald", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;  */
-//    font-family: "Inconsolata";
-   font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+    font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
     color: white;
     line-height: 14pt;
     padding-left: 5pt;
     padding-right: 18pt;
     padding-top: 15pt;    
-/*    background-image: url(images/back2.png);  */
-/*       background-color: black;   */
+    /*    background-image: url(images/back2.png);  */
+    /*       background-color: black;   */
 }
 
 h1 ,p {
     color:green;
     font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
-  -webkit-user-select: none;  /* Chrome all / Safari all */
-  -moz-user-select: none;     /* Firefox all */
-  -ms-user-select: none;      /* IE 10+ */
-  user-select: none;          /* Likely future */
-  outline: 0;
-
-
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */
+    outline: 0;
 }
-
 
 img, a {
     max-width: 100%;
     height: auto;
     width: auto\9; /* ie8 */
-  font-size: 0;
- -webkit-user-select: none;  /* Chrome all / Safari all */
-  -moz-user-select: none;     /* Firefox all */
-  -ms-user-select: none;      /* IE 10+ */
-  user-select: none;          /* Likely future */
--khtml-user-select: none;
--o-user-select: none;
+    font-size: 0;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */
+    -khtml-user-select: none;
+    -o-user-select: none;
     outline: 0;
-user-select: none;
-margin:0;padding:0;
-   }
+    user-select: none;
+    margin:0;padding:0;
+}
 
 a:link {color: red; background: rgba(255, 255, 255, 0.1);}      /* unvisited link */
-a:visited {color:purple; background: rgba(255, 255, 255, 0.1);}  /* visited link */ /a:hover {color:grey;}  /* mouse over link */
+a:visited {color:purple; background: rgba(255, 255, 255, 0.1);}  /* visited link */
 a::hover {color: grey; background: rgba(255, 255, 255, 0.1);}  /* selected link */
 a:active {color: grey; background: rgba(255, 255, 255, 0.1);}  /* selected link */
 
 ::selection {
     background: grey; /* Safari */
-
 }
 
 ::-moz-selection {
-//    background: grey; /* Firefox */
-background: rgba(255, 255, 255, 0.1)
+    background: rgba(255, 255, 255, 0.1)
 }
-
-//a {
-//   outline: 0;
-//margin:0;
-//padding:0;
-//float:left ;
-/display: block;
-//position: relative;
-//clear:both"
-//}
-
-
-
-
-
-
-

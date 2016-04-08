@@ -1,3 +1,5 @@
+cat quotelist | sed 's/."/.<\/q><br \/>/g' | sed 's/"/"},{text:"<q>/g' | awk 'NF'   | sed "s/'/\&#8217;/g" | tr -d '\n'  | pbcopy
+
 "Part of the inhumanity of the computer is that, once it is competently programmed and working smoothly, it is completely honest."
 - Eleanor Roosevelt
 

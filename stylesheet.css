@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin,latin-ext);
 html  {
     -webkit-font-smoothing: antialiased; 
-    background-image: url('images/bg.png');
+    background-image: url('images/bg2.png');
     //background: black;
     background-attachment: fixed;
     no-repeat center; center; fixed;
@@ -9,9 +9,8 @@ html  {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    min-height: 100%;
     font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
-
+    min-height: 100%;
 }
 
 

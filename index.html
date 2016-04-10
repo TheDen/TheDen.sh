@@ -105,6 +105,8 @@
       </div>
     </div>
     </span>
+       <script>
+	var draggie = new Draggabilly('.draggable');</script>
     <div class="draggable">
       <div id="card1">
 	<h1><strong>IRC</strong></h1>
@@ -115,19 +117,20 @@
 
       </div>
       <script>
-	
+	var draggie = new Draggabilly('.draggable');
+
 	// external js: draggabilly.pkgd.js
 	// get all draggie elements
-	var draggableElems = document.querySelectorAll('.draggable');
+//	var draggableElems = document.querySelectorAll('.draggable');
 	// array of Draggabillies
-	var draggies = [];
+/	var draggies = [];
 	// init Draggabillies
-	for ( var i=0, len = draggableElems.length; i < len; i++ ) {
-							var draggableElem = draggableElems[i];
-							var draggie = new Draggabilly( draggableElem, {
-							});
-							draggies.push( draggie );
-							}
+//	for ( var i=0, len = draggableElems.length; i < len; i++ ) {
+//							var draggableElem = draggableElems[i];
+//							var draggie = new Draggabilly( draggableElem, {
+//							});
+//							draggies.push( draggie );
+//							}
 							
 							</script>
   </body>

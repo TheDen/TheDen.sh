@@ -155,7 +155,7 @@ a:active {color: #009966; background: black;}  /* selected link */
     height: inherit;
     background: inherit;
     border-radius: inherit;
-    //margin: 0 10px 10px 0;
+    margin: 0 10px 10px 0;
     float: inherit; 
 }
 .draggable.is-pointer-down {

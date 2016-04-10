@@ -153,10 +153,10 @@ a:active {color: #009966; background: black;}  /* selected link */
 .draggable {
     width: inherit;
     height: inherit;
-    //background: #F90;
+    background: inherit;
     border-radius: inherit;
- //margin: 0 10px 10px 0;
-//  float: left; 
+    //margin: 0 10px 10px 0;
+    float: inherit; 
 }
 .draggable.is-pointer-down {
     //background: #09F;

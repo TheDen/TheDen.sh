@@ -151,9 +151,8 @@ a:active {color: #009966; background: black;}  /* selected link */
 
 
 .draggable {
-    width:350px;
-    height: 140px;
-    background-color: red;
+    max-width:350px;
+    max-height: 200px;
     border-radius: 10px;
     margin: 0 10px 10px 0;
     float: left; 

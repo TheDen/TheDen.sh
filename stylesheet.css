@@ -10,7 +10,7 @@ html  {
     -o-background-size: cover;
     background-size: cover;
     min-height: 100%;
-        font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+    font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
 
 }
 

@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin,latin-ext);
-html {
+html  {
     -webkit-font-smoothing: antialiased; 
         background-image: url('testbg.gif');
     //background: black;
@@ -26,36 +26,76 @@ html {
     outline: 0;
 }
 
+#card1 {
 
-
-body {
+    padding-left: 10px;
+    padding-right: 10px; 
+    padding-top: 10px;
+    padding-bottom: 10px; 
+    border: 2px solid #009966;
     vertical-align: middle;
     float: left;
     margin: 40px auto; 
-    //position: relative;
+   //position: relative;
     max-width:350px;
     font-size: 10pt;
     font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
     //    color: green;
     color: #009966;
     //color: #FF0000;
-    line-height: 14pt;
+/*    line-height: 14pt;
     padding-left: 40px;
-    padding-right: 1pt; 
-    padding-top: 65px;  
+    padding-right: 40px; 
+    padding-top: 65px;
+    padding-bottom: 110px; */
     //background-image: url(testbg.gif);
-    
-    //    background-color: black;
+
+    margin-left:40px;
+    margin-top:65px;
+}
+#card2 {
+    padding-left: 10px;
+    padding-right: 10px; 
+    padding-top: 10px;
+    padding-bottom: 10px; 
+    border: 2px solid #009966;
+    vertical-align: middle;
+    float: right;
+    margin: 40px auto; 
+   //position: relative;
+    max-width:350px;
+    font-size: 10pt;
+    font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+    //    color: green;
+    color: #009966;
+    //color: #FF0000;
+/*    line-height: 14pt;
+    padding-left: 40px;
+    padding-right: 40px; 
+    padding-top: 65px;
+    padding-bottom: 110px; */
+    //background-image: url(testbg.gif);
+
+    margin-right:40px;
+    margin-left:40px;
+    margin-top:65px;
 }
 
-h1 ,p {
-    color:white;
+h1 {
+   color: #009966;
+    //        color:  rgb(0,255,0);
+    //color: rgb(50,205,50);
+    //color: #006600;
+}
+p {
+    color:black;
+    background-color: #009966;
     //        color:  rgb(0,255,0);
     //color: rgb(50,205,50);
     //color: #006600;
 }
 
-img, a {
+img {
     //   max-width: 100%;
     //    height: auto;
     //    width: auto\9; /* ie8 */
@@ -71,10 +111,26 @@ img, a {
     padding:0;
 }
 
-a:link {color: red; background: rgba(255, 255, 255, 0.1);}      /* unvisited link */
-a:visited {color:purple; background: rgba(255, 255, 255, 0.1);}  /* visited link */
-a::hover {color: grey; background: rgba(255, 255, 255, 0.1);}  /* selected link */
-a:active {color: grey; background: rgba(255, 255, 255, 0.1);}  /* selected link */
+a {
+    //   max-width: 100%;
+    //    height: auto;
+    //    width: auto\9; /* ie8 */
+    //font-size: 0;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */
+    -khtml-user-select: none;
+    -o-user-select: none;
+    outline: 0;
+    margin:0;
+    padding:0;
+}
+
+a:link {color: black; background: rgba(255, 255, 255);}      /* unvisited link */
+a:visited { color:#990033; background: rgba(255, 255, 255);}  /* visited link */
+a:hover {color: #660099 ; background: rgba(255, 255, 255, 0);}  /* selected link */
+a:active {color: #660099; background: rgba(255, 255, 255, 0.1);}  /* selected link */
 
 ::selection {
     background: grey; /* Safari */
@@ -85,11 +141,7 @@ a:active {color: grey; background: rgba(255, 255, 255, 0.1);}  /* selected link 
 }
 
 
-.container {
-    padding: 0px;
-    //border: 2px solid #F90;
-    height: 90%;  
-}
+
 .draggable.is-pointer-down {
     //background: #09F;
     z-index: 2; /* above other draggies */
@@ -97,4 +149,20 @@ a:active {color: grey; background: rgba(255, 255, 255, 0.1);}  /* selected link 
 .draggable.is-dragging {
     //opacity: 0.7;
 }
+
+.container {
+    border: 5px solid #009966;
+    //    min-width: 100%;
+    min-height: 100vh;
+}
+
+#divA
+{
+  border:1px solid blue; 
+}
+
+#divB
+{
+  float:right;
+  border:1px solid red;
 }

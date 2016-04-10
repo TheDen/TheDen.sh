@@ -134,8 +134,8 @@ a {
 
 a:link {color: black; background: rgba(255, 255, 255);}      /* unvisited link */
 a:visited { color:black; background: rgba(255, 255, 255);}  /* visited link */
-a:hover {color: #660099 ; background: rgba(255, 255, 255, 0);}  /* selected link */
-a:active {color: #660099; background: rgba(255, 255, 255, 0.1);}  /* selected link */
+a:hover {color: #009966; background: black;}  /* selected link */
+a:active {color: #009966; background: black;}  /* selected link */
 
 ::selection {
     background: grey; /* Safari */

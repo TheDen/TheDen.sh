@@ -167,11 +167,11 @@ a:active {color: #009966; background: black;}  /* selected link */
     //opacity: 0.7;
 }
 
-.container {
-    border: 5px solid #009966;
-    //    min-width: 100%;
-    min-height: 100vh;
-}
+/*.container {
+   border: 5px solid #009966;
+       min-width: 100%;
+           min-height: 100vh;
+}*/
 
 #divA
 {

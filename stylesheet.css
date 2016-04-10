@@ -152,7 +152,7 @@ a:active {color: #009966; background: black;}  /* selected link */
 
 .draggable {
     max-width:350px;
-    max-height: 200px;
+    //max-height: 200px;
     border-radius: 10px;
     margin: 0 10px 10px 0;
     float: left; 

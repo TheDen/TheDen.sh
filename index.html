@@ -2,11 +2,13 @@
 <html class="noselect" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>	
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="Keywords" content="TheDen, denis, denis khoshaba" />
     <meta name="Description" content="TheDen" />
     <title>Breathe.</title>
     <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <script src="scripts/moment.min.js"></script>
     <script   src="scripts/draggabilly.pkgd.js">
       <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -67,14 +69,51 @@
       </div>
     </div>
 
+    <div class="draggable">
+      <div id="card1">
+	<h4><strong>[root@TheDen ~]# uptime</strong></h4>
+    	<span id="clock" class="clock">
+	  <script>
+	    var then = "08/04/2016 17:00:00";
+	    var ms = moment(moment(),"DD/MM/YYYY HH:mm:ss").diff(moment(then,"DD/MM/YYYY HH:mm:ss"));
+	    var d = moment.duration(ms);
+	    s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
+	    h = moment.duration(s).hours();
+	    m = moment.duration(s).minutes();
+	    sec = moment.duration(s).seconds();
+	    days = moment.duration(s).days();
+	    x = Math.random().toFixed(2);
+	    y = Math.random().toFixed(2);
+	    z = Math.random().toFixed(2);
+	    document.write(days +" days" + " " + h + ":" + m + ":" + sec + ", 1 user, " + "load average: " + x + ", " + y + ", " +z);
+	    
+	    function update() {
+	    var then = "08/04/2016 17:00:00";
+	    var ms = moment(moment(),"DD/MM/YYYY HH:mm:ss").diff(moment(then,"DD/MM/YYYY HH:mm:ss"));
+	    var d = moment.duration(ms);
+	    s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
+	    h = moment.duration(s).hours();
+	    m = moment.duration(s).minutes();
+	    sec = moment.duration(s).seconds();
+	    days = moment.duration(s).days();
+	    $('#clock').html(days +" days" + " " + h + ":" + m + ":" + sec + ", 1 user, " + "load average: " + x + ", " + y + ", " +z);
+	    }
+	    setInterval(update,1000);
+	  </script>
+      </div>
+      </div>
+	</span>
      <div class="draggable">
        <div id="card1">
 	<h1><strong>IRC</strong></h1>
 	<p>u: denisk or variants</p>
 	<p>s: freenode</p>
 	<p>channels: ????</p>
-      </div>
-    <script>
+
+
+       </div>
+       <script>
+	  
       // external js: draggabilly.pkgd.js
       // get all draggie elements
       var draggableElems = document.querySelectorAll('.draggable');

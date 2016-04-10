@@ -11,6 +11,8 @@ html  {
     background-size: cover;
     min-height: 100%;
     font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+    overflow:hidden;
+
 }
 
 .noselect {

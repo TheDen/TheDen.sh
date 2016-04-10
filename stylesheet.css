@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin,latin-ext);
 html  {
     -webkit-font-smoothing: antialiased; 
-        background-image: url('testbg.gif');
+    background-image: url('images/bg.png');
     //background: black;
     background-attachment: fixed;
     no-repeat center; center; fixed;

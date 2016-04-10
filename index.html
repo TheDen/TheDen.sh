@@ -7,51 +7,87 @@
     <meta name="Description" content="TheDen" />
     <title>Breathe.</title>
     <link rel="stylesheet" type="text/css" href="stylesheet.css" />
-    <script src="https://npmcdn.com/draggabilly@2.1/dist/draggabilly.pkgd.js"></script>
-    <script   src="scripts/draggabilly.pkgd.min.js">
-	
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-76175181-1', 'auto');
-      ga('send', 'pageview');
-    </script>        
+    <script   src="scripts/draggabilly.pkgd.js">
+      <script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-76175181-1', 'auto');
+	ga('send', 'pageview');
+      </script>
+      <script type="text/javascript">
+	function blink() {
+	var blinks = document.getElementsByTagName('blink');
+	for (var i = blinks.length - 1; i >= 0; i--) {
+	var s = blinks[i];
+	s.style.visibility = (s.style.visibility === 'visible') ? 'hidden' : 'visible';
+	}
+	window.setTimeout(blink, 1000);
+	}
+	if (document.addEventListener) document.addEventListener("DOMContentLoaded", blink, false);
+	else if (window.addEventListener) window.addEventListener("load", blink, false);
+	else if (window.attachEvent) window.attachEvent("onload", blink);
+	else window.onload = blink;
+      </script>
   </head>
-  <div class="top">
-    <body class="draggable">
-	<h1 style="color: #009966"><strong>_TheDen</strong></h1>
-	<a href="https://au.linkedin.com/in/deniskhoshaba"target="_blank"><img  src="images/linkedin.png" alt="LinkedIn" /></a><a href="https://github.com/theden" target="_blank"><img src="images/github.png" alt="GitHub"/></a><a href="http://www.last.fm/user/Denkho" target="_blank"><img src="images/lastfm.png" alt="lastfm"/></a>
-    <h2>About</h2>
-    <p>SysEng/DevOps @ BPF</p>
-    <h2>Interests</h2>
-    <p>*nix, philosophy</p>
-    <h2>Location</h2>
-    <p>Sydney, Australia</p>
-    <h2>Contact</h2>
-    <p>denis khoshaba at gmail dot com<br /><br /></p>
-    <hr>
-    <div  style="color: white" id="quote"></div>  
-    <script type="text/javascript"  src="scripts/quotes.js">
-    </script>
-    </body>
+  <body>
+    <div class="draggable">
+      <div id="card1">
+	<h1><strong><blink>_</blink>TheDen</strong></h1>
+	<a style="font-size: 0;" href="https://au.linkedin.com/in/deniskhoshaba"target="_blank"><img  src="images/linkedin.png" alt="LinkedIn" /></a><a style="font-size: 0;" href="https://github.com/theden" target="_blank"><img src="images/github.png" alt="GitHub"/></a><a style="font-size: 0;" href="http://www.last.fm/user/Denkho" target="_blank"><img src="images/lastfm.png" alt="lastfm"/></a><a style="font-size: 0;" href="https://www.quora.com/profile/Denis-Khosh" target="_blank"><img src="images/quora.png" alt="lastfm"/></a>
+	<h2>About</h2>
+	<p>SysEng/DevOps @ BPF</p>
+	<h2>Interests</h2>
+	<p>*nix, philosophy</p>
+	<h2>Location</h2>
+	<p>Sydney, Australia</p>
+	<h2>Contact</h2>
+	<p>denis khoshaba at gmail dot com</p>
+	<hr>
+	<div  style="color: white" id="quote"></div>  
+	<script type="text/javascript"  src="scripts/quotes.js">
+	</script>
+      </div>
+    </div>
+
+    <div class="draggable">
+      <div id="card1">
+	<h1><strong>Posts</strong></h1>
+	<p>none so far</p>
+      </div>
+    </div>
+    <div class="draggable">
+      <div id="card1">
+	<h1><strong>Links of interest</strong></h1>
+	<p><a href="https://www.eff.org/" target="_blank">EFF</a></p>
+	<p><a href="http://www.fsf.org/news" target="_blank">FSF news</a></p>
+	<p><a href="https://www.archlinux.org/news/" target="_blank">Arch linux news</a></p>
+	<p><a href="http://detexify.kirelabs.org/classify.html" target="_blank">LaTeX symbol recognition</a></p>
+      </div>
+    </div>
+
+     <div class="draggable">
+       <div id="card1">
+	<h1><strong>IRC</strong></h1>
+	<p>u: denisk or variants</p>
+	<p>s: freenode</p>
+	<p>channels: ????</p>
+      </div>
     <script>
       // external js: draggabilly.pkgd.js
-
       // get all draggie elements
       var draggableElems = document.querySelectorAll('.draggable');
-// array of Draggabillies
+      // array of Draggabillies
       var draggies = []
       // init Draggabillies
       for ( var i=0, len = draggableElems.length; i < len; i++ ) {
 						      var draggableElem = draggableElems[i];
 						      var draggie = new Draggabilly( draggableElem, {
-						      containment: true
 						      });
 						      draggies.push( draggie );
 						      }
 						      
 						      </script>
-  </div>
+  </body>
 </html>

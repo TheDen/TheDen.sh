@@ -115,21 +115,31 @@
 
       </div>
       <script>
-//	var draggie = new Draggabilly('.draggable');
-	
-	// external js: draggabilly.pkgd.js
-	// get all draggie elements
+
+
+						var elem = document.querySelector('.draggable');
+var draggie = new Draggabilly( elem, {
+  // options...
+});
+
+// or pass in selector string as first argument
+var draggie = new Draggabilly( '.draggable', {
+  // options...
+});
+
+// if you have multiple .draggable elements
+// get all draggie elements
 var draggableElems = document.querySelectorAll('.draggable');
-	// array of Draggabillies
-	var draggies = [];
-	// init Draggabillies
+// array of Draggabillies
+var draggies = []
+// init Draggabillies
 for ( var i=0, len = draggableElems.length; i < len; i++ ) {
-						var draggableElem = draggableElems[i];
-						var draggie = new Draggabilly( draggableElem, {
-						
-												});
-						draggies.push( draggie );
-						}
+  var draggableElem = draggableElems[i];
+  var draggie = new Draggabilly( draggableElem, {
+    // options...
+  });
+  draggies.push( draggie );
+}
 //							
 							</script>
   </body>

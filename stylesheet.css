@@ -12,10 +12,6 @@ html  {
     font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
     min-height: 100%;
 }
-
-
-
-
 body {
     overflow:hidden;
 }
@@ -43,7 +39,7 @@ body {
     vertical-align: middle;
     float: left;
     margin: 40px auto; 
-   //position: relative;
+    //position: relative;
     max-width:350px;
     font-size: 10pt;
     font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
@@ -55,8 +51,6 @@ body {
     padding-right: 40px; 
     padding-top: 65px;
     padding-bottom: 110px; */
-    //background-image: url(testbg.gif);
-
     margin-left:40px;
     margin-top:65px;
 }
@@ -69,7 +63,7 @@ body {
     vertical-align: middle;
     float: right;
     margin: 40px auto; 
-   //position: relative;
+    //position: relative;
     max-width:350px;
     font-size: 10pt;
     font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
@@ -81,8 +75,6 @@ body {
     padding-right: 40px; 
     padding-top: 65px;
     padding-bottom: 110px; */
-    //background-image: url(testbg.gif);
-
     margin-right:40px;
     margin-left:40px;
     margin-top:65px;
@@ -101,7 +93,6 @@ p {
     //color: rgb(50,205,50);
     //color: #006600;
 }
-
 img {
     //   max-width: 100%;
     //    height: auto;
@@ -117,7 +108,6 @@ img {
     margin:0;
     padding:0;
 }
-
 a {
     //   max-width: 100%;
     //    height: auto;
@@ -147,8 +137,6 @@ a:active {color: #009966; background: black;}  /* selected link */
     background: rgba(255, 255, 255, 0.1);
 }
 
-
-
 .draggable {
     max-width:350px;
     //max-height: 200px;
@@ -167,27 +155,27 @@ a:active {color: #009966; background: black;}  /* selected link */
 
 .container {
    border: 5px solid #009966;
-       min-width: 100%;
-           min-height: 100vh;
+   min-width: 100%;   
+   min-height: 100vh;
 }
 
 #divA
 {
-  border:1px solid blue; 
+   border:1px solid blue; 
 }
 
 #divB
 {
-  float:right;
-  border:1px solid red;
+   float:right;
+   border:1px solid red;
 }
 hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0; 
-    border-color: inherit ;
+   display: block;
+   height: 1px;
+   border: 0;    
+   border-top: 1px solid #ccc;
+   margin: 1em 0;
+   padding: 0; 
+   border-color: inherit ;
 }
 

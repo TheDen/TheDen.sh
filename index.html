@@ -53,7 +53,6 @@
 	</script>
       </div>
     </div>
-
     <div class="draggable">
       <div id="card1">
 	<h1><strong>Posts</strong></h1>
@@ -69,78 +68,23 @@
 	<p><a href="http://detexify.kirelabs.org/classify.html" target="_blank">LaTeX symbol recognition</a></p>
       </div>
     </div>
-
     <div class="draggable">
       <div id="card1">
 	<h4><strong>[root@TheDen ~]# uptime</strong></h4>
     	<span id="clock" class="clock">
-	  <script>
-	    var then = "08/04/2016 17:00:00";
-	    var ms = moment(moment(),"DD/MM/YYYY HH:mm:ss").diff(moment(then,"DD/MM/YYYY HH:mm:ss"));
-	    var d = moment.duration(ms);
-	    s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
-	    h = moment.duration(s).hours();
-	    m = moment.duration(s).minutes();
-	    sec = moment.duration(s).seconds();
-	    days = moment.duration(s).days();
-	    x = Math.random().toFixed(2);
-	    y = Math.random().toFixed(2);
-	    z = Math.random().toFixed(2);
-	    document.write(days +" days" + " " + h + ":" + m + ":" + sec + ", 1 user, " + "load average: " + x + ", " + y + ", " +z);
-	    
-	    function update() {
-	    var then = "08/04/2016 17:00:00";
-	    var ms = moment(moment(),"DD/MM/YYYY HH:mm:ss").diff(moment(then,"DD/MM/YYYY HH:mm:ss"));
-	    var d = moment.duration(ms);
-	    s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
-	    h = moment.duration(s).hours();
-	    m = moment.duration(s).minutes();
-	    sec = moment.duration(s).seconds();
-	    days = moment.duration(s).days();
-	    $('#clock').html(days +" days" + " " + h + ":" + m + ":" + sec + ", 1 user, " + "load average: " + x + ", " + y + ", " +z);
-	    }
-	    setInterval(update,1000);
+	  <script type="text/javascript"  src="scripts/uptime.js">
 	  </script>
       </div>
     </div>
     </span>
-      
     <div class="draggable">
       <div id="card1">
 	<h1><strong>IRC</strong></h1>
 	<p>u: denisk or variants</p>
 	<p>s: freenode</p>
 	<p>channels: ????</p>
-
-
       </div>
-      <script>
-
-	
-	var elem = document.querySelector('.draggable');
-	var draggie = new Draggabilly( elem, {
-	// options...
-	});
-	
-	// or pass in selector string as first argument
-	var draggie = new Draggabilly( '.draggable', {
-	// options...
-	});
-	
-	// if you have multiple .draggable elements
-	// get all draggie elements
-	var draggableElems = document.querySelectorAll('.draggable');
-	// array of Draggabillies
-	var draggies = []
-	// init Draggabillies
-	for ( var i=0, len = draggableElems.length; i < len; i++ ) {
-							var draggableElem = draggableElems[i];
-							var draggie = new Draggabilly( draggableElem, {
-							// options...
-							});
-							draggies.push( draggie );
-							}
-							//							
-							</script>
+      <script type="text/javascript"  src="scripts/drag.js">
+      </script>
   </body>
 </html>

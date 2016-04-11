@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css" />
     <script src="scripts/moment.min.js"></script>
     <script   src="scripts/draggabilly.pkgd.js"></script>
-	  <script src="https://npmcdn.com/draggabilly@2.1/dist/draggabilly.pkgd.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -19,20 +18,7 @@
       ga('create', 'UA-76175181-1', 'auto');
       ga('send', 'pageview');
     </script>
-    <script type="text/javascript">
-      function blink() {
-      var blinks = document.getElementsByTagName('blink');
-      for (var i = blinks.length - 1; i >= 0; i--) {
-      var s = blinks[i];
-      s.style.visibility = (s.style.visibility === 'visible') ? 'hidden' : 'visible';
-      }
-      window.setTimeout(blink, 1000);
-      }
-      if (document.addEventListener) document.addEventListener("DOMContentLoaded", blink, false);
-      else if (window.addEventListener) window.addEventListener("load", blink, false);
-      else if (window.attachEvent) window.attachEvent("onload", blink);
-      else window.onload = blink;
-    </script>
+    <script src="scripts/blink.js"></script>
   </head>
   <body>
     <div class="draggable">

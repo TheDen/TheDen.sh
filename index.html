@@ -19,12 +19,67 @@
       ga('create', 'UA-76175181-1', 'auto');
       ga('send', 'pageview');
     </script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+      
+      $("#flip").click(function(){
+      $("#panel").slideToggle("slow");
+      });
+      });
+    </script  type="text/javascript">
   </head>
   <body>
-    <div id="header">FILE EDIT OPTIONS BUFFERS TOOLS Sh-Script HELP</div>
- 
+    <div id="header">
+      <!-- FILE EDIT OPTIONS BUFFERS TOOLS Sh-Script HELP -->
+      <div class="dropdown">
+	<button class="dropbtn">FILE</button>
+	<div class="dropdown-content">
+	  <a href="#">Visit New File (C-X C-F)</a>
+	  <a href="#">Open File...</a>
+	  <a href="#">Open Directory.... (C-x d)</a>
+      </div></div>
+      <div class="dropdown">
+	<button class="dropbtn">EDIT</button>
+	<div class="dropdown-content">
+	  <a href="#">Undo (C-x u)</a>
+	  <a href="#">Cut (C-w)</a>
+	  <a href="#">Copy</a>
+      </div></div>
+      <div class="dropdown"><button class="dropbtn">OPTIONS</button>
+	<div class="dropdown-content">
+	  <a href="#">Highlight Active Regions</a>
+	  <a href="#">Highlight Matching Parentheses</a>
+	  <a href="#">Line Wrapping in This Buffer</a>
+	</div>
+      </div>
+      <div class="dropdown">
+	<button class="dropbtn">BUFFERS</button>
+	<div class="dropdown-content">
+	  <a href="#">TheDen.sh *</a>
+	</div>
+      </div>
+      <div class="dropdown">
+	<button class="dropbtn">Sh-Script</button>
+	<div class="dropdown-content">
+	  <a href="#">Backslash region (C-c C-\)</a>
+	  <a href="#">Set shell type (C-c :)</a>
+	  <a href="#">Execute script (C-c C-x)</a>
+	</div>
+      </div>
+      <div class="dropdown">
+	<button class="dropbtn">HELP</button>
+	<div class="dropdown-content">
+	  <a href="#">About
+	</div>
+      </div>
+      </div>
+    
+
+    
+
     <div class="draggable">
-      <div id="card1">
+      <div id="card1"  class="move">
+	
 	<h1><strong><blink>_</blink>TheDen</strong></h1>
 	<a style="font-size: 0;" href="https://au.linkedin.com/in/deniskhoshaba"target="_blank"><img  src="images/linkedin.png" alt="LinkedIn" /></a><a style="font-size: 0;" href="https://github.com/theden" target="_blank"><img src="images/github.png" alt="GitHub"/></a><a style="font-size: 0;" href="http://www.last.fm/user/Denkho" target="_blank"><img src="images/lastfm.png" alt="lastfm"/></a><a style="font-size: 0;" href="https://www.quora.com/profile/Denis-Khosh" target="_blank"><img src="images/quora.png" alt="lastfm"/></a>
 	<h2>About</h2>
@@ -39,16 +94,18 @@
 	<div  id="quote"></div>  
 	<script type="text/javascript"  src="scripts/quotes.js">
 	</script>
+
+	
       </div>
     </div>
     <div class="draggable">
-      <div id="card1">
+      <div id="card1" class="move" >
 	<h1><strong>Posts</strong></h1>
 	<p>none so far</p>
       </div>
     </div>
     <div class="draggable">
-      <div id="card1">
+      <div id="card1" class="move">
 	<h1><strong>Links of interest</strong></h1>
 	<p><a href="https://www.eff.org/" target="_blank">EFF</a></p>
 	<p><a href="http://www.fsf.org/news" target="_blank">FSF news</a></p>
@@ -60,7 +117,7 @@
       </div>
     </div>
     <div class="draggable">
-      <div id="card1">
+      <div id="card1" class="move">
 	<h4><strong>[root@TheDen ~]# uptime</strong></h4>
     	<span id="clock" class="clock">
 	  <script type="text/javascript"  src="scripts/uptime.js">
@@ -69,7 +126,7 @@
     </div>
     </span>
     <div class="draggable">
-      <div id="card1">
+      <div id="card1" class="move">
 	<h1><strong>IRC</strong></h1>
 	<p>u: denisk or variants</p>
 	<p>s: freenode</p>
@@ -77,7 +134,14 @@
       </div>
       <script type="text/javascript"  src="scripts/drag.js">
       </script>
-</div>
-      <div id="footer">-uuu:**-F1  TheDen.sh      All L42    (Shell-script[sh])-----------------------------------------------------------------------------------------------------------------------------------------------------------</div>
-  </body>
+      <div id="footer">-uuu:**-F1  TheDen.sh      All L42    (Shell-script[sh])-----------------------------------------------------------------------------------------------------------------------------------------------------------
+    </div>
+    <div id="flip">
+      <div </div>
+    </div>
+    <div id="panel">
+      
+      </div>
+
+ </body>
 </html>

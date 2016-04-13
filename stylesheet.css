@@ -10,11 +10,14 @@ html  {
     -o-background-size: cover;
     background-size: cover;
     font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+    
+
     min-height: 100%;
 }
 body {
     // overflow:hidden;
 }
+
 
 #header {
     position: fixed;
@@ -77,6 +80,19 @@ body {
     outline: 0;
 }
 
+
+.move            { cursor: move; }
+
+
+body {
+    padding: 30px
+}
+
+body {
+    padding: 30px
+}
+
+
 #card1 {
     padding-left: 10px;
     padding-right: 10px; 
@@ -101,8 +117,7 @@ body {
     margin-left:40px;
     margin-top:40px;
     background-color: black;
-
-}
+   }
 
 #card2 {
     padding-left: 10px;
@@ -220,3 +235,75 @@ hr {
    border-color: inherit ;
 }
 
+
+.dropbtn {
+
+    font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+    background-color: #009966;
+    //  color: white;
+    overflow: hidden;
+    font-size: 2vh;
+    padding: 2px;
+    //font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+    display: none;
+    position: absolute;
+    background-color: #009966;
+    //min-width: 100%;
+}
+
+.dropdown-content a {
+    color: black;
+    
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: black;
+    color: #009966;
+    font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+}
+
+.dropdown:hover .dropdown-content {
+    
+    font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+    display: block;
+    position: fixed;
+    //top: 0;
+    //right: 0;
+    //left: 0;
+    //width: 100%;
+    // white-space: nowrap;
+    overflow: hidden;
+    color: black;
+   //height: 35px;
+   //  text-align: center;
+   // padding-top: 15px;
+   /* Adds shadow to the bottom of the bar */
+   /*-webkit-box-shadow: 0px 0px 8px 0px #000000;
+    -moz-box-shadow: 0px 0px 8px 0px #000000;
+    box-shadow: 0px 0px 8px 0px #000000;*/
+   /* Adds the transparent background */
+   background-color: #009966;
+   z-index: 1000;
+   // color: rgba(1, 1, 1, 0.8);
+   font-size: 2vh;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: black;
+    color: #009966;
+    font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+    
+}

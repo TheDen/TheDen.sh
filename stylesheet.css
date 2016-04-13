@@ -36,6 +36,7 @@ body {
     background-color: #009966;
     z-index: 1000;
     // color: rgba(1, 1, 1, 0.8);
+    font-size: 4vh;
 }
 
 
@@ -60,6 +61,7 @@ body {
     background-color: #009966;
     z-index: 1000;
     // color: rgba(1, 1, 1, 0.8);
+     font-size: 4vh;
 }
 
 .noselect {
@@ -86,7 +88,7 @@ body {
     margin: 40px auto; 
     //position: relative;
     max-width:350px;
-    font-size: 10pt;
+    font-size: 2vh;
     font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
     //    color: green;
     color: #009966;

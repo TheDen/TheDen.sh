@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin,latin-ext);
 html  {
     -webkit-font-smoothing: antialiased; 
-    background-image: url('images/bg2.png');
-    //background: black;
+    //background-image: url('images/bg2.png');
+    background: black;
     background-attachment: fixed;
     no-repeat center; center; fixed;
     -webkit-background-size: cover;
@@ -13,7 +13,53 @@ html  {
     min-height: 100%;
 }
 body {
-    overflow:hidden;
+    // overflow:hidden;
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    color: black;
+    //height: 35px;
+    //  text-align: center;
+    // padding-top: 15px;
+    /* Adds shadow to the bottom of the bar */
+    /*-webkit-box-shadow: 0px 0px 8px 0px #000000;
+    -moz-box-shadow: 0px 0px 8px 0px #000000;
+    box-shadow: 0px 0px 8px 0px #000000;*/
+    /* Adds the transparent background */
+    background-color: #009966;
+    z-index: 1000;
+    // color: rgba(1, 1, 1, 0.8);
+}
+
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    // min-height: 100%;
+    right: 0;
+    left: 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    color: black;
+    //height: 35px;
+  //  text-align: center;
+    // padding-top: 15px;
+    /* Adds shadow to the bottom of the bar */
+    /*-webkit-box-shadow: 0px 0px 8px 0px #000000;
+    -moz-box-shadow: 0px 0px 8px 0px #000000;
+    box-shadow: 0px 0px 8px 0px #000000;*/
+    /* Adds the transparent background */
+    background-color: #009966;
+    z-index: 1000;
+    // color: rgba(1, 1, 1, 0.8);
 }
 
 .noselect {
@@ -30,7 +76,6 @@ body {
 }
 
 #card1 {
-
     padding-left: 10px;
     padding-right: 10px; 
     padding-top: 10px;
@@ -52,8 +97,11 @@ body {
     padding-top: 65px;
     padding-bottom: 110px; */
     margin-left:40px;
-    margin-top:65px;
+    margin-top:40px;
+    background-color: black;
+
 }
+
 #card2 {
     padding-left: 10px;
     padding-right: 10px; 
@@ -70,7 +118,7 @@ body {
     //    color: green;
     color: #009966;
     //color: #FF0000;
-/*    line-height: 14pt;
+    /*    line-height: 14pt;
     padding-left: 40px;
     padding-right: 40px; 
     padding-top: 65px;
@@ -146,12 +194,13 @@ a:active {color: #009966; background: black;}  /* selected link */
 }
 .draggable.is-pointer-down {
     //background: #09F;
-    z-index: 2; /* above other draggies */
+    z-index: 1; /* above other draggies */
 }
 
 .draggable.is-dragging {
     //opacity: 0.7;
 }
+
 
 .container {
    border: 5px solid #009966;
@@ -159,16 +208,6 @@ a:active {color: #009966; background: black;}  /* selected link */
    min-height: 100vh;
 }
 
-#divA
-{
-   border:1px solid blue; 
-}
-
-#divB
-{
-   float:right;
-   border:1px solid red;
-}
 hr {
    display: block;
    height: 1px;

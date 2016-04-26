@@ -123,8 +123,10 @@ body {
     margin-top:40px;
     background-color: black;
     //background-image: url('http://www.wittworksproductions.com/gallery/web/scan_lines/evenBG.gif');
-//    background-image: url('images/scanbg.gif');
-    
+    //    background-image: url('images/scanbg.gif');
+    border-radius: 7px;
+    box-shadow: 0 0 10px #009966;
+
 
    }
 

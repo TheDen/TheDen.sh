@@ -108,7 +108,7 @@ body {
     border: 2px solid #009966;
     vertical-align: middle;
     float: left;
-    margin: 40px auto; 
+    //margin: 40px auto; 
     //position: relative;
     max-width:350px;
     font-size: 2vh;
@@ -121,8 +121,8 @@ body {
     padding-right: 40px; 
     padding-top: 65px;
     padding-bottom: 110px; */
-    margin-left:40px;
-    margin-top:40px;
+    margin-left:20px;
+    margin-top:20px;
     background-color: black;
     //background-image: url('http://www.wittworksproductions.com/gallery/web/scan_lines/evenBG.gif');
     //    background-image: url('images/scanbg.gif');

@@ -163,6 +163,8 @@ h1 {
       //        color:  rgb(0,255,0);
     //color: rgb(50,205,50);
     //color: #006600;
+    
+    
 }
 p {
     color:black;
@@ -170,6 +172,10 @@ p {
     //        color:  rgb(0,255,0);
     //color: rgb(50,205,50);
     //color: #006600;
+    box-shadow: 0 0 2px #009966;
+}
+
+
 }
 img {
     //   max-width: 100%;

@@ -44,6 +44,7 @@ overflow-x: hidden;
     z-index: 1000;
     // color: rgba(1, 1, 1, 0.8);
     font-size: 2vh;
+    box-shadow: 0 0 5px #009966;
 }
 
 
@@ -68,7 +69,8 @@ overflow-x: hidden;
     background-color: #009966;
     z-index: 1000;
     // color: rgba(1, 1, 1, 0.8);
-     font-size: 2vh;
+    font-size: 2vh;
+    box-shadow: 0 0 5px #009966;
 }
 
 .noselect {
@@ -183,6 +185,7 @@ img {
     outline: 0;
     margin:0;
     padding:0;
+
 }
 a {
     //   max-width: 100%;
@@ -263,12 +266,13 @@ hr {
     text-shadow: 0px 0px 1px;
     //    text-transform:uppercase;
     outline: 0;
+    
 }
 
 .dropdown {
     position: relative;
     display: inline-block;
-    
+
 }
 
 .dropdown-content {
@@ -277,6 +281,10 @@ hr {
     position: absolute;
     background-color: #009966;
     //min-width: 100%;
+    box-shadow: 0 0 5px #009966;
+    
+
+	    
 }
 
 .dropdown-content a {

@@ -381,4 +381,10 @@ body {
 }
 
 
+element:hover, element:active {
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+-webkit-user-select: none;
+-webkit-touch-callout: none /*only to disable context menu on long press*/
+}
+
 

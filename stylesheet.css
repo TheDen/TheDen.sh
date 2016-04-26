@@ -127,9 +127,7 @@ body {
     //background-image: url('http://www.wittworksproductions.com/gallery/web/scan_lines/evenBG.gif');
     //    background-image: url('images/scanbg.gif');
     border-radius: 7px;
-    box-shadow: 0 0 10px #009966;
-
-
+   
    }
 
 #card2 {
@@ -287,7 +285,7 @@ hr {
     position: absolute;
     background-color: #009966;
     //min-width: 100%;
-    box-shadow: 0 0 5px #009966;
+    box-shadow: 0 0 2px #009966;
 }
 
 .dropdown-content a {

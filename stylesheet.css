@@ -283,7 +283,7 @@ hr {
     display: block;
 }
 
-.dropdown-content a:hover {
+.dropdown-content  a:active {
     background-color: black;
     color: #009966;
     font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;

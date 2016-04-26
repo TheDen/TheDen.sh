@@ -10,10 +10,11 @@ html  {
     -o-background-size: cover;
     background-size: cover;
     font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
-    
-
     min-height: 100%;
+    text-shadow: 0px 0px 15px;
+
 }
+
 body {
     // overflow:hidden;
     overflow-y: scroll;
@@ -120,6 +121,10 @@ body {
     margin-left:40px;
     margin-top:40px;
     background-color: black;
+    //background-image: url('http://www.wittworksproductions.com/gallery/web/scan_lines/evenBG.gif');
+    background-image: url('images/scanbg.gif');
+    
+
    }
 
 #card2 {
@@ -240,7 +245,6 @@ hr {
 
 
 .dropbtn {
-
     font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
     background-color: #009966;
     //  color: white;
@@ -250,6 +254,12 @@ hr {
     //font-size: 16px;
     border: none;
     cursor: pointer;
+
+    //    opacity: .8;
+    z-index: 50;
+    //    color: #0F0;
+
+//    text-transform:uppercase;
 }
 
 .dropdown {
@@ -310,3 +320,58 @@ hr {
     font-family: Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
     
 }
+
+#line {
+    position: relative;
+    top: 0px;
+    left:0px;
+    width: 100%;
+    height: 2px;
+    background: #0F0;
+    opacity: 0.2;
+    z-index: 100;
+}
+
+#dot {
+    position: relative;
+    left: 10px;
+    width: 20px;
+    height: 2px;
+    background: #000;
+    opacity: 1;
+}
+
+#cover {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 200px;
+}
+
+/*
+body {
+    background: #000;
+    background-image: url('http://www.wittworksproductions.com/gallery/web/scan_lines/evenBG.gif');
+    color: #FFF;
+    font-size: 14px;
+    font-family: "Courier",fixed,monospace;
+}
+*/
+
+#content {
+    //    margin:100px 20px 0px 20px;
+    position: relative;
+    opacity: .8;
+    z-index: 50;
+    //    color: #0F0;
+//    text-shadow: 0px 0px 20px;
+//    text-transform:uppercase;
+}
+
+[contenteditable="true"] {
+   outline: none;
+}
+
+
+

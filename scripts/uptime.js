@@ -1,5 +1,5 @@
 
-      var then = "08/04/2016 17:00:00";
+var then = "08/04/2016 17:00:00";
 var ms = moment(moment(),"DD/MM/YYYY HH:mm:ss").diff(moment(then,"DD/MM/YYYY HH:mm:ss"));
 var d = moment.duration(ms);
 s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");

@@ -1,0 +1,147 @@
+body{
+	text-align: center;
+  background: black;
+//    background-image: url('images/congruent_outline.png');
+  font-family: helvetica;
+  font-weight: 100;
+}
+
+h1{
+  color: #f05926;
+  font-weight: 100;
+  font-size: 40px;
+  margin: 40px 0px 20px;
+}
+
+#clockdiv{	
+	position: relative;
+	float: left;
+	padding: 5%;
+	font-family: helvetica;
+	color: black;
+	display: inline-block;
+	font-weight: 100;
+	text-align: center;
+	font-size: 9vh;
+//	padding-bottom: 80%;
+}
+
+#clockdiv > div{
+	  padding: 10px;
+	  border-radius: 3px;
+	  color: white;
+	  background: black;
+	   opacity: 0.9;
+	  display: inline-block;
+}
+
+#clockdiv div > span{
+	  padding: 15px;
+	  border-radius: 3px;
+	  color: white;
+	  background: black;
+	  display: inline-block;
+}
+
+#clockdiv2{
+	position: relative;
+	padding: 5%;
+//	padding-top: 50%;
+	float: right;
+        font-family: helvetica;
+        color: black;
+        display: inline-block;
+        font-weight: 100;
+        text-align: center;
+        font-size: 9vh;
+}
+
+#clockdiv2 > div{
+	   color: white;	
+
+          padding: 10px;
+          border-radius: 3px;
+          background: black;
+	   opacity: 0.9;
+          display: inline-block;
+}
+
+#clockdiv2 div > span{
+          padding: 15px;
+          border-radius: 3px;
+          background: black;
+	  color: white;
+          display: inline-block;
+}
+
+
+.smalltext{
+	padding-top: 5px;
+	font-size: 16px;
+}
+
+
+#beerimage {
+
+	   	   font-size: 20; 
+	   float: left; 
+	   position: relative; 
+	  top: 0px; 
+	 left: 0px;
+	   padding-left: 5%;
+
+}
+
+#pongimage {
+	font-size: 20; 
+	float: right; 
+	position: relative; 
+	top: 0px; 
+	left: 0px;
+	padding-right: 5%;
+}
+
+.container {
+  display: table;
+  width: 100%;
+}
+
+
+.lefthalf {
+   background: url(images/4pines.jpg) no-repeat center center fixed;
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   width: 50%;
+   position: absolute;
+   left: 0px;
+   height: 100%;
+}
+.righthalf {
+   background: url(images/pingpong.jpg)  no-repeat center center fixed;
+ -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   width: 50%;
+   position: absolute;
+   right: 0px;
+   height: 100%;
+}
+
+
+article {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 20px;
+}
+
+
+div {
+  height: 100%;
+}
+

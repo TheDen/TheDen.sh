@@ -6,7 +6,7 @@ s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
 h = moment.duration(s).hours();
 m = moment.duration(s).minutes();
 sec = moment.duration(s).seconds();
-days = moment.duration(s).days();
+days = moment().diff(moment("08-04-2016", "DD-MM-YYYY"), 'days');
 x = Math.random().toFixed(2);
 y = Math.random().toFixed(2);
 z = Math.random().toFixed(2);
@@ -20,7 +20,7 @@ function update() {
     h = moment.duration(s).hours();
     m = moment.duration(s).minutes();
     sec = moment.duration(s).seconds();
-    days = moment.duration(s).days();
+    days = moment().diff(moment("08-04-2016", "DD-MM-YYYY"), 'days');
     $('#clock').html(days +" days" + " " + h + ":" + m + ":" + sec + ", 1 user, " + "load average: " + x + ", " + y + ", " +z);
 }
 setInterval(update,1000);

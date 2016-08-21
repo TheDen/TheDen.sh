@@ -102,8 +102,10 @@
       <div class="draggable">
 	<div id="card1"  class="move">
 	  <a style="font-size: 0;"></a>
-	  <!--	  <h3><blink>_</blink> -->
-	  <h3>TheDen.sh</h3> 
+
+	  <!--  <div class="element"></div> -->
+	  
+	  <h3><blink>_</blink>TheDen</h3> 
 	  <p><a href="https://github.com/theden" target="_blank">GitHub</a></p>
 	  <p><a href="https://au.linkedin.com/in/deniskhoshaba" target="_blank">LinkedIn</a></p>
 	  <p><a href="spotify:user:denkho">Spotify</a></p>

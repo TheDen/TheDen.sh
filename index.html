@@ -23,6 +23,34 @@
     <script>
       document.addEventListener("touchstart", function(){}, true);
     </script>
+    <script src="scripts/typed.js"></script>
+    <script>
+      $(function(){
+      $(".element").typed({
+      strings: [
+
+"<span style='color:#009966;'><pre>      ___     <br>     /\  \    <br>    /::\  \   <br>   /:/\:\  \  <br>  /:/  \:\  \ <br> /:/__/ \:\__\<br> \:\  \ /:/  /<br>  \:\  /:/  / <br>   \:\/:/  /  <br>    \::/  /   <br>     \/__/    <br></pre>", 
+
+"<span style='color:#009966;'><pre>        ______          <br>       |::|   |         <br>       |::|   |         <br>       |::|   |         <br>       |::|   |         <br>       |::|   |         <br> ______|::|___|___ ____ <br>|:::::::::::::::::|    |<br>|:::::::::::::::::|____|<br> ~~~~~~|::|~~~|~~~      <br>       |::|   |         <br>       |::|   |         <br>       |::|   |         <br>       |::|   |         <br>       |::|___|         <br>        ~~              <br></pre>",
+
+"<span style='color:#009966;'><pre> ██████╗██╗   ██╗██████╗ ██╗               <br>██╔════╝██║   ██║██╔══██╗██║               <br>██║     ██║   ██║██████╔╝██║               <br>██║     ██║   ██║██╔══██╗██║               <br>╚██████╗╚██████╔╝██║  ██║███████╗          <br> ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝          <br>                                           <br>       ██╗██╗      █████╗ ██████╗ ██╗   ██╗<br>      ██╔╝██║     ██╔══██╗██╔══██╗╚██╗ ██╔╝<br>     ██╔╝ ██║     ███████║██║  ██║ ╚████╔╝ <br>    ██╔╝  ██║     ██╔══██║██║  ██║  ╚██╔╝  <br>██╗██╔╝   ███████╗██║  ██║██████╔╝   ██║   <br>╚═╝╚═╝    ╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝   <br>                                           <br></pre>",
+
+"<span style='color:#009966;'><pre>       (    (      <br>   (   )\ ) )\ )   <br> ( )\ (()/((()/(   <br> )((_) /(_))/(_))  <br>((_)_ (_)) (_))_   <br> | _ )/ __| |   \  <br> | _ \\__ \ | |) | <br> |___/|___/ |___/ <br></pre>",
+
+"<span style='color:#009966;'><pre>________________________________________   <br>___/~~\____/~~~~~\___/~~~~~~\__/~~~~~\__   <br>__/~~\____/~~\_/~~\_/~~\_/~~\_/~~\_/~~\_   <br>_/~~~~~\___/~~~~~\_____/~~~\___/~~~~~\__   <br>/~~\_/~~\_/~~\_/~~\_/~~\_/~~\_/~~\_/~~\_   <br>_/~~~~~\___/~~~~~\___/~~~~~~\__/~~~~~\__   <br>________________________________________   <br>___________________________________________<br>_/~~~~~\____/~~\_____/~~~~~\_____/~~~~~\___<br>/~~\_/~~\__/~~~\____/~~\_/~~\___/~~\_/~~\__<br>_/~~~~~\____/~~\___/~~\___/~~\_/~~\___/~~\_<br>___/~~\_____/~~\____/~~\_/~~\___/~~\_/~~\__<br>__/~~\____/~~~~~~\___/~~~~~\_____/~~~~~\___<br>___________________________________________<br><br></pre>",
+
+],
+
+
+	  contentType: 'html',
+      typeSpeed: 0,
+	  loop: true,
+	      	 shuffle: true,
+      showCursor: false,
+      });
+      });
+    </script>
+    
   </head>
   <body>
     <div id="content" contenteditable="false">
@@ -38,7 +66,7 @@
 	</div></div>
 	<div class="dropdown">
 	  <button class="dropbtn">EDIT</button>
-	  <div class="dropdown-content">
+3	  <div class="dropdown-content">
 	    <a href="#">Undo (C-x u)</a>
 	    <a href="#">Cut (C-w)</a>
 	    <a href="#">Copy</a>
@@ -74,7 +102,10 @@
       <div class="draggable">
 	<div id="card1"  class="move">
 	  <a style="font-size: 0;"></a>
-	  <h1><strong><blink>_</blink>TheDen</strong></h1>
+
+	  <!--  <div class="element"></div> -->
+	  
+	  <h1><strong><blink>_</blink>TheDen</strong></h1> 
 	  <p><a href="https://github.com/theden" target="_blank">GitHub</a></p>
 	  <p><a href="https://au.linkedin.com/in/deniskhoshaba" target="_blank">LinkedIn</a></p>
 	  <p><a href="spotify:user:denkho">Spotify</a></p>
@@ -88,6 +119,21 @@
 	  <h2>Contact</h2>
 	  <p>denis khoshaba at gmail dot com</p>
 	  <hr>
+  <script>
+            $(function(){
+            $("#typed").typed({
+            stringsElement: $('#typed-strings'),
+            loop: false,
+            loopCount: 0,
+            typeSpeed: 0,
+            });
+            });
+          </script>
+          <div id="typed-strings">
+            <div id="quote"></div>
+          </div>
+          <script type="text/javascript"  src="scripts/quotes.js"></script>
+          <span id="typed"></span>
 	  <div  id="quote"></div>  
 	  <script type="text/javascript"  src="scripts/quotes.js">
 	  </script>
@@ -116,7 +162,7 @@
 	<div id="card1" class="move">
 	  <h4><strong>[root@TheDen ~]# uptime</strong></h4>
     	  <span id="clock" class="clock">
-	    <script type="text/javascript"  src="scripts/uptime.js">
+      	    <script type="text/javascript"  src="scripts/uptime.js">
 	    </script>
 	</div>
       </div>
@@ -127,6 +173,11 @@
 	  <p>u: denisk or variants</p>
 	  <p>s: freenode</p>
 	  <p>channels: ????</p>
+	</div>
+      </div>
+      <div class="draggable">
+	<div id="card1"  class="move">
+	  <div class="element"></div>
 	</div>
       </div>
       <script type="text/javascript"  src="scripts/drag.js">

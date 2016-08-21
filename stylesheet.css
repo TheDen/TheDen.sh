@@ -123,6 +123,7 @@ body {
     padding-bottom: 110px; */
     margin-left:10px;
     margin-top:20px;
+    margin-right:20px;	
     background-color: black;
     //background-image: url('http://www.wittworksproductions.com/gallery/web/scan_lines/evenBG.gif');
     //    background-image: url('images/scanbg.gif');
@@ -398,4 +399,24 @@ element:hover, element:active {
 -webkit-touch-callout: none /*only to disable context menu on long press*/
 }
 
-
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}

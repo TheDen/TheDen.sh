@@ -12,11 +12,11 @@ function jitter() {
 function start() {
 //var myElement = document.querySelector("body");
 max = 12000;
-min = 8000;
+min = 20000;
 sleep = Math.random() * (max - min) + min;
 setTimeout(jitter, sleep);
 setTimeout(nojitter, sleep+200);
-setTimeout(start, 3000);
+setTimeout(start, 5000);
 }
 
 var myElement = document.querySelector("#cardcontent");

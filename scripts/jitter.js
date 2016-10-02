@@ -19,5 +19,5 @@ setTimeout(nojitter, sleep+200);
 setTimeout(start, 3000);
 }
 
-var myElement = document.querySelector("body");
+var myElement = document.querySelector("#cardcontent");
 start();

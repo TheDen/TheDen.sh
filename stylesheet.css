@@ -91,11 +91,7 @@ overflow-x: hidden;
 
 
 body {
-    padding: 30px
-}
-
-body {
-    padding: 30px
+    padding: 10px
 }
 
 
@@ -123,7 +119,7 @@ body {
     padding-bottom: 110px; */
     margin-left:10px;
     margin-top:20px;
-    margin-right:20px;	
+   // margin-right:20px;
     background-color: black;
     //background-image: url('http://www.wittworksproductions.com/gallery/web/scan_lines/evenBG.gif');
     //    background-image: url('images/scanbg.gif');

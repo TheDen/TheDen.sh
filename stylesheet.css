@@ -205,8 +205,8 @@ a {
     padding:0;
 }
 
-a:link {color: black; background: rgba(255, 255, 255);}      /* unvisited link */
-a:visited { color:black; background: rgba(255, 255, 255);}  /* visited link */
+a:link {color: black; background: #009966;}      /* unvisited link */
+a:visited { color:black; background: #009966;}  /* visited link */
 a:hover {color: #009966; background: black;}  /* selected link */
 a:active {color: #009966; background: black;}  /* selected link */
 

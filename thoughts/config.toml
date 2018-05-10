@@ -1,7 +1,7 @@
 baseURL = "https://theden.sh/thoughts/"
 languageCode = "en-us"
 title = "./TheDen.sh"
-theme = "slim"
+theme = "hugo-theme-slim"
 
 [params]
   Subtitle = ""

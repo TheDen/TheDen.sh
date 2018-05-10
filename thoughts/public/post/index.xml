@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on ./TheDen.sh</title>
-    <link>theden.sh/thoughts/post/</link>
+    <link>https://theden.sh/thoughts/post/</link>
     <description>Recent content in Posts on ./TheDen.sh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 10 May 2018 13:06:12 +1000</lastBuildDate>
     
-	<atom:link href="theden.sh/thoughts/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://theden.sh/thoughts/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hello World</title>
-      <link>theden.sh/thoughts/post/hello-world/</link>
+      <link>https://theden.sh/thoughts/post/hello-world/</link>
       <pubDate>Thu, 10 May 2018 13:06:12 +1000</pubDate>
       
-      <guid>theden.sh/thoughts/post/hello-world/</guid>
+      <guid>https://theden.sh/thoughts/post/hello-world/</guid>
       <description> Hello World </description>
     </item>
     

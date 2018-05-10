@@ -3,12 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://theden.sh/thoughts/post/hello-world/</loc>
+    <lastmod>2018-05-10T13:06:12+10:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://theden.sh/thoughts/</loc>
+    <lastmod>2018-05-10T13:06:12+10:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://theden.sh/thoughts/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://theden.sh/thoughts/post/</loc>
+    <lastmod>2018-05-10T13:06:12+10:00</lastmod>
     <priority>0</priority>
   </url>
   

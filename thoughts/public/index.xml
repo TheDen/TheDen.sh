@@ -6,9 +6,19 @@
     <description>Recent content on ./TheDen.sh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Thu, 10 May 2018 13:06:12 +1000</lastBuildDate>
     
 	<atom:link href="https://theden.sh/thoughts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://theden.sh/thoughts/post/hello-world/</link>
+      <pubDate>Thu, 10 May 2018 13:06:12 +1000</pubDate>
+      
+      <guid>https://theden.sh/thoughts/post/hello-world/</guid>
+      <description> Hello World </description>
+    </item>
     
   </channel>
 </rss>

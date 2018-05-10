@@ -1,4 +1,4 @@
-baseURL = "theden.sh/thoughts/"
+baseURL = "https://theden.sh/thoughts/"
 languageCode = "en-us"
 title = "./TheDen.sh"
 theme = "slim"

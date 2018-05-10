@@ -1,0 +1,3 @@
+[submodule "thoughts/themes/hugo-theme-slim"]
+	path = thoughts/themes/hugo-theme-slim
+	url = https://github.com/zhe/hugo-theme-slim

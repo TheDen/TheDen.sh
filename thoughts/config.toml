@@ -1,0 +1,15 @@
+baseURL = "theden.sh/thoughts/"
+languageCode = "en-us"
+title = "./TheDen.sh"
+theme = "slim"
+
+[params]
+  Subtitle = ""
+  GithubID = "TheDen"
+#  TwitterID = "Your Twitter ID"
+  AnalyticsID = "Your Google Analytics tracking code"
+#  DisqusShortname = "Your Disqus shortname"
+  Summary = false # takes true or false
+  Content = false  # takes true or false
+  # if both are set to true, summary is shown.
+  # FooterMsg = "Copyright Me 2016. Powered by Hugo."

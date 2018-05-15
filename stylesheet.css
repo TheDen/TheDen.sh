@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin,latin-ext);
 @import url('https://fonts.googleapis.com/css?family=Anonymous+Pro:400,400i,700,700i');
 html  {
-    -webkit-font-smoothing: antialiased; 
+    -webkit-font-smoothing: antialiased;
     //background-image: url('images/bg2.png');
     background: black;
     background-attachment: fixed;
@@ -74,21 +74,8 @@ overflow-x: hidden;
     box-shadow: 0 0 5px #009966;
 }
 
-.noselect {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none;   /* Chrome/Safari/Opera */
-    -khtml-user-select: none;    /* Konqueror */
-    -moz-user-select: none;      /* Firefox */
-    -ms-user-select: none;       /* IE/Edge */
-    user-select: none;           /* non-prefixed version, currently
-                                  not supported by any browser */
-    -webkit-user-select: none;  /* Chrome all / Safari all */
-    -o-user-select: none;
-    outline: 0;
-}
 
-
-.move            { cursor: move; }
+.move { cursor: move; }
 
 
 body {
@@ -99,13 +86,13 @@ body {
 #card1 {
     text-decoration: none;
     padding-left: 10px;
-    padding-right: 10px; 
+    padding-right: 10px;
   //  padding-top: 10px;
-    padding-bottom: 10px; 
+    padding-bottom: 10px;
     border: 1px solid #009966;
     vertical-align: middle;
     float: left;
-    //margin: 40px auto; 
+    //margin: 40px auto;
     //position: relative;
 //    max-width:350px;
     font-size: 2vh;
@@ -115,7 +102,7 @@ body {
     //color: #FF0000;
 /*    line-height: 14pt;
     padding-left: 40px;
-    padding-right: 40px; 
+    padding-right: 40px;
     padding-top: 65px;
     padding-bottom: 110px; */
     margin-left:10px;
@@ -125,18 +112,18 @@ body {
     //background-image: url('http://www.wittworksproductions.com/gallery/web/scan_lines/evenBG.gif');
     //    background-image: url('images/scanbg.gif');
     border-radius: 1px;
-   
+
    }
 
 #card2 {
     padding-left: 10px;
-    padding-right: 10px; 
+    padding-right: 10px;
     padding-top: 10px;
-    padding-bottom: 10px; 
+    padding-bottom: 10px;
     border: 2px solid #009966;
     vertical-align: middle;
     float: right;
-    margin: 40px auto; 
+    margin: 40px auto;
     //position: relative;
     max-width:350px;
     font-size: 10pt;
@@ -146,7 +133,7 @@ body {
     //color: #FF0000;
     /*    line-height: 14pt;
     padding-left: 40px;
-    padding-right: 40px; 
+    padding-right: 40px;
     padding-top: 65px;
     padding-bottom: 110px; */
     margin-right:40px;
@@ -159,8 +146,8 @@ h1 {
       //        color:  rgb(0,255,0);
     //color: rgb(50,205,50);
     //color: #006600;
-    
-    
+
+
 }
 p {
     color:black;
@@ -172,7 +159,7 @@ p {
 }
 
 
-}
+
 img {
     //   max-width: 100%;
     //    height: auto;
@@ -223,7 +210,7 @@ a:active {color: #009966; background: black;}  /* selected link */
     //max-height: 200px;
     border-radius: 10px;
     //margin: 0 10px 10px 0;
-    float: left; 
+    float: left;
 }
 .draggable.is-pointer-down {
     //background: #09F;
@@ -237,17 +224,17 @@ a:active {color: #009966; background: black;}  /* selected link */
 
 .container {
    border: 5px solid #009966;
-   min-width: 100%;   
+   min-width: 100%;
    min-height: 100vh;
 }
 
 hr {
    display: block;
    height: 1px;
-   border: 0;    
+   border: 0;
    border-top: 1px solid #ccc;
    margin: 1em 0;
-   padding: 0; 
+   padding: 0;
    border-color: inherit ;
 }
 
@@ -268,7 +255,7 @@ hr {
     text-shadow: 0px 0px 1px;
     //    text-transform:uppercase;
     outline: 0;
-    
+
 }
 
 .dropdown {
@@ -288,7 +275,7 @@ hr {
 
 .dropdown-content a {
     color: black;
-    
+
     text-decoration: none;
     display: block;
 }
@@ -300,7 +287,7 @@ hr {
 }
 
 .dropdown:hover .dropdown-content {
-    
+
     font-family: "Anonymous Pro", monospace, Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier;
     display: block;
     position: fixed;
@@ -329,7 +316,7 @@ hr {
     background-color: black;
     color: #009966;
     font-family: "Anonymous Pro", monospace, Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier;
-    
+
 }
 
 #line {

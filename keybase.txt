@@ -1,0 +1,72 @@
+==================================================================
+https://keybase.io/thden
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://theden.sh
+  * I am thden (https://keybase.io/thden) on keybase.
+  * I have a public key with fingerprint 178C AB57 F589 7517 B428  CAE6 422C 7746 4A8E 7F4A
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101ab85daf01970310590f4f9925cd19f717f1b027a3b2182a004157f44790d357b0a",
+      "fingerprint": "178cab57f5897517b428cae6422c77464a8e7f4a",
+      "host": "keybase.io",
+      "key_id": "422c77464a8e7f4a",
+      "kid": "0101ab85daf01970310590f4f9925cd19f717f1b027a3b2182a004157f44790d357b0a",
+      "uid": "b41665447e37aad9f80667a4b4f25f19",
+      "username": "thden"
+    },
+    "service": {
+      "hostname": "theden.sh",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1529392871,
+  "expire_in": 157680000,
+  "prev": "cabcb4dee16f7556a9c121cf683f321a7053297a51f9de9a0da0aa1543872a8e",
+  "seqno": 4,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+
+owGtUmtQVGUY3uWSusjN4hK4BMcxidlZz3fuZylG0VhlMKIAd7Jcz9nzHXYFzsJe
+uAQMMUAiWkbkRFYIETRGMYVNM+IwaZAmLA4jimnTcAlDDFIwasCAzmGyX/3s+/PN
+97zP83zP+877lr+3aq06UVeYlPxmebK6f4pX7YvtmClBeLtQjBhKkGy4esEcATpd
+5mybgBgQFKCA4xlS4EQUsDSKA5RkUZEQWRYjLQJgRRrQIuBRjOZwHgMMxqEoAUha
+JAiaRQWcpHmUQ3SIaJOyoCPPYZNcsi2gGQvHyyySYWkS0DyByQCkCAyz0DRBERwD
+ZQtFaLU7FYUcjuecUG+zy5j8MK/G+w/+/5zbvWrHE4CiSLkEcZrjBFZkUIqiOYIn
+RIwUAasQndAhcblQZrusApSQMh0iQwU2C1SmqrTxbxnKdb3TKqvyHHaX3WLPkWGr
+y5XnNCgyV3GewiuEvPkfBzNvkwR5grKiADqcNruEGIDMtLhsiiUgMRZnMYYGOgQW
+5dkc0GxTGCRNMah8lH9ggWwpD93CEwKEgBLpF0iS4lgLwIBFpBhcxDHA0SiJYyzN
+kUBkBchyqMChHAdIAmdoTB4yojSVL9kRAyHn5LJkT6ctS+JcbgdEyjSHvXAflXqt
+Shsa4xN2tH3v/GF32Fexfb883DpfL2XlVJp1QQ+RD5aDVOeNxsBD2sb+ypazxGSc
+dLFsqqxiJmXYdKGxekv4rqouV/5c1V+LqZ+qSi9qdKqp7q3+Z45P5g5hle9c95s9
+XhRJDf265ako33tDuzrN0eGvtOwZjAuJ/qOjQbrQ6vuGRv1Y062Vq5gUMDkd0Bpf
+TJ28uR+vqFwgVtbXnOOu7IcLXWo9SIx5evOD7Wv2lHinnDfkv103UXHguVCvMO3X
+38XEnI7IOVaU1NOjL4qi70b1vTd7cPLo7ZLSb14bXdaCH3PHErp1AZqGOiaos6a6
+zdO7eJmJbk5tO3InYc2Jk6MFL3+JGwsGK3abrPEmdd+mHfW7dSGzoac2Rnn8PQP6
+9MjYnXt7PYPvdwan5bcGxA35FLLL+ZaBnt640blHL409v2M8w6eqvDYy83qc8fWR
+wcbfLxfGJ8HPvz3kPFd/4orJ/5nYiu+XkptGiOkueKberT97KaTfb4Nm7NnUXu2T
+MHXmrimiO03nvj8i+DdNv3RtwK9l2DvpzixZtCHiZj09n16Z/fF42tZ7f54uqUnI
+VOdq7pvejTnINM1ImT+BkCeMHe3bFhvc27ehV4/Vb656/OekkMWwj4KrmzfdGkp9
+4DnS9sNA6VxGWMPSuhuGRmE++loKPWxM722pa/kt+JPyrtv29R9+4Rl5pFYX+Jl1
+ZWHixtjSq+MTO1/cV2vYGD7mndEe2Jx4Snvgbw==
+=AmPy
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/thden
+
+==================================================================

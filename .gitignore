@@ -6,7 +6,10 @@
 # session
 Session.vim
 # temporary
-.netrwhist
+*.bak
+*.pyc
 *~
+.DS_STORE
+.netrwhist
 # auto-generated tag files
 tags

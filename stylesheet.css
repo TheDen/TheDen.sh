@@ -1,5 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin,latin-ext);
-@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro:400,400i,700,700i');
+@font-face {
+  font-family: "console";
+  src: url("Web_ToshibaSat_9x16.woff") format('woff');
+}
+
 html  {
     -webkit-font-smoothing: antialiased;
     //background-image: url('images/bg2.png');
@@ -10,7 +13,7 @@ html  {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    font-family: "Anonymous Pro", monospace, "Inconsolata", "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier;
+    font-family: "console", "monospace", "Consolas", "Courier";
     min-height: 100%;
     text-shadow: 0px 0px 1px;
 
@@ -96,7 +99,7 @@ body {
     //position: relative;
 //    max-width:350px;
     font-size: 2vh;
-    font-family: "Anonymous Pro", monospace, Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier;
+    font-family: "console", "monospace", "Consolas", "Courier";
       //    color: green;
     color: #009966;
     //color: #FF0000;
@@ -127,7 +130,7 @@ body {
     //position: relative;
     max-width:350px;
     font-size: 10pt;
-    font-family: monospace, Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier;
+    font-family: "console", "monospace", "Consolas", "Courier";
     //    color: green;
     color: #009966;
     //color: #FF0000;
@@ -240,7 +243,7 @@ hr {
 
 
 .dropbtn {
-    font-family: "Anonymous Pro", monospace, Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier;
+    font-family: "console", "monospace", "Consolas", "Courier";
     background-color: #009966;
     //  color: white;
     overflow: hidden;
@@ -265,7 +268,7 @@ hr {
 }
 
 .dropdown-content {
-    font-family: "Anonymous Pro", monospace, Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier;
+    font-family: "console", "monospace", "Consolas", "Courier";
     display: none;
     position: absolute;
     background-color: #009966;
@@ -283,12 +286,11 @@ hr {
 .dropdown-content  a:hover {
     background-color: black;
     color: #009966;
-    font-family: "Anonymous Pro", monospace, Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier;
+    font-family: "console", "monospace", "Consolas", "Courier";
 }
 
 .dropdown:hover .dropdown-content {
-
-    font-family: "Anonymous Pro", monospace, Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier;
+    font-family: "console", "monospace", "Consolas", "Courier";
     display: block;
     position: fixed;
     //top: 0;
@@ -315,8 +317,7 @@ hr {
 .dropdown:hover .dropbtn {
     background-color: black;
     color: #009966;
-    font-family: "Anonymous Pro", monospace, Inconsolata, "Inconsolata Fallback", "Bitstream Vera Sans Mono", Consolas, Courier;
-
+    font-family: "console", "monospace", "Consolas", "Courier";
 }
 
 #line {
@@ -351,16 +352,6 @@ hr {
     width: 100%;
     height: 200px;
 }
-
-/*
-body {
-    background: #000;
-    background-image: url('http://www.wittworksproductions.com/gallery/web/scan_lines/evenBG.gif');
-    color: #FFF;
-    font-size: 14px;
-    font-family: "Courier",fixed,monospace;
-}
-*/
 
 #content {
     //    margin:100px 20px 0px 20px;

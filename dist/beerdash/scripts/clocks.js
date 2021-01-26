@@ -1,1 +1,78 @@
-var deadline,d,returnDate,deadline2;function getTimeRemaining(b){var a=Date.parse(b)-Date.parse(new Date),c=Math.floor(a/1e3%60),d=Math.floor(a/1e3/60%60),e=Math.floor(a/(1e3*60*60)%24),f=Math.floor(a/(1e3*60*60*24));return{total:a,days:f,hours:e,minutes:d,seconds:c}}function initializeClock(g,h){var e=document.getElementById(g),a=e.querySelector('.days'),c=e.querySelector('.hours'),d=e.querySelector('.minutes'),b=e.querySelector('.seconds'),i;function f(){var e=getTimeRemaining(h);a.innerHTML<0?(a.innerHTML='&#10003',a.style.backgroundColor="green",c.innerHTML='&#10003',c.style.backgroundColor="green",d.innerHTML='&#10003',d.style.backgroundColor="green",b.innerHTML='&#10003',b.style.backgroundColor="green"):(a.innerHTML=e.days,c.innerHTML=('0'+e.hours).slice(-2),d.innerHTML=('0'+e.minutes).slice(-2),b.innerHTML=('0'+e.seconds).slice(-2)),e.total<=0&&(a.innerHTML='&#10003',a.style.backgroundColor="green",c.innerHTML='&#10003',c.style.backgroundColor="green",d.innerHTML='&#10003',d.style.backgroundColor="green",b.innerHTML='&#10003',b.style.backgroundColor="green",clearInterval(i))}f(),i=setInterval(f,1e3)}deadline=new Date(Date.parse(new Date)+15*24*60*60*1e3),d=new Date,returnDate=new Date,returnDate.setDate(d.getDate()+(5+(7-d.getDay()))%7),returnDate.setHours(16),returnDate.setMinutes(0),returnDate.setSeconds(0),deadline=returnDate,deadline2=new Date,deadline2.setDate(d.getDate()+(3+(7-d.getDay()))%7),deadline2.setHours(16),deadline2.setMinutes(0),deadline2.setSeconds(0),initializeClock('clockdiv',deadline),initializeClock('clockdiv2',deadline2)
+function getTimeRemaining(endtime) {
+  var t = Date.parse(endtime) - Date.parse(new Date());
+  var seconds = Math.floor((t / 1000) % 60);
+  var minutes = Math.floor((t / 1000 / 60) % 60);
+  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  return {
+    'total': t,
+      'days': days,
+      'hours': hours,
+      'minutes': minutes,
+      'seconds': seconds
+  };
+}
+
+function initializeClock(id, endtime) {
+  var clock = document.getElementById(id);
+  var daysSpan = clock.querySelector('.days');
+  var hoursSpan = clock.querySelector('.hours');
+  var minutesSpan = clock.querySelector('.minutes');
+  var secondsSpan = clock.querySelector('.seconds');
+
+  function updateClock() {
+    var t = getTimeRemaining(endtime);
+
+    if (daysSpan.innerHTML < 0) {
+      daysSpan.innerHTML = '&#10003';
+      daysSpan.style.backgroundColor = "green";
+      hoursSpan.innerHTML = '&#10003';
+      hoursSpan.style.backgroundColor = "green";
+      minutesSpan.innerHTML = '&#10003';
+      minutesSpan.style.backgroundColor = "green";
+      secondsSpan.innerHTML = '&#10003';
+      secondsSpan.style.backgroundColor = "green";
+    }
+
+    else {
+      daysSpan.innerHTML = t.days;
+      hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+      minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+      secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+    }
+
+    if (t.total <= 0) {
+      daysSpan.innerHTML = '&#10003';
+      daysSpan.style.backgroundColor = "green";
+      hoursSpan.innerHTML = '&#10003';
+      hoursSpan.style.backgroundColor = "green";
+      minutesSpan.innerHTML = '&#10003';
+      minutesSpan.style.backgroundColor = "green";
+      secondsSpan.innerHTML = '&#10003';
+      secondsSpan.style.backgroundColor = "green";
+      clearInterval(timeinterval);
+    }
+  }
+
+  updateClock();
+  var timeinterval = setInterval(updateClock, 1000);
+}
+
+var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
+var d = new Date();
+var returnDate = new Date();
+returnDate.setDate(d.getDate() + (5+(7-d.getDay())) % 7);
+returnDate.setHours(16);
+returnDate.setMinutes(0);
+returnDate.setSeconds(0);
+var deadline = returnDate ;
+var deadline2 = new Date();
+deadline2.setDate(d.getDate() + (3+(7-d.getDay())) % 7);
+deadline2.setHours(16);
+deadline2.setMinutes(0);
+deadline2.setSeconds(0);
+initializeClock('clockdiv', deadline);
+initializeClock('clockdiv2', deadline2);
+
+
+

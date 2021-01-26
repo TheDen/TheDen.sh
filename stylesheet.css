@@ -1,6 +1,7 @@
 @font-face {
   font-family: "console";
   src: url("Web_ToshibaSat_9x16.woff") format('woff');
+  font-display: swap;
 }
 
 html  {

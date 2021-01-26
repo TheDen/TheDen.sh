@@ -1,12 +1,1 @@
-function blink() {
-    var blinks = document.getElementsByTagName('blink');
-    for (var i = blinks.length - 1; i >= 0; i--) {
-	var s = blinks[i];
-	s.style.visibility = (s.style.visibility === 'visible') ? 'hidden' : 'visible';
-    }
-    window.setTimeout(blink, 1000);
-}
-if (document.addEventListener) document.addEventListener("DOMContentLoaded", blink, false);
-else if (window.addEventListener) window.addEventListener("load", blink, false);
-else if (window.attachEvent) window.attachEvent("onload", blink);
-else window.onload = blink;
+function blink(){for(var b=document.getElementsByTagName('blink'),a=b.length-1,c;a>=0;a--)c=b[a],c.style.visibility=c.style.visibility==='visible'?'hidden':'visible';window.setTimeout(blink,1e3)}document.addEventListener?document.addEventListener("DOMContentLoaded",blink,!1):window.addEventListener?window.addEventListener("load",blink,!1):window.attachEvent?window.attachEvent("onload",blink):window.onload=blink

@@ -1,16 +1,1 @@
-cheet('r e t r o', function () {
-  function screenon()  {
-    document.querySelector("html").setAttribute("style", "-webkit-filter: blur(1px)  saturate(10)");
-  }
-  function screenoff()  {
-    setTimeout(document.querySelector("html").setAttribute("style", "-webkit-filter: none"), 114200);
-  }
-  var ontime = 5000;
-  var flick = 40;
-  setTimeout(screenon, 0);
-  setTimeout(screenoff, flick);
-  setTimeout(screenon, flick*2);
-  setTimeout(screenoff, ontime);
-  setTimeout(screenon, ontime+flick);
-  setTimeout(screenoff, ontime+flick*2);
-});
+cheet('r e t r o',function(){var b,a;function c(){document.querySelector("html").setAttribute("style","-webkit-filter: blur(1px)  saturate(10)")}function d(){setTimeout(document.querySelector("html").setAttribute("style","-webkit-filter: none"),114200)}b=5e3,a=40,setTimeout(c,0),setTimeout(d,a),setTimeout(c,a*2),setTimeout(d,b),setTimeout(c,b+a),setTimeout(d,b+a*2)})

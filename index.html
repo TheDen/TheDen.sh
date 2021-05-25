@@ -30,10 +30,15 @@ text-shadow: 0px 0px 1px;
 
 }
 
+input {
+	caret-color: red;
+}
+
+
 body {
 	overflow-y: scroll;
 	overflow-x: hidden;
-
+	cursor: url(images/cursor.png), auto;
 }
 
 
@@ -69,7 +74,9 @@ body {
 }
 
 
-.move { cursor: move; }
+.move {
+	cursor: url(images/cursor.png), auto;
+}
 
 
 body {
@@ -138,6 +145,7 @@ img {
 
 }
 a {
+	cursor: url(images/cursor.png), auto;
 	-webkit-user-select: none;  /* Chrome all / Safari all */
 	-moz-user-select: none;     /* Firefox all */
 	-ms-user-select: none;      /* IE 10+ */
@@ -198,7 +206,7 @@ hr {
 	font-size: 2vh;
 	padding: 2px;
 	border: none;
-	cursor: pointer;
+	cursor: url(images/cursor.png), auto;
 	z-index: 50;
 	text-shadow: 0px 0px 1px;
 	outline: 0;

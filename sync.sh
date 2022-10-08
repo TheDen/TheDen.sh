@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rsync -av . dist/ --exclude dist/ --exclude .git/ --exclude .gitignore
+rsync -av . dist/ --exclude dist/ --exclude .git/ --delete --exclude .gitignore
 
 echo "Minifying everything we can"
 find ./dist/ -type f \( \

@@ -214,7 +214,7 @@ a {
 		.dropdown {
 			position: relative;
 			display: inline-block;
-			margin-right: 0.1em;
+			margin-right: 0.5em;
 		}
 
 		.dropdown-content {
@@ -531,6 +531,16 @@ a {
 					"hueRotate": true
 				}
 			})
+		</script>
+		<script>
+			defaultTitle = document.title
+			window.onblur = () => {
+				document.title=  "😔 Where'd you go?"
+			}
+			window.onfocus = () => {
+				//back to default title
+				document.title = defaultTitle
+			}
 		</script>
 	</body>
 </html>

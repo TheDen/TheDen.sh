@@ -533,12 +533,15 @@ a {
 			})
 		</script>
 		<script>
+			link = document.querySelector("link[rel~='icon']")
 			defaultTitle = document.title
 			window.onblur = () => {
-				document.title=  "😔 Where'd you go?"
+				link.href = 'favicon_off.ico'
+				document.title=  "[sleeping...]"
 			}
 			window.onfocus = () => {
 				//back to default title
+				link.href = 'favicon.ico'
 				document.title = defaultTitle
 			}
 		</script>

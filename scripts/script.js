@@ -1,3 +1,5 @@
+document.addEventListener("touchstart", function(){}, true);
+
 /* Uptime */
   var then = "08/04/2016 17:00:00";
   var ms = moment(moment(),"DD/MM/YYYY HH:mm:ss").diff(moment(then,"DD/MM/YYYY HH:mm:ss"));
@@ -51,6 +53,15 @@ $(function(){
       shuffle: true,
       showCursor: false
       });
+});
+
+$(function(){
+  $("#typed").typed({
+    stringsElement: $('#typed-strings'),
+    loop: false,
+    loopCount: 0,
+    typeSpeed: 0,
+  });
 });
 
 /* Blink cursor */
@@ -216,11 +227,91 @@ $(function(){
 
 /* Quotes */
 (function(){
-    var quotes = [
-		  {text:"<q>Part of the inhumanity of the computer is that, once it is competently programmed and working smoothly, it is completely honest.</q><br />- Eleanor Roosevelt"},{text:"<q>The Internet is the first thing that humanity has built that humanity doesn&#8217;t understand, the largest experiment in anarchy that we have ever had.</q><br />- Eric Schmidt"},{text:"<q>It seems probable that once the machine thinking method had started, it would not take long to outstrip our feeble powers... They would be able to converse with each other to sharpen their wits. At some stage therefore, we should have to expect the machines to take control.</q><br />- Alan Turing"},{text:"<q>UNIX is basically a simple operating system, but you have to be a genius to understand the simplicity.</q><br />- Dennis Ritchie"},{text:"<q>Any sufficiently advanced technology is indistinguishable from magic.</q><br />- Arthur C. Clarke"},{text:"<q>The only truly secure system is one that is powered off, cast in a block of concrete and sealed in a lead-lined room with armed guards.</q><br />- Gene Spafford"},{text:"<q>I think computer viruses should count as life. I think it says something about human nature that the only form of life we have created so far is purely destructive. We&#8217;ve created life in our own image.</q><br />- Stephen Hawking"},{text:"<q>Computers are useless. They can only give you answers.</q><br />- Pablo Picasso"},{text:"<q>If it works, it&#8217;s beautiful.</q><br />- Stephen Hawes"},{text:"<q>When it comes to their capacity to screw things up, computers are becoming more human every day.</q><br />- Seth Lloyd"}
-		  ];
+	var quotes = [
+		{text:"<q>Part of the inhumanity of the computer is that, once it is competently programmed and working smoothly, it is completely honest.</q><br />- Eleanor Roosevelt"},{text:"<q>The Internet is the first thing that humanity has built that humanity doesn&#8217;t understand, the largest experiment in anarchy that we have ever had.</q><br />- Eric Schmidt"},{text:"<q>It seems probable that once the machine thinking method had started, it would not take long to outstrip our feeble powers... They would be able to converse with each other to sharpen their wits. At some stage therefore, we should have to expect the machines to take control.</q><br />- Alan Turing"},{text:"<q>UNIX is basically a simple operating system, but you have to be a genius to understand the simplicity.</q><br />- Dennis Ritchie"},{text:"<q>Any sufficiently advanced technology is indistinguishable from magic.</q><br />- Arthur C. Clarke"},{text:"<q>The only truly secure system is one that is powered off, cast in a block of concrete and sealed in a lead-lined room with armed guards.</q><br />- Gene Spafford"},{text:"<q>I think computer viruses should count as life. I think it says something about human nature that the only form of life we have created so far is purely destructive. We&#8217;ve created life in our own image.</q><br />- Stephen Hawking"},{text:"<q>Computers are useless. They can only give you answers.</q><br />- Pablo Picasso"},{text:"<q>If it works, it&#8217;s beautiful.</q><br />- Stephen Hawes"},{text:"<q>When it comes to their capacity to screw things up, computers are becoming more human every day.</q><br />- Seth Lloyd"}
+	];
 
-    var quote = quotes[Math.floor(Math.random() * quotes.length)];
-    document.getElementById("quote").innerHTML = '<aside>'+quote.text+'</aside>';
+	var quote = quotes[Math.floor(Math.random() * quotes.length)];
+	document.getElementById("quote").innerHTML = '<aside>'+quote.text+'</aside>';
 })();
 
+
+/* Glitch */
+
+const {
+	startGlitch,
+	stopGlitch
+} = PowerGlitch.glitch(
+	'a, .dropbtn',
+	{
+		"playMode": "hover",
+		"createContainers": true,
+		"hideOverflow": false,
+		"timing": {
+			"duration": 2050,
+			"iterations": 1
+		},
+		"glitchTimeSpan": {
+			"start": 0,
+			"end": 1
+		},
+		"shake": {
+			"velocity": 15,
+			"amplitudeX": 0.2,
+			"amplitudeY": 0.2
+		},
+		"slice": {
+			"count": 6,
+			"velocity": 15,
+			"minHeight": 0.02,
+			"maxHeight": 0.15,
+			"hueRotate": true
+		}
+	}
+)
+PowerGlitch.glitch('.element', {
+	"playMode": "always",
+	"createContainers": true,
+	"hideOverflow": false,
+	"timing": {
+		"duration": 6000
+	},
+	"glitchTimeSpan": {
+		"start": 0.5,
+		"end": 0.7
+	},
+	"shake": {
+		"velocity": 15,
+		"amplitudeX": 0.2,
+		"amplitudeY": 0.2
+	},
+	"slice": {
+		"count": 38,
+		"velocity": 15,
+		"minHeight": 0.02,
+		"maxHeight": 0.15,
+		"hueRotate": true
+	}
+})
+
+
+/* Title and favicon change */
+	link = document.querySelector("link[rel~='icon']")
+defaultTitle = document.title
+window.onblur = () => {
+	link.href = 'favicon_off.ico'
+	document.title=  "[sleeping...]"
+}
+window.onfocus = () => {
+	//back to default title
+	link.href = 'favicon.ico'
+	document.title = defaultTitle
+}
+
+/* GA */
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-76175181-1', 'auto');
+ga('send', 'pageview');

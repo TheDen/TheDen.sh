@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Vendor libs
+(
+  echo "vendoring..."
+  cd scripts
+  cat jquery.min.js draggabilly.pkgd.min.js cheet.min.js moment.min.js typed.js powerglitch.min.js > vendor.js
+)
 rsync -av . dist/ --exclude dist/ --exclude .git/ --delete --exclude .gitignore
 
 echo "Minifying everything we can"

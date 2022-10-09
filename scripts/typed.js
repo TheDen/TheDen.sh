@@ -161,6 +161,7 @@
 				// format: \^\d+ .. eg: ^1000 .. should be able to print the ^ too using ^^
 				// single ^ are removed from string
 				var charPause = 0;
+				if (curString != null) {
 				var substr = curString.substr(curStrPos);
 				if (substr.charAt(0) === '^') {
 					var skip = 1; // skip atleast 1
@@ -196,8 +197,11 @@
 					}
 				}
 
+				}
 				// timeout for any pause after a character
 				self.timeout = setTimeout(function() {
+					if (curString != null) {
+
 					if (curStrPos === curString.length) {
 						// fires callback function
 						self.options.onStringTyped(self.arrayPos);
@@ -244,6 +248,7 @@
 						curStrPos++;
 						// loop the function
 						self.typewrite(curString, curStrPos);
+					}
 					}
 					// end of character pause
 				}, charPause);

@@ -49,7 +49,7 @@ $(function(){
       typeSpeed: 0,
       loop: true,
       shuffle: true,
-      showCursor: false,
+      showCursor: false
       });
 });
 

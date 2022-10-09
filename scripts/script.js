@@ -324,3 +324,16 @@ function tabInfo() {
   }
 }
 tabInfo();
+
+
+/* Visitor Info */
+$.getJSON('https://api.ipify.org?format=jsonp&callback=?', function(data) {
+    ipinfo = data
+    console.log(ipinfo.ip)
+    if (ipinfo.ip != null) {
+      $('.ipaddress').html(ipinfo.ip)
+      $(".ipinfo").css("display", "revert")
+    }
+});
+
+

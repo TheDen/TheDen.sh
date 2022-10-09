@@ -6,9 +6,10 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="Keywords" content="TheDen, theden.sh, TheDen.sh, denis, denis khoshaba" />
 		<meta name="Description" content="denis khoshaba @ TheDen" />
+		<meta name="viewport" content="width=device-width" />
 		<title>TheDen.sh</title>
 		<!-- <link rel="stylesheet" type="text/css" href="stylesheet.css" /> -->
-		<style>
+		<style type="text/css">
 @font-face {
 	font-family: "console";
 	src: url("Web_ToshibaSat_9x16.woff") format('woff');
@@ -150,180 +151,183 @@ a {
 	padding:0;
 }
 
-	a:link {color: black; background: #009966;}      /* unvisited link */
-	a:visited { color:black; background: #009966;}  /* visited link */
-	a:hover {color: #009966; background: black;}  /* selected link */
-	a:active {color: #009966; background: black;}  /* selected link */
+			a:link {color: black; background: #009966;}      /* unvisited link */
+			a:visited { color:black; background: #009966;}  /* visited link */
+			a:hover {color: #009966; background: black;}  /* selected link */
+			a:active {color: #009966; background: black;}  /* selected link */
 
-		::selection {
-			background: grey; /* Safari */
-		}
+				::selection {
+					background: grey; /* Safari */
+				}
 
-		::-moz-selection {
-			background: rgba(255, 255, 255, 0.1);
-		}
+				::-moz-selection {
+					background: rgba(255, 255, 255, 0.1);
+				}
 
-		.draggable {
-			max-width: 25em;
-			border-radius: 10px;
-			float: left;
-			display: inline-table;
-		}
+				.draggable {
+					max-width: 25em;
+					border-radius: 10px;
+					float: left;
+					display: inline-table;
+				}
 
-		.draggable.is-pointer-down {
-			z-index: 1; /* above other draggies */
-		}
+				.draggable.is-pointer-down {
+					z-index: 1; /* above other draggies */
+				}
 
-		@media only screen and (max-width: 600px) {
-			.draggable {
-				max-width: 100% !important;
-			}
-		}
+				.container {
+					border: 5px solid #009966;
+					min-width: 100%;
+					min-height: 100vh;
+				}
 
-		.container {
-			border: 5px solid #009966;
-			min-width: 100%;
-			min-height: 100vh;
-		}
-
-		hr {
-			display: block;
-			height: 1px;
-			border: 0;
-			border-top: 1px solid #ccc;
-			margin: 1em 0;
-			padding: 0;
-			border-color: inherit ;
-		}
+				hr {
+					display: block;
+					height: 1px;
+					border: 0;
+					border-top: 1px solid #ccc;
+					margin: 1em 0;
+					padding: 0;
+					border-color: inherit ;
+				}
 
 
-		.dropbtn {
-			font-family: "console", "monospace", "Consolas", "Courier";
-			background-color: #009966;
-			overflow: hidden;
-			font-size: 2vh;
-			padding: 2px;
-			border: none;
-			cursor: url(images/cursor.png), auto;
-			z-index: 50;
-			text-shadow: 0px 0px 1px;
-			outline: 0;
-			padding-bottom: 0px;
-			color: black;
-		}
+				.dropbtn {
+					font-family: "console", "monospace", "Consolas", "Courier";
+					background-color: #009966;
+					overflow: hidden;
+					font-size: 2vh;
+					padding: 2px;
+					border: none;
+					cursor: url(images/cursor.png), auto;
+					z-index: 50;
+					text-shadow: 0px 0px 1px;
+					outline: 0;
+					padding-bottom: 0px;
+					color: black;
+				}
 
-		.dropdown {
-			position: relative;
-			display: inline-block;
-			margin-right: 0.5em;
-		}
+				.dropdown {
+					position: relative;
+					display: inline-block;
+					margin-right: 0.5em;
+				}
 
-		.dropdown-content {
-			font-family: "console", "monospace", "Consolas", "Courier";
-			display: none;
-			position: absolute;
-			background-color: #009966;
-			box-shadow: 0 0 2px #009966;
-		}
+				.dropdown-content {
+					font-family: "console", "monospace", "Consolas", "Courier";
+					display: none;
+					position: absolute;
+					background-color: #009966;
+					box-shadow: 0 0 2px #009966;
+				}
 
-		.dropdown-content a {
-			color: black;
+				.dropdown-content a {
+					color: black;
 
-			text-decoration: none;
-			display: block;
-		}
+					text-decoration: none;
+					display: block;
+				}
 
-		.dropdown-content  a:hover {
-			background-color: black;
-			color: #009966;
-			font-family: "console", "monospace", "Consolas", "Courier";
-		}
+				.dropdown-content  a:hover {
+					background-color: black;
+					color: #009966;
+					font-family: "console", "monospace", "Consolas", "Courier";
+				}
 
-		.dropdown:hover .dropdown-content {
-			font-family: "console", "monospace", "Consolas", "Courier";
-			display: block;
-			position: fixed;
-			overflow: hidden;
-			color: black;
-			background-color: #009966;
-			z-index: 1000;
-			font-size: 2vh;
-		}
+				.dropdown:hover .dropdown-content {
+					font-family: "console", "monospace", "Consolas", "Courier";
+					display: block;
+					position: fixed;
+					overflow: hidden;
+					color: black;
+					background-color: #009966;
+					z-index: 1000;
+					font-size: 2vh;
+				}
 
-		.dropdown:hover .dropbtn {
-			background-color: black;
-			color: #009966;
-			font-family: "console", "monospace", "Consolas", "Courier";
-		}
+				.dropdown:hover .dropbtn {
+					background-color: black;
+					color: #009966;
+					font-family: "console", "monospace", "Consolas", "Courier";
+				}
 
-		#line {
-			position: relative;
-			top: 0px;
-			left:0px;
-			width: 100%;
-			height: 2px;
-			background: #009966;
-			opacity: 0.2;
-			z-index: 100;
-			box-shadow: 10px 10px 5px #009966;
+				#line {
+					position: relative;
+					top: 0px;
+					left:0px;
+					width: 100%;
+					height: 2px;
+					background: #009966;
+					opacity: 0.2;
+					z-index: 100;
+					box-shadow: 10px 10px 5px #009966;
 
-		}
+				}
 
-		#dot {
-			position: relative;
-			left: 10px;
-			width: 20px;
-			height: 2px;
-			background: #000;
-			opacity: 1;
-		}
+				#dot {
+					position: relative;
+					left: 10px;
+					width: 20px;
+					height: 2px;
+					background: #000;
+					opacity: 1;
+				}
 
-		#cover {
-			background-image: url('images/scanbg.gif');
-			position: fixed;
-			left: 0px;
-			top: 0px;
-			width: 100%;
-			height: 200px;
-		}
+				#cover {
+					background-image: url('images/scanbg.gif');
+					position: fixed;
+					left: 0px;
+					top: 0px;
+					width: 100%;
+					height: 200px;
+				}
 
-		#content {
-			position: relative;
-			z-index: 50;
-		}
+				#content {
+					position: relative;
+					z-index: 50;
+				}
 
-		[contenteditable="true"] {
-			outline: none;
-		}
+				[contenteditable="true"] {
+					outline: none;
+				}
 
 
-		element:hover, element:active {
-			-webkit-tap-highlight-color: rgba(0,0,0,0);
-			-webkit-user-select: none;
-			-webkit-touch-callout: none /*only to disable context menu on long press*/
-		}
+				element:hover, element:active {
+					-webkit-tap-highlight-color: rgba(0,0,0,0);
+					-webkit-user-select: none;
+					-webkit-touch-callout: none /*only to disable context menu on long press*/
+				}
 
-		.typed-cursor{
-			opacity: 1;
-			-webkit-animation: blink 0.7s infinite;
-			-moz-animation: blink 0.7s infinite;
-			animation: blink 0.7s infinite;
-		}
-		@keyframes blink{
-			0% { opacity:1; }
-			50% { opacity:0; }
-			100% { opacity:1; }
-		}
-		@-webkit-keyframes blink{
-			0% { opacity:1; }
-			50% { opacity:0; }
-			100% { opacity:1; }
-		}
-		@-moz-keyframes blink{
-			0% { opacity:1; }
-			50% { opacity:0; }
-			100% { opacity:1; }
-		}
+				.typed-cursor{
+					opacity: 1;
+					-webkit-animation: blink 0.7s infinite;
+					-moz-animation: blink 0.7s infinite;
+					animation: blink 0.7s infinite;
+				}
+				@keyframes blink{
+					0% { opacity:1; }
+					50% { opacity:0; }
+					100% { opacity:1; }
+				}
+				@-webkit-keyframes blink{
+					0% { opacity:1; }
+					50% { opacity:0; }
+					100% { opacity:1; }
+				}
+				@-moz-keyframes blink{
+					0% { opacity:1; }
+					50% { opacity:0; }
+					100% { opacity:1; }
+				}
+
+				@media only screen and (max-width: 600px) {
+					.draggable {
+						max-width: 100% !important;
+					}
+					.typecontent {
+						display: none !important;
+					}
+				}
 		</style>
 		<script src="scripts/powerglitch.min.js"></script>
 		<script src="scripts/jquery.min.js"></script>

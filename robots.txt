@@ -1,4 +1,3 @@
 User-agent: *
-Disallow:
-Disallow: /cgi-bin/
+Allow: /
 Sitemap: https://theden.sh/sitemap.xml

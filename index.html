@@ -58,6 +58,10 @@ body {
 	cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAAEUlEQVR4AWNYw7AaDxqVxooAJe2F/Y6+Y+8AAAAASUVORK5CYII=), auto;
 }
 
+.ipinfo {
+	display: none;
+}
+
 h3 {
 	margin-top: 0.5em;
 }
@@ -458,17 +462,13 @@ a {
 				<div class="draggable">
 					<div class="move card">
 						<h4><strong>[root@TheDen ~]# uptime</strong></h4>
-						<span id="clock" class="clock">
+						<span id="clock" class="clock"></span>
 					</div>
 				</div>
-<style>
-.ipinfo {
-display: none;
-}
-</style>
-        <div class="draggable">
-          <div class="move card ipinfo">
-            <h4><strong>Your IP Address</strong></h4>
+				</style>
+				<div class="draggable">
+					<div class="move card ipinfo">
+						<h4><strong>Your IP Address</strong></h4>
 						<p class="ipaddress"></p>
           </div>
 				</div>

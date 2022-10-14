@@ -1,5 +1,3 @@
-document.addEventListener("touchstart", function(){}, true);
-
 /* Uptime */
 function uptimeCard() {
   var then = "08/04/2016 17:00:00";

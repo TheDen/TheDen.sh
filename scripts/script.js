@@ -70,16 +70,21 @@ $(function(){
 /* Blink cursor */
 function blink() {
   var blinks = document.getElementsByTagName('blink');
-  for (var i = blinks.length - 1; i >= 0; i--) {
+  for (var i = blinks.length - 1; i >= 0; i -= 1) {
     var s = blinks[i];
     s.style.visibility = (s.style.visibility === 'visible') ? 'hidden' : 'visible';
   }
   window.setTimeout(blink, 1000);
 }
-if (document.addEventListener) document.addEventListener("DOMContentLoaded", blink, false);
-else if (window.addEventListener) window.addEventListener("load", blink, false);
-else if (window.attachEvent) window.attachEvent("onload", blink);
-else window.onload = blink;
+if (document.addEventListener) {
+  document.addEventListener("DOMContentLoaded", blink, false);
+} else if (window.addEventListener) {
+  window.addEventListener("load", blink, false);
+} else if (window.attachEvent) {
+  window.attachEvent("onload", blink);
+} else {
+  window.onload = blink;
+}
 
 
 /* Drag */
@@ -87,13 +92,13 @@ function windowMove() {
   function maxwidthcheck(matchquery){
     if (matchquery.matches){
       len = draggies.length
-      for ( var i=0, len; i < len; i++ ) {
+      for ( var i=0, len; i < len; i += 1 ) {
         draggies[i].disable()
       }
     }
     else {
       len = draggies.length
-      for ( var i=0, len; i < len; i++ ) {
+      for ( var i=0, len; i < len; i += 1 ) {
         draggies[i].enable()
       }
     }
@@ -102,7 +107,7 @@ function windowMove() {
   var draggableElems = document.querySelectorAll('.draggable');
   var draggies = []
   len = draggableElems.length
-  for ( var i=0, len; i < len; i++ ) {
+  for ( var i=0, len; i < len; i += 1 ) {
     var draggableElem = draggableElems[i];
     var draggie = new Draggabilly(draggableElem, {
     });
@@ -167,7 +172,7 @@ function scanlines() {
     setInterval(function() {
       dot_move();
     }, dotSpeed);
-  })
+  });
 
   function move() {
     $('#line').animate({
@@ -176,7 +181,7 @@ function scanlines() {
     $('#line').animate({
       top: lineStart
     }, 0);
-  };
+  }
 
   function dot_move() {
     $('#dot').animate({

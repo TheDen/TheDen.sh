@@ -6,7 +6,7 @@
   cd scripts
   cat jquery.min.js draggabilly.pkgd.min.js moment.min.js typed.js powerglitch.min.js > vendor.js
 )
-rsync --exclude=dist/ --exclude=.git/ --exclude=.gitignore --delete -av . dist/
+rsync --exclude=sync.sh --exclude=dist/ --exclude=.git/ --exclude=.gitignore --delete -av . dist/
 
 echo "Minifying everything we can"
 find ./dist/ -type f \( \

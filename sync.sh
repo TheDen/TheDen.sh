@@ -4,7 +4,7 @@
 (
   echo "vendoring..."
   cd scripts
-  cat jquery.min.js draggabilly.pkgd.min.js moment.min.js typed.js powerglitch.min.js > vendor.js
+  cat jquery.min.js dayjs-duration-utc.js draggabilly.pkgd.min.js typed.js powerglitch.min.js > vendor.js
 )
 
 fixmyjs scripts/script.js

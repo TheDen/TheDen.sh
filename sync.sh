@@ -8,8 +8,11 @@
 )
 
 fixmyjs scripts/script.js
+export VENDOR_JS=$(cat scripts/vendor.js)
+export SCRIPT_JS=$(cat scripts/script.js)
+cat index.pre.html | envsubst > index.html
 
-rsync --exclude=sync.sh --exclude=dist/ --exclude=.git/ --exclude=.gitignore --delete -av . dist/
+rsync --exclude=index.pre.html --exclude=sync.sh --exclude=dist/ --exclude=.git/ --exclude=.gitignore --delete -av . dist/
 
 echo "Minifying everything we can"
 find ./dist/ -type f \( \

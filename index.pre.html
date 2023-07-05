@@ -222,6 +222,7 @@
         border-radius: 10px;
         float: left;
         display: inline-table;
+        opacity: 0;
       }
 
       .draggable.is-pointer-down {
@@ -349,7 +350,7 @@
         -webkit-touch-callout: none; /*only to disable context menu on long press*/
       }
 
-      #cursor {
+      .cursor {
         background: #009966;
         line-height: 17px;
         margin-left: 3px;
@@ -402,6 +403,11 @@
         }
         .draggable {
           max-width: 100% !important;
+          transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .no-transition {
+          transition: none !important;
         }
         .typecontent {
           display: none !important;
@@ -548,7 +554,7 @@
             </p>
             <div>
               <div id="quote"></div>
-              <div id="cursor"></div>
+              <div class="cursor"></div>
             </div>
             <span id="typed"></span>
           </div>

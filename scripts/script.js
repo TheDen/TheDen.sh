@@ -369,3 +369,50 @@ fetch("https://api.ipify.org?format=jsonp&callback=")
     }
   })
   .catch((error) => console.log(error));
+
+/* Loading transition */
+document.addEventListener("DOMContentLoaded", function () {
+  var coverElement = document.getElementById("cover");
+  var elements = Array.from(document.getElementsByClassName("draggable"));
+  shuffleArray(elements);
+
+  coverElement.style.opacity = "0";
+  coverElement.style.transition = "opacity 0.5s ease";
+
+  setTimeout(function () {
+    coverElement.style.opacity = "1";
+  }, 250);
+
+  setTimeout(function () {
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].style.display = "block";
+      elements[i].style.opacity = "0";
+      elements[i].style.transition = "opacity 0.5s ease, transform 0.5s ease";
+      elements[i].style.transform = "translateY(-100px)";
+
+      setTimeout(
+        function (index) {
+          elements[index].style.opacity = "1";
+          elements[index].style.transform = "translateX(0)";
+        },
+        50 * i,
+        i
+      );
+    }
+
+    setTimeout(function () {
+      elements.forEach(function (element) {
+        element.style.transition = "none";
+      });
+    }, elements.length * 100);
+  }, 1000);
+});
+
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+}

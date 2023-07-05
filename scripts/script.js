@@ -476,3 +476,12 @@ window.addEventListener("click", function (event) {
     closeModal();
   }
 });
+
+const textWrap = document.getElementById("wrap-lines");
+textWrap.addEventListener("click", function () {
+  if (document.body.classList.contains("no-wrap")) {
+    document.body.classList.remove("no-wrap");
+  } else {
+    document.body.classList.add("no-wrap");
+  }
+});

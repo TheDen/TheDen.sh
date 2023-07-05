@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html class="noselect" lang="en">
   <head>
-    <script></script>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link type="text/plain" rel="author" href="https://theden.sh/humans.txt" />
     <meta charset="UTF-8" />
@@ -542,8 +541,32 @@
               >
             </p>
             <hr />
-            <div id="quote"></div>
-            <span id="typed-strings"></span>
+            <div>
+              <div id="quote"></div>
+              <div id="cursor"></div>
+            </div>
+            <style>
+              #cursor {
+                background: #009966;
+                line-height: 17px;
+                margin-left: 3px;
+                -webkit-animation: blink 0.8s infinite;
+                width: 7px;
+                height: 15px;
+              }
+
+              @-webkit-keyframes blink {
+                0% {
+                  background: #222;
+                }
+                50% {
+                  background: lime;
+                }
+                100% {
+                  background: #222;
+                }
+              }
+            </style>
             <span id="typed"></span>
           </div>
         </div>
@@ -690,7 +713,7 @@
             <img
               class="lastfm-image"
               src="https://songstitch.art/collage?username=theden_sh&period=1month&artist=true&album=false&playcount=fal
-se&rows=3&columns=3&height=700&width=700"
+se&rows=3&columns=3&height=700&width=700&compress=true"
             />
           </div>
         </div>
@@ -707,14 +730,6 @@ se&rows=3&columns=3&height=700&width=700"
         </div>
         <script type="text/javascript">
           ${SCRIPT_JS}
-        </script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            dataLayer.push(arguments);
-          }
-          gtag("js", new Date());
-          gtag("config", "G-MGNK1TP0SB");
         </script>
       </div>
       <div id="footer">

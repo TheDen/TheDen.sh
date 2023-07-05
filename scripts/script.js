@@ -17,23 +17,22 @@ function uptimeCard() {
   x = Math.random().toFixed(2);
   y = Math.random().toFixed(2);
   z = Math.random().toFixed(2);
-  $("#clock").html(
+  document.getElementById("clock").innerHTML =
     days +
-      " days" +
-      " " +
-      h +
-      ":" +
-      m +
-      ":" +
-      sec +
-      ", 1 user, " +
-      "load average: " +
-      x +
-      ", " +
-      y +
-      ", " +
-      z
-  );
+    " days" +
+    " " +
+    h +
+    ":" +
+    m +
+    ":" +
+    sec +
+    ", 1 user, " +
+    "load average: " +
+    x +
+    ", " +
+    y +
+    ", " +
+    z;
 
   function update() {
     then = "04/08/2016 17:00:00";
@@ -51,80 +50,50 @@ function uptimeCard() {
     x = Math.random().toFixed(2);
     y = Math.random().toFixed(2);
     z = Math.random().toFixed(2);
-    $("#clock").html(
+    document.getElementById("clock").innerHTML =
       days +
-        " days" +
-        " " +
-        h +
-        ":" +
-        m +
-        ":" +
-        sec +
-        ", 1 user, " +
-        "load average: " +
-        x +
-        ", " +
-        y +
-        ", " +
-        z
-    );
+      " days" +
+      " " +
+      h +
+      ":" +
+      m +
+      ":" +
+      sec +
+      ", 1 user, " +
+      "load average: " +
+      x +
+      ", " +
+      y +
+      ", " +
+      z;
   }
   setInterval(update, 1000);
 }
 uptimeCard();
 
 /* ASCII typed text */
-$(function () {
-  $(".element").typed({
-    strings: [
-      "<span style='color:#009966;'><pre>      ___     <br>     /      <br>    /::     <br>   /:/:    <br>  /:/  :   <br> /:/__/ :__<br> :   /:/  /<br>  :  /:/  / <br>   :/:/  /  <br>    ::/  /   <br>     /__/    <br></pre>",
+var typed = new Typed(".element", {
+  strings: [
+    "<span style='color:#009966;'><pre>      ___     <br>     /      <br>    /::     <br>   /:/:    <br>  /:/  :   <br> /:/__/ :__<br> :   /:/  /<br>  :  /:/  / <br>   :/:/  /  <br>    ::/  /   <br>     /__/    <br></pre>",
 
-      "<span style='color:#009966;'><pre> ██████╗██╗   ██╗██████╗ ██╗               <br>██╔════╝██║   ██║██╔══██╗██║               <br>██║     ██║   ██║██████╔╝██║               <br>██║     ██║   ██║██╔══██╗██║               <br>╚██████╗╚██████╔╝██║  ██║███████╗          <br> ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝          <br>                                           <br>       ██╗██╗      █████╗ ██████╗ ██╗   ██╗<br>      ██╔╝██║     ██╔══██╗██╔══██╗╚██╗ ██╔╝<br>     ██╔╝ ██║     ███████║██║  ██║ ╚████╔╝ <br>    ██╔╝  ██║     ██╔══██║██║  ██║  ╚██╔╝  <br>██╗██╔╝   ███████╗██║  ██║██████╔╝   ██║   <br>╚═╝╚═╝    ╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝   <br></pre>",
+    "<span style='color:#009966;'><pre> ██████╗██╗   ██╗██████╗ ██╗               <br>██╔════╝██║   ██║██╔══██╗██║               <br>██║     ██║   ██║██████╔╝██║               <br>██║     ██║   ██║██╔══██╗██║               <br>╚██████╗╚██████╔╝██║  ██║███████╗          <br> ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝          <br>                                           <br>       ██╗██╗      █████╗ ██████╗ ██╗   ██╗<br>      ██╔╝██║     ██╔══██╗██╔══██╗╚██╗ ██╔╝<br>     ██╔╝ ██║     ███████║██║  ██║ ╚████╔╝ <br>    ██╔╝  ██║     ██╔══██║██║  ██║  ╚██╔╝  <br>██╗██╔╝   ███████╗██║  ██║██████╔╝   ██║   <br>╚═╝╚═╝    ╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝   <br></pre>",
 
-      "<span style='color:#009966;'><pre>       (    (      <br>   (   ) ) ) )   <br> ( ) (()/((()/(   <br> )((_) /(_))/(_))  <br>((_)_ (_)) (_))_   <br> | _ )/ __| |     <br> | _ \\__  | |) | <br> |___/|___/ |___/ <br></pre>",
+    "<span style='color:#009966;'><pre>       (    (      <br>   (   ) ) ) )   <br> ( ) (()/((()/(   <br> )((_) /(_))/(_))  <br>((_)_ (_)) (_))_   <br> | _ )/ __| |     <br> | _ \\__  | |) | <br> |___/|___/ |___/ <br></pre>",
 
-      "<span style='color:#009966;'><pre>___/~~____/~~~~~___/~~~~~~__/~~~~~ <br>__/~~____/~~_/~~_/~~_/~~_/~~_/~~   <br>_/~~~~~___/~~~~~_____/~~~___/~~~~~<br>/~~_/~~_/~~_/~~_/~~_/~~_/~~_/~~   <br>_/~~~~~___/~~~~~___/~~~~~~__/~~~~~   <br>_/~~~~~____/~~_____/~~~~~_____/~~~~~<br>/~~_/~~__/~~~____/~~_/~~___/~~_/~~<br>_/~~~~~____/~~___/~~___/~~_/~~___/~~<br>___/~~_____/~~____/~~_/~~___/~~_/~~<br>__/~~____/~~~~~~___/~~~~~_____/~~~~~<br></pre>",
+    "<span style='color:#009966;'><pre>___/~~____/~~~~~___/~~~~~~__/~~~~~ <br>__/~~____/~~_/~~_/~~_/~~_/~~_/~~   <br>_/~~~~~___/~~~~~_____/~~~___/~~~~~<br>/~~_/~~_/~~_/~~_/~~_/~~_/~~_/~~   <br>_/~~~~~___/~~~~~___/~~~~~~__/~~~~~   <br>_/~~~~~____/~~_____/~~~~~_____/~~~~~<br>/~~_/~~__/~~~____/~~_/~~___/~~_/~~<br>_/~~~~~____/~~___/~~___/~~_/~~___/~~<br>___/~~_____/~~____/~~_/~~___/~~_/~~<br>__/~~____/~~~~~~___/~~~~~_____/~~~~~<br></pre>",
 
-      "<span style='color:#009966;'><pre>█████████████████████████████████████<br>█████████████████████████████████████<br>████ ▄▄▄▄▄ █▀▄█▀ ▀▄ █▀█▄ █ ▄▄▄▄▄ ████<br>████ █   █ █▄   ▄▀ ▀▀▄▀  █ █   █ ████<br>████ █▄▄▄█ █ ▀█▀█▄▄ ▄▄▄ ██ █▄▄▄█ ████<br>████▄▄▄▄▄▄▄█ ▀▄█ █ ▀ ▀▄█▄█▄▄▄▄▄▄▄████<br>████ ▄▀▄█▀▄▄▀█ ▀█ ▀██▄▀█▀█▄▄▄▀▄▄▀████<br>████  ▀▄▀█▄█▀▄▄██ ██ ▄▄▄▄▀ ▄▀█▀▀█████<br>████▀█▀ ▀ ▄ ▄█▀▀  █▀█  ▀▀▄ ██▀█ ▄████<br>████▄▄▄▀▄▄▄▄▀▄██  ▄█▄▀▄█ ▄ ▄███ ▄████<br>████▄▀▀█▄▄▄▄▄██▄█ ▀  █▀▄▄█▀ ▄▀█▀▄████<br>████▄█▀███▄▀▄ █▀█▄ █▄ █▀▄  ▄█▄▄▄ ████<br>████▄████▄▄▄ ▀    ▄█▀█▀█ ▄▄▄ ▄▄▀█████<br>████ ▄▄▄▄▄ █▄▄▀  ▀███▄▄▀ █▄█ ▀  █████<br>████ █   █ █▀█▀ ▄  ▀▄██▀ ▄  ▄▄█ █████<br>████ █▄▄▄█ █▀█▀ ▀▀ ██ █▀▀▄██▄██▀▄████<br>████▄▄▄▄▄▄▄█▄▄▄▄██▄█▄▄▄█▄▄██▄▄█▄█████<br>█████████████████████████████████████<br>█████████████████████████████████████<br></pre>",
+    "<span style='color:#009966;'><pre>█████████████████████████████████████<br>█████████████████████████████████████<br>████ ▄▄▄▄▄ █▀▄█▀ ▀▄ █▀█▄ █ ▄▄▄▄▄ ████<br>████ █   █ █▄   ▄▀ ▀▀▄▀  █ █   █ ████<br>████ █▄▄▄█ █ ▀█▀█▄▄ ▄▄▄ ██ █▄▄▄█ ████<br>████▄▄▄▄▄▄▄█ ▀▄█ █ ▀ ▀▄█▄█▄▄▄▄▄▄▄████<br>████ ▄▀▄█▀▄▄▀█ ▀█ ▀██▄▀█▀█▄▄▄▀▄▄▀████<br>████  ▀▄▀█▄█▀▄▄██ ██ ▄▄▄▄▀ ▄▀█▀▀█████<br>████▀█▀ ▀ ▄ ▄█▀▀  █▀█  ▀▀▄ ██▀█ ▄████<br>████▄▄▄▀▄▄▄▄▀▄██  ▄█▄▀▄█ ▄ ▄███ ▄████<br>████▄▀▀█▄▄▄▄▄██▄█ ▀  █▀▄▄█▀ ▄▀█▀▄████<br>████▄█▀███▄▀▄ █▀█▄ █▄ █▀▄  ▄█▄▄▄ ████<br>████▄████▄▄▄ ▀    ▄█▀█▀█ ▄▄▄ ▄▄▀█████<br>████ ▄▄▄▄▄ █▄▄▀  ▀███▄▄▀ █▄█ ▀  █████<br>████ █   █ █▀█▀ ▄  ▀▄██▀ ▄  ▄▄█ █████<br>████ █▄▄▄█ █▀█▀ ▀▀ ██ █▀▀▄██▄██▀▄████<br>████▄▄▄▄▄▄▄█▄▄▄▄██▄█▄▄▄█▄▄██▄▄█▄█████<br>█████████████████████████████████████<br>█████████████████████████████████████<br></pre>",
 
-      "<span style='color:#009966;'><pre>+---[RSA 4096]----+<br>|#E*....          |<br>|%#++ .           |<br>|@*O.=            |<br>|O*.B . .         |<br>|*o. o . S        |<br>|oo . . .         |<br>|o .   .          |<br>|.                |<br>|                 |<br>+----[SHA256]-----+<br></pre>",
-    ],
-    contentType: "html",
-    typeSpeed: 0,
-    loop: true,
-    shuffle: true,
-    showCursor: false,
-  });
+    "<span style='color:#009966;'><pre>+---[RSA 4096]----+<br>|#E*....          |<br>|%#++ .           |<br>|@*O.=            |<br>|O*.B . .         |<br>|*o. o . S        |<br>|oo . . .         |<br>|o .   .          |<br>|.                |<br>|                 |<br>+----[SHA256]-----+<br></pre>",
+  ],
+  contentType: "html",
+  typeSpeed: 3,
+  loop: true,
+  shuffle: true,
+  showCursor: false,
+  autoInsertCss: false,
+  smartBackspace: false,
 });
-
-$(function () {
-  $("#typed").typed({
-    stringsElement: $("#typed-strings"),
-    loop: false,
-    loopCount: 0,
-    typeSpeed: 0,
-  });
-});
-
-/* Blink cursor */
-function blink() {
-  var blinks = document.getElementsByTagName("blink");
-  for (var i = blinks.length - 1; i >= 0; i -= 1) {
-    var s = blinks[i];
-    s.style.visibility =
-      s.style.visibility === "visible" ? "hidden" : "visible";
-  }
-  window.setTimeout(blink, 1000);
-}
-if (document.addEventListener) {
-  document.addEventListener("DOMContentLoaded", blink, false);
-} else if (window.addEventListener) {
-  window.addEventListener("load", blink, false);
-} else if (window.attachEvent) {
-  window.attachEvent("onload", blink);
-} else {
-  window.onload = blink;
-}
 
 /* Drag */
 function windowMove() {
@@ -183,72 +152,77 @@ start();
 /* Scanlines */
 
 function scanlines() {
-  var lineHeight = $("#line").height();
-  var dotWidth = $("#dot").width();
+  var lineHeight = document.getElementById("line").offsetHeight;
+  var dotWidth = document.getElementById("dot").offsetWidth;
   var desiredBottom = 0;
-  var lineStart = $("#line").css("top");
-  var dotStart = $("#dot").css("left");
+  var lineStart = document.getElementById("line").style.top;
+  var dotStart = document.getElementById("dot").style.left;
   var lineSpeed = 3000;
   var dotSpeed = lineSpeed / 3;
+  var loopDelay = 2000; // Delay between each loop (in milliseconds)
 
-  var windowHeight = $(window).height();
-  var windowWidth = $(window).width();
+  var windowHeight =
+    window.innerHeight || document.documentElement.clientHeight;
+  var windowWidth = window.innerWidth || document.documentElement.clientWidth;
   var newPosition = windowHeight - (lineHeight + desiredBottom);
   var newPositionDot = windowWidth - dotWidth;
 
-  $("#selected_content").focus();
-
-  $("#cover").height(windowHeight);
-
-  $(document).ready(function () {
-    move();
-    dot_move();
-    setInterval(function () {
-      move();
-    }, lineSpeed);
-    setInterval(function () {
-      dot_move();
-    }, dotSpeed);
-  });
+  document.getElementById("cover").style.height = windowHeight + "px";
 
   function move() {
-    $("#line").animate(
-      {
-        top: newPosition,
-      },
-      lineSpeed
-    );
-    $("#line").animate(
-      {
-        top: lineStart,
-      },
-      0
-    );
+    var lineElement = document.getElementById("line");
+    var start = null;
+
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      var progress = timestamp - start;
+      lineElement.style.top = (progress / lineSpeed) * newPosition + "px";
+      if (progress < lineSpeed) {
+        window.requestAnimationFrame(step);
+      } else {
+        lineElement.style.top = lineStart;
+        start = null;
+        setTimeout(move, loopDelay); // Add a delay before restarting the animation
+      }
+    }
+
+    window.requestAnimationFrame(step);
   }
 
   function dot_move() {
-    $("#dot").animate(
-      {
-        left: newPositionDot,
-      },
-      dotSpeed
-    );
-    $("#dot").animate(
-      {
-        left: dotStart,
-      },
-      0
-    );
+    var dotElement = document.getElementById("dot");
+    var start = null;
+
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      var progress = timestamp - start;
+      dotElement.style.left = (progress / dotSpeed) * newPositionDot + "px";
+      if (progress < dotSpeed) {
+        window.requestAnimationFrame(step);
+      } else {
+        dotElement.style.left = dotStart;
+        start = null;
+        setTimeout(dot_move, loopDelay); // Add a delay before restarting the animation
+      }
+    }
+
+    window.requestAnimationFrame(step);
   }
 
-  $(window).resize(function () {
-    windowHeight = $(window).height();
-    windowWidth = $(window).width();
+  move();
+  dot_move();
+
+  window.addEventListener("resize", function () {
+    windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    windowWidth = window.innerWidth || document.documentElement.clientWidth;
     newPosition = windowHeight - (lineHeight + desiredBottom);
     newPositionDot = windowWidth - dotWidth;
-    $("#cover").height(windowHeight);
+    document.getElementById("cover").style.height = windowHeight + "px";
   });
 }
+
+// Call the scanlines function
+scanlines();
 
 scanlines();
 
@@ -290,24 +264,22 @@ function startglow() {
 startglow();
 
 /* Console */
+var styles = [
+  "background: black",
+  "font: monospace",
+  "font-size: 20pt",
+  "color: #009966",
+  "display: block",
+  "background-size: 100%",
+  "text-align: left",
+  "background-padding: 20%",
+  "font-weight: bold, border:   border: 0px solid #009966",
+].join(";");
 
-$(function () {
-  var styles = [
-    "background: black",
-    "font: monospace",
-    "font-size: 20pt",
-    "color: #009966",
-    "display: block",
-    "background-size: 100%",
-    "text-align: left",
-    "background-padding: 20%",
-    "font-weight: bold, border:   border: 0px solid #009966",
-  ].join(";");
-  console.log(
-    "%c  ██████╗ ██████╗     ██████╗ \t\n██╔════╝ ╚════██╗   ██╔═████╗\t\n██║█████╗ █████╔╝   ██║██╔██║\t\n██║╚════╝██╔═══╝    ████╔╝██║\t\n╚██████╗ ███████╗██╗╚██████╔╝\t\n ╚═════╝ ╚══════╝╚═╝ ╚═════╝ \t\n",
-    styles
-  );
-});
+console.log(
+  "%c  ██████╗ ██████╗     ██████╗ \t\n██╔════╝ ╚════██╗   ██╔═████╗\t\n██║█████╗ █████╔╝   ██║██╔██║\t\n██║╚════╝██╔═══╝    ████╔╝██║\t\n╚██████╗ ███████╗██╗╚██████╔╝\t\n ╚═════╝ ╚══════╝╚═╝ ╚═════╝ \t\n",
+  styles
+);
 
 /* Quotes */
 (function () {
@@ -375,7 +347,7 @@ function glitch() {
       hueRotate: true,
     },
   });
-  PowerGlitch.glitch(".element", {
+  /*  PowerGlitch.glitch(".element", {
     playMode: "always",
     createContainers: true,
     hideOverflow: false,
@@ -398,7 +370,7 @@ function glitch() {
       maxHeight: 0.15,
       hueRotate: true,
     },
-  });
+  }); */
 }
 
 glitch();

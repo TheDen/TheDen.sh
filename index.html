@@ -55,10 +55,7 @@
       }
 
       .subheading-info {
-        font-size: 1em;
-      }
-      input {
-        caret-color: red;
+        font-size: smaller;
       }
 
       body {
@@ -72,7 +69,8 @@
         display: none;
       }
 
-      h3 {
+      h3,
+      h4 {
         margin-top: 0.5em;
       }
 
@@ -351,12 +349,18 @@
         -webkit-touch-callout: none; /*only to disable context menu on long press*/
       }
 
-      .typed-cursor {
-        opacity: 1;
+      #cursor {
+        background: #009966;
+        line-height: 17px;
+        margin-left: 3px;
+        -webkit-animation: blink 0.8s infinite;
         -webkit-animation: blink 0.7s infinite;
         -moz-animation: blink 0.7s infinite;
         animation: blink 0.7s infinite;
+        width: 7px;
+        height: 15px;
       }
+
       @keyframes blink {
         0% {
           opacity: 1;
@@ -406,7 +410,7 @@
           font-size: 1.7vh;
         }
         .lastfm-image {
-          width: 100vw;
+          width: 100%;
         }
       }
     </style>
@@ -2644,33 +2648,10 @@
                 >Fingerprint</a
               >
             </p>
-            <hr />
             <div>
               <div id="quote"></div>
               <div id="cursor"></div>
             </div>
-            <style>
-              #cursor {
-                background: #009966;
-                line-height: 17px;
-                margin-left: 3px;
-                -webkit-animation: blink 0.8s infinite;
-                width: 7px;
-                height: 15px;
-              }
-
-              @-webkit-keyframes blink {
-                0% {
-                  background: #222;
-                }
-                50% {
-                  background: lime;
-                }
-                100% {
-                  background: #222;
-                }
-              }
-            </style>
             <span id="typed"></span>
           </div>
         </div>
@@ -2823,7 +2804,7 @@ se&rows=3&columns=3&height=700&width=700&compress=true"
         </div>
         <div class="draggable">
           <div class="move card ipinfo">
-            <h4><strong>Your IP Address</strong></h4>
+            <h4><strong>Vistors IP Address</strong></h4>
             <p class="ipaddress"></p>
           </div>
         </div>

@@ -416,3 +416,63 @@ function shuffleArray(array) {
     array[j] = temp;
   }
 }
+
+function flashElement(elementId, flashCount, delay) {
+  const element = document.getElementById(elementId);
+
+  const originalColor = element.style.color;
+  const originalBackgroundColor = element.style.backgroundColor;
+
+  const newColor = "#096";
+  const newBackgroundColor = "black";
+
+  let count = 0;
+
+  function flash() {
+    element.style.color = newColor;
+    element.style.backgroundColor = newBackgroundColor;
+
+    setTimeout(() => {
+      element.style.color = originalColor;
+      element.style.backgroundColor = originalBackgroundColor;
+
+      count++;
+
+      if (count < flashCount) {
+        setTimeout(flash, delay);
+      }
+    }, delay);
+  }
+
+  flash();
+}
+
+document.getElementById("about-link").addEventListener("click", function () {
+  flashElement("about", 5, 100);
+});
+
+const modal = document.getElementById("ErrModal");
+
+const openModalBtns = document.querySelectorAll(".openModalBtn");
+
+function openModal() {
+  modal.style.display = "block";
+  modal.style.opacity = "1";
+}
+
+function closeModal() {
+  modal.style.opacity = "0";
+  setTimeout(function () {
+    modal.style.display = "none";
+    modal.style.opacity = "0";
+  }, 300);
+}
+
+openModalBtns.forEach(function (btn) {
+  btn.addEventListener("click", openModal);
+});
+window.addEventListener("click", function (event) {
+  if (event.target === modal) {
+    closeModal();
+  }
+});

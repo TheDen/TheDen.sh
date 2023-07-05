@@ -424,12 +424,46 @@
           width: 100%;
         }
       }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 100000;
+        border: solid
+        color: #096;
+      }
+
+      .modal-content {
+        background-color: white;
+        margin: 15% auto;
+        padding: 20px;
+        width: 80%;
+        max-width: 400px;
+        text-align: center;
+        border: solid;
+        color: #096;
+        background: black
+      }
     </style>
     <script type="text/javascript">
       ${VENDOR_JS}
     </script>
   </head>
   <body>
+    <div id="ErrModal" class="modal">
+      <div class="modal-content">
+        <h2>ERROR!</h2>
+        <p style="padding: 1em">
+          PERMISSION DENIED. THIS INCIDENT WILL BE REPORTED.
+        </p>
+      </div>
+    </div>
     <div id="content" contenteditable="false">
       <div id="cardcontent">
         <div id="cover">
@@ -440,9 +474,9 @@
           <div class="dropdown">
             <button class="dropbtn" onclick="">FILE</button>
             <div class="dropdown-content" onclick="">
-              <a href="#">Visit New File (C-X C-F)</a>
-              <a href="#">Open File...</a>
-              <a href="#">Open Directory.... (C-x d)</a>
+              <a class="openModalBtn" href="#">Visit New File (C-X C-F)</a>
+              <a class="openModalBtn" href="#">Open File...</a>
+              <a class="openModalBtn" href="#">Open Directory.... (C-x d)</a>
             </div>
           </div>
           <div class="dropdown">
@@ -478,7 +512,7 @@
           <div class="dropdown">
             <button class="dropbtn">HELP</button>
             <div class="dropdown-content">
-              <a href="#">About</a>
+              <a id="about-link" href="#">About</a>
             </div>
           </div>
         </div>
@@ -531,7 +565,7 @@
               >
             </p>
             <h4 class="subheading-info">About [now]</h4>
-            <p>
+            <p id="about">
               DevOps Engineer, Jazz @ Sydney Conservatorium, Tech generalist,
               Previously @ CSIRO's Data61
             </p>

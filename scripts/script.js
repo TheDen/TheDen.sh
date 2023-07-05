@@ -287,9 +287,9 @@ function glitch() {
   const { startGlitch, stopGlitch } = PowerGlitch.glitch("a, .dropbtn", {
     playMode: "hover",
     createContainers: true,
-    hideOverflow: false,
+    hideOverflow: true,
     timing: {
-      duration: 400,
+      duration: 100,
       iterations: 1,
       easing: "ease-out",
     },
@@ -299,14 +299,14 @@ function glitch() {
     },
     shake: {
       velocity: 0,
-      amplitudeX: 0.0,
-      amplitudeY: 0.0,
+      amplitudeX: 0,
+      amplitudeY: 0,
     },
     slice: {
       count: 10,
-      velocity: 30,
+      velocity: 20,
       minHeight: 0.02,
-      maxHeight: 0.15,
+      maxHeight: 0.3,
       hueRotate: false,
     },
   });

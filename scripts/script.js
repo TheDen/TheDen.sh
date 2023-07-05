@@ -289,24 +289,25 @@ function glitch() {
     createContainers: true,
     hideOverflow: false,
     timing: {
-      duration: 2050,
+      duration: 400,
       iterations: 1,
+      easing: "ease-out",
     },
     glitchTimeSpan: {
       start: 0,
       end: 1,
     },
     shake: {
-      velocity: 15,
-      amplitudeX: 0.2,
-      amplitudeY: 0.2,
+      velocity: 0,
+      amplitudeX: 0.0,
+      amplitudeY: 0.0,
     },
     slice: {
-      count: 6,
-      velocity: 15,
+      count: 10,
+      velocity: 30,
       minHeight: 0.02,
       maxHeight: 0.15,
-      hueRotate: true,
+      hueRotate: false,
     },
   });
   /*  PowerGlitch.glitch(".element", {

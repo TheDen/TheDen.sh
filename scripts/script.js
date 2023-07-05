@@ -485,3 +485,15 @@ textWrap.addEventListener("click", function () {
     document.body.classList.add("no-wrap");
   }
 });
+
+const highlightRegions = document.getElementById("highlight-regions");
+highlightRegions.addEventListener("click", function () {
+  draggableElems = document.getElementsByClassName("draggable");
+  for (let i = 0; i < draggableElems.length; i++) {
+    if (draggableElems[i].classList.contains("sepia")) {
+      draggableElems[i].classList.remove("sepia");
+    } else {
+      draggableElems[i].classList.add("sepia");
+    }
+  }
+});

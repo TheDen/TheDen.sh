@@ -1,37 +1,23 @@
 /* Uptime */
 
 function updateClock() {
-  then = "04/08/2016 17:00:00";
-  ms = dayjs(dayjs(), "DD/MM/YYYY HH:mm:ss").diff(
-    dayjs(then, "DD/MM/YYYY HH:mm:ss")
-  );
-  d = dayjs.duration(ms);
-  s =
-    Math.floor(dayjs.duration(d.$ms).asHours()) +
-    dayjs.utc(ms).format(":mm:ss");
-  h = d.hours();
-  m = d.minutes();
-  sec = d.seconds();
-  days = dayjs().diff(dayjs("04-08-2016", "DD-MM-YYYY"), "days");
-  x = Math.random().toFixed(2);
-  y = Math.random().toFixed(2);
-  z = Math.random().toFixed(2);
+  const then = dayjs("04/08/2016 17:00:00", "DD/MM/YYYY HH:mm:ss");
+  const now = dayjs();
+  const duration = dayjs.duration(now.diff(then));
+  const days = now.diff(dayjs("04-08-2016", "DD-MM-YYYY"), "days");
+  const formattedTime = duration.format("HH:mm:ss");
+  const loadAverage = [
+    Math.random().toFixed(2),
+    Math.random().toFixed(2),
+    Math.random().toFixed(2),
+  ];
+
   document.getElementById("clock").innerHTML =
     days +
-    " days" +
-    " " +
-    h +
-    ":" +
-    m +
-    ":" +
-    sec +
-    ", 1 user, " +
-    "load average: " +
-    x +
-    ", " +
-    y +
-    ", " +
-    z;
+    " days " +
+    formattedTime +
+    ", 1 user, load average: " +
+    loadAverage.join(", ");
 }
 
 function uptimeCard() {
@@ -72,58 +58,60 @@ var typed = new Typed(".element", {
 });
 
 /* Drag */
-function windowMove() {
+function enableDrag() {
+  const draggableElems = document.querySelectorAll(".draggable");
+  const draggies = [];
+
+  for (let i = 0; i < draggableElems.length; i++) {
+    const draggableElem = draggableElems[i];
+    const draggie = new Draggabilly(draggableElem, {});
+    draggies.push(draggie);
+  }
+
   function maxwidthcheck(matchquery) {
-    if (matchquery.matches) {
-      len = draggies.length;
-      for (var i = 0, len; i < len; i += 1) {
+    const len = draggies.length;
+    for (let i = 0; i < len; i++) {
+      if (matchquery.matches) {
         draggies[i].disable();
-      }
-    } else {
-      len = draggies.length;
-      for (var i = 0, len; i < len; i += 1) {
+      } else {
         draggies[i].enable();
       }
     }
   }
 
-  var draggableElems = document.querySelectorAll(".draggable");
-  var draggies = [];
-
-  for (var i = 0, len = draggableElems.length; i < len; i++) {
-    var draggableElem = draggableElems[i];
-    var draggie = new Draggabilly(draggableElem, {});
-    draggies.push(draggie);
-  }
-
-  var matchquery = window.matchMedia("screen and (max-width: 600px)");
+  const matchquery = window.matchMedia("screen and (max-width: 600px)");
   maxwidthcheck(matchquery);
   matchquery.addListener(maxwidthcheck);
 }
-windowMove();
+
+enableDrag();
 
 /* Jitter */
-function jitter() {
-  cardcontent.style.textShadow = "4px 0px 1px";
-  backcolor.style.mixBlendMode = "luminosity";
+function startJitter() {
+  const cardcontent = document.querySelector("#cardcontent");
+  const backcolor = document.querySelector("html");
+
+  function jitter() {
+    cardcontent.style.textShadow = "4px 0px 1px";
+    backcolor.style.mixBlendMode = "luminosity";
+  }
+
+  function nojitter() {
+    cardcontent.style.textShadow = "0px 0px 1px";
+    backcolor.style.mixBlendMode = "normal";
+  }
+
+  function start() {
+    const sleep = Math.random() * 9000 + 4000;
+    setTimeout(jitter, sleep);
+    setTimeout(nojitter, sleep + 200);
+    setTimeout(start, 5000);
+  }
+
+  start();
 }
 
-function nojitter() {
-  cardcontent.style.textShadow = "0px 0px 1px";
-  backcolor.style.mixBlendMode = "normal";
-}
-
-function start() {
-  sleep = Math.random() * 9000 + 4000;
-  setTimeout(jitter, sleep);
-  setTimeout(nojitter, sleep + 200);
-  setTimeout(start, 5000);
-}
-
-var cardcontent = document.querySelector("#cardcontent");
-var backcolor = document.querySelector("html");
-var sleep = 0;
-start();
+startJitter();
 
 /* Scanlines */
 
@@ -201,40 +189,41 @@ scanlines();
 
 /* Screenglow */
 
-function screenon() {
-  document
-    .querySelector("html")
-    .setAttribute("style", "-webkit-filter: blur(0px)  saturate(10)");
-}
-function screenoff() {
-  setTimeout(
-    document
-      .querySelector("html")
-      .setAttribute("style", "-webkit-filter: none"),
-    114200
-  );
+function startScreenGlow() {
+  function screenon() {
+    document.querySelector("html").style.filter =
+      "-webkit-filter: blur(0px)  saturate(10)";
+  }
+
+  function screenoff() {
+    setTimeout(function () {
+      document.querySelector("html").style.filter = "none";
+    }, 114200);
+  }
+
+  function glow() {
+    const ontime = 1500;
+    const flick = 100;
+    setTimeout(screenon, 0);
+    setTimeout(screenoff, flick);
+    setTimeout(screenon, flick * 2);
+    setTimeout(screenoff, ontime);
+    setTimeout(screenon, ontime + flick);
+    setTimeout(screenoff, ontime + flick * 2);
+  }
+
+  function startglow() {
+    const min = 10000;
+    const max = 20000;
+    const sleep = Math.random() * (max - min) + min;
+    setTimeout(glow, sleep);
+    setTimeout(startglow, 35000);
+  }
+
+  startglow();
 }
 
-function glow() {
-  var ontime = 1500;
-  var flick = 100;
-  setTimeout(screenon, 0);
-  setTimeout(screenoff, flick);
-  setTimeout(screenon, flick * 2);
-  setTimeout(screenoff, ontime);
-  setTimeout(screenon, ontime + flick);
-  setTimeout(screenoff, ontime + flick * 2);
-}
-
-function startglow() {
-  min = 10000;
-  max = 20000;
-  sleep = Math.random() * (max - min) + min;
-  setTimeout(glow, sleep);
-  setTimeout(startglow, 35000);
-}
-
-startglow();
+startScreenGlow();
 
 /* Console */
 var styles = [
@@ -349,20 +338,22 @@ function glitch() {
 setTimeout(glitch, 0);
 
 /* Title and favicon change */
-function tabInfo() {
-  link = document.querySelector("link[rel~='icon']");
-  defaultTitle = document.title;
+function handleTabFocus() {
+  const link = document.querySelector("link[rel~='icon']");
+  const defaultTitle = document.title;
+
   window.onblur = () => {
     link.href = "favicon_off.ico";
     document.title = "[sleeping...]";
   };
+
   window.onfocus = () => {
-    //back to default title
     link.href = "favicon.ico";
     document.title = defaultTitle;
   };
 }
-tabInfo();
+
+handleTabFocus();
 
 /* Visitor Info */
 fetch("https://api.ipify.org?format=jsonp&callback=")

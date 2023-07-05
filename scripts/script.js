@@ -1,7 +1,6 @@
 /* Uptime */
-function uptimeCard() {
-  dayjs.extend(window.dayjs_plugin_duration);
-  dayjs.extend(window.dayjs_plugin_utc);
+
+function updateClock() {
   then = "04/08/2016 17:00:00";
   ms = dayjs(dayjs(), "DD/MM/YYYY HH:mm:ss").diff(
     dayjs(then, "DD/MM/YYYY HH:mm:ss")
@@ -33,40 +32,17 @@ function uptimeCard() {
     y +
     ", " +
     z;
+}
+
+function uptimeCard() {
+  dayjs.extend(window.dayjs_plugin_duration);
+  dayjs.extend(window.dayjs_plugin_utc);
+  updateClock();
 
   function update() {
-    then = "04/08/2016 17:00:00";
-    ms = dayjs(dayjs(), "DD/MM/YYYY HH:mm:ss").diff(
-      dayjs(then, "DD/MM/YYYY HH:mm:ss")
-    );
-    d = dayjs.duration(ms);
-    s =
-      Math.floor(dayjs.duration(d.$ms).asHours()) +
-      dayjs.utc(ms).format(":mm:ss");
-    h = d.hours();
-    m = d.minutes();
-    sec = d.seconds();
-    days = dayjs().diff(dayjs("04-08-2016", "DD-MM-YYYY"), "days");
-    x = Math.random().toFixed(2);
-    y = Math.random().toFixed(2);
-    z = Math.random().toFixed(2);
-    document.getElementById("clock").innerHTML =
-      days +
-      " days" +
-      " " +
-      h +
-      ":" +
-      m +
-      ":" +
-      sec +
-      ", 1 user, " +
-      "load average: " +
-      x +
-      ", " +
-      y +
-      ", " +
-      z;
+    updateClock();
   }
+
   setInterval(update, 1000);
 }
 uptimeCard();
@@ -113,12 +89,13 @@ function windowMove() {
 
   var draggableElems = document.querySelectorAll(".draggable");
   var draggies = [];
-  len = draggableElems.length;
-  for (var i = 0, len; i < len; i += 1) {
+
+  for (var i = 0, len = draggableElems.length; i < len; i++) {
     var draggableElem = draggableElems[i];
     var draggie = new Draggabilly(draggableElem, {});
     draggies.push(draggie);
   }
+
   var matchquery = window.matchMedia("screen and (max-width: 600px)");
   maxwidthcheck(matchquery);
   matchquery.addListener(maxwidthcheck);
@@ -137,9 +114,7 @@ function nojitter() {
 }
 
 function start() {
-  max = 9000;
-  min = 4000;
-  sleep = Math.random() * (max - min) + min;
+  sleep = Math.random() * 9000 + 4000;
   setTimeout(jitter, sleep);
   setTimeout(nojitter, sleep + 200);
   setTimeout(start, 5000);
@@ -147,6 +122,7 @@ function start() {
 
 var cardcontent = document.querySelector("#cardcontent");
 var backcolor = document.querySelector("html");
+var sleep = 0;
 start();
 
 /* Scanlines */
@@ -159,7 +135,7 @@ function scanlines() {
   var dotStart = document.getElementById("dot").style.left;
   var lineSpeed = 3000;
   var dotSpeed = lineSpeed / 3;
-  var loopDelay = 2000; // Delay between each loop (in milliseconds)
+  var loopDelay = 2000;
 
   var windowHeight =
     window.innerHeight || document.documentElement.clientHeight;
@@ -169,7 +145,7 @@ function scanlines() {
 
   document.getElementById("cover").style.height = windowHeight + "px";
 
-  function move() {
+  function move(timestamp) {
     var lineElement = document.getElementById("line");
     var start = null;
 
@@ -182,14 +158,14 @@ function scanlines() {
       } else {
         lineElement.style.top = lineStart;
         start = null;
-        setTimeout(move, loopDelay); // Add a delay before restarting the animation
+        setTimeout(move, loopDelay);
       }
     }
 
     window.requestAnimationFrame(step);
   }
 
-  function dot_move() {
+  function dot_move(timestamp) {
     var dotElement = document.getElementById("dot");
     var start = null;
 
@@ -202,7 +178,7 @@ function scanlines() {
       } else {
         dotElement.style.left = dotStart;
         start = null;
-        setTimeout(dot_move, loopDelay); // Add a delay before restarting the animation
+        setTimeout(dot_move, loopDelay);
       }
     }
 
@@ -220,9 +196,6 @@ function scanlines() {
     document.getElementById("cover").style.height = windowHeight + "px";
   });
 }
-
-// Call the scanlines function
-scanlines();
 
 scanlines();
 
@@ -373,7 +346,7 @@ function glitch() {
   }); */
 }
 
-glitch();
+setTimeout(glitch, 0);
 
 /* Title and favicon change */
 function tabInfo() {

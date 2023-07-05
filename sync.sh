@@ -13,7 +13,7 @@ cat index.pre.html | envsubst > index.html
 
 rsync --exclude=index.pre.html --exclude=sync.sh --exclude=dist/ --exclude=.git/ --exclude=.gitignore --delete -av . dist/
 
-echo "prttier"
+echo "run prettier"
 prettier -w .
 
 echo "Minifying everything we can"

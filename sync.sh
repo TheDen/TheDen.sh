@@ -14,6 +14,9 @@ cat index.pre.html | envsubst > index.html
 
 rsync --exclude=index.pre.html --exclude=sync.sh --exclude=dist/ --exclude=.git/ --exclude=.gitignore --delete -av . dist/
 
+echo "prttier"
+prettier -w .
+
 echo "Minifying everything we can"
 find ./dist/ -type f \( \
   -name "*.html" \

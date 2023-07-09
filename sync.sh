@@ -11,7 +11,7 @@ export VENDOR_JS=$(cat scripts/vendor.js)
 export SCRIPT_JS=$(cat scripts/script.js)
 cat index.pre.html | envsubst > index.html
 
-rsync --exclude=index.pre.html --exclude=sync.sh --exclude=dist/ --exclude=.git/ --exclude=.gitignore --delete -av . dist/
+rsync --exclude=index.pre.html --exclude=sync.sh --exclude=dist/ --exclude=.git/ --exclude=.gitignore --exclude=README.md --delete -av . dist/
 
 echo "run prettier"
 prettier -w .

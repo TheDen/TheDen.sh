@@ -14,4 +14,3 @@
 [![Website Status](https://img.shields.io/website?label=theden.sh&style=flat-square&url=https%3A%2F%2Ftheden.sh%2F)](https://theden.sh/)
 ![GitHub Repo stars](https://img.shields.io/github/stars/theden/theden.sh?style=flat-square&logo=github)
 [![License](https://img.shields.io/github/license/theden/TheDen.sh?style=flat-square)](/LICENSE)
-

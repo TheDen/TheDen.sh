@@ -74,7 +74,7 @@
                     margin-top: 0.5em;
                   }
 
-                  .lastfm-image {
+                  .songstitch-collag {
                     width: 25vw;
                   }
 
@@ -420,7 +420,7 @@
                     .dropbtn {
                       font-size: 1.7vh;
                     }
-                    .lastfm-image {
+                    .songstitch-collag {
                       width: 100%;
                     }
                   }
@@ -2672,21 +2672,21 @@
                 >LinkedIn</a
               >
             </p>
-            <h4 class="subheading-info">About [now]</h4>
+            <h3 class="subheading-info">About [now]</h3>
             <p id="about">
               DevOps Engineer, Jazz @ Sydney Conservatorium, Tech generalist,
               Previously @ CSIRO's Data61
             </p>
-            <h4 class="subheading-info">Interests [unordered]</h4>
+            <h3 class="subheading-info">Interests [unordered]</h3>
             <p>
               jazz guitar, *nix, philosophy, automation, avant garde design,
               high fidelity
             </p>
-            <h4 class="subheading-info">Location [now]</h4>
+            <h3 class="subheading-info">Location [now]</h3>
             <p>Sydney, Australia</p>
-            <h4 class="subheading-info">Contact</h4>
+            <h3 class="subheading-info">Contact</h3>
             <p>[wildcard] at theden dot sh</p>
-            <h4 class="subheading-info">PGP</h4>
+            <h3 class="subheading-info">PGP</h3>
             <p>
               <a
                 href="http://pgp.mit.edu/pks/lookup?op=get&search=0x422C77464A8E7F4A"
@@ -2842,9 +2842,11 @@
           <div class="move card">
             <h3>Currently listening to</h3>
             <img
-              class="lastfm-image"
+              alt="lastFM SongStitch collage"
+              class="songstitch-collag"
+              width="600px"
               src="https://songstitch.art/collage?username=theden_sh&period=1month&artist=true&album=false&playcount=fal
-se&rows=3&columns=3&height=700&width=700&webp=true"
+se&rows=3&columns=3&height=600&width=600&webp=true"
             />
           </div>
         </div>
@@ -3043,16 +3045,20 @@ se&rows=3&columns=3&height=700&width=700&webp=true"
             move();
             dot_move();
 
-            window.addEventListener("resize", function () {
-              windowHeight =
-                window.innerHeight || document.documentElement.clientHeight;
-              windowWidth =
-                window.innerWidth || document.documentElement.clientWidth;
-              newPosition = windowHeight - (lineHeight + desiredBottom);
-              newPositionDot = windowWidth - dotWidth;
-              document.getElementById("cover").style.height =
-                windowHeight + "px";
-            });
+            window.addEventListener(
+              "resize",
+              function () {
+                windowHeight =
+                  window.innerHeight || document.documentElement.clientHeight;
+                windowWidth =
+                  window.innerWidth || document.documentElement.clientWidth;
+                newPosition = windowHeight - (lineHeight + desiredBottom);
+                newPositionDot = windowWidth - dotWidth;
+                document.getElementById("cover").style.height =
+                  windowHeight + "px";
+              },
+              { passive: true }
+            );
           }
 
           scanlines();
@@ -3249,45 +3255,49 @@ se&rows=3&columns=3&height=700&width=700&webp=true"
             .catch((error) => console.log(error));
 
           /* Loading transition */
-          document.addEventListener("DOMContentLoaded", function () {
-            var coverElement = document.getElementById("cover");
-            var elements = Array.from(
-              document.getElementsByClassName("draggable")
-            );
-            shuffleArray(elements);
+          document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+              var coverElement = document.getElementById("cover");
+              var elements = Array.from(
+                document.getElementsByClassName("draggable")
+              );
+              shuffleArray(elements);
 
-            coverElement.style.opacity = "0";
-            coverElement.style.transition = "opacity 0.5s ease";
-
-            setTimeout(function () {
-              coverElement.style.opacity = "1";
-            }, 250);
-
-            setTimeout(function () {
-              for (var i = 0; i < elements.length; i++) {
-                elements[i].style.display = "block";
-                elements[i].style.opacity = "0";
-                elements[i].style.transition =
-                  "opacity 0.5s ease, transform 0.5s ease";
-                elements[i].style.transform = "translateY(-100px)";
-
-                setTimeout(
-                  function (index) {
-                    elements[index].style.opacity = "1";
-                    elements[index].style.transform = "translateX(0)";
-                  },
-                  50 * i,
-                  i
-                );
-              }
+              coverElement.style.opacity = "0";
+              coverElement.style.transition = "opacity 0.5s ease";
 
               setTimeout(function () {
-                elements.forEach(function (element) {
-                  element.style.transition = "none";
-                });
-              }, elements.length * 100);
-            }, 1000);
-          });
+                coverElement.style.opacity = "1";
+              }, 250);
+
+              setTimeout(function () {
+                for (var i = 0; i < elements.length; i++) {
+                  elements[i].style.display = "block";
+                  elements[i].style.opacity = "0";
+                  elements[i].style.transition =
+                    "opacity 0.5s ease, transform 0.5s ease";
+                  elements[i].style.transform = "translateY(-100px)";
+
+                  setTimeout(
+                    function (index) {
+                      elements[index].style.opacity = "1";
+                      elements[index].style.transform = "translateX(0)";
+                    },
+                    50 * i,
+                    i
+                  );
+                }
+
+                setTimeout(function () {
+                  elements.forEach(function (element) {
+                    element.style.transition = "none";
+                  });
+                }, elements.length * 100);
+              }, 1000);
+            },
+            { passive: true }
+          );
 
           function shuffleArray(array) {
             for (var i = array.length - 1; i > 0; i--) {
@@ -3328,11 +3338,13 @@ se&rows=3&columns=3&height=700&width=700&webp=true"
             flash();
           }
 
-          document
-            .getElementById("about-link")
-            .addEventListener("click", function () {
+          document.getElementById("about-link").addEventListener(
+            "click",
+            function () {
               flashElement("about", 5, 100);
-            });
+            },
+            { passive: true }
+          );
 
           const modal = document.getElementById("ErrModal");
 
@@ -3351,23 +3363,34 @@ se&rows=3&columns=3&height=700&width=700&webp=true"
             }, 300);
           }
 
-          openModalBtns.forEach(function (btn) {
-            btn.addEventListener("click", openModal);
-          });
-          window.addEventListener("click", function (event) {
-            if (event.target === modal) {
-              closeModal();
-            }
-          });
+          openModalBtns.forEach(
+            function (btn) {
+              btn.addEventListener("click", openModal);
+            },
+            { passive: true }
+          );
+          window.addEventListener(
+            "click",
+            function (event) {
+              if (event.target === modal) {
+                closeModal();
+              }
+            },
+            { passive: true }
+          );
 
           const textWrap = document.getElementById("wrap-lines");
-          textWrap.addEventListener("click", function () {
-            if (document.body.classList.contains("no-wrap")) {
-              document.body.classList.remove("no-wrap");
-            } else {
-              document.body.classList.add("no-wrap");
-            }
-          });
+          textWrap.addEventListener(
+            "click",
+            function () {
+              if (document.body.classList.contains("no-wrap")) {
+                document.body.classList.remove("no-wrap");
+              } else {
+                document.body.classList.add("no-wrap");
+              }
+            },
+            { passive: true }
+          );
 
           const highlightRegions = document.getElementById("highlight-regions");
           highlightRegions.addEventListener("click", function () {

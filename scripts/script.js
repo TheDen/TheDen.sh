@@ -176,13 +176,18 @@ function scanlines() {
   move();
   dot_move();
 
-  window.addEventListener("resize", function () {
-    windowHeight = window.innerHeight || document.documentElement.clientHeight;
-    windowWidth = window.innerWidth || document.documentElement.clientWidth;
-    newPosition = windowHeight - (lineHeight + desiredBottom);
-    newPositionDot = windowWidth - dotWidth;
-    document.getElementById("cover").style.height = windowHeight + "px";
-  });
+  window.addEventListener(
+    "resize",
+    function () {
+      windowHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+      windowWidth = window.innerWidth || document.documentElement.clientWidth;
+      newPosition = windowHeight - (lineHeight + desiredBottom);
+      newPositionDot = windowWidth - dotWidth;
+      document.getElementById("cover").style.height = windowHeight + "px";
+    },
+    { passive: true }
+  );
 }
 
 scanlines();
@@ -372,42 +377,46 @@ fetch("https://api.ipify.org?format=jsonp&callback=")
   .catch((error) => console.log(error));
 
 /* Loading transition */
-document.addEventListener("DOMContentLoaded", function () {
-  var coverElement = document.getElementById("cover");
-  var elements = Array.from(document.getElementsByClassName("draggable"));
-  shuffleArray(elements);
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+    var coverElement = document.getElementById("cover");
+    var elements = Array.from(document.getElementsByClassName("draggable"));
+    shuffleArray(elements);
 
-  coverElement.style.opacity = "0";
-  coverElement.style.transition = "opacity 0.5s ease";
-
-  setTimeout(function () {
-    coverElement.style.opacity = "1";
-  }, 250);
-
-  setTimeout(function () {
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].style.display = "block";
-      elements[i].style.opacity = "0";
-      elements[i].style.transition = "opacity 0.5s ease, transform 0.5s ease";
-      elements[i].style.transform = "translateY(-100px)";
-
-      setTimeout(
-        function (index) {
-          elements[index].style.opacity = "1";
-          elements[index].style.transform = "translateX(0)";
-        },
-        50 * i,
-        i
-      );
-    }
+    coverElement.style.opacity = "0";
+    coverElement.style.transition = "opacity 0.5s ease";
 
     setTimeout(function () {
-      elements.forEach(function (element) {
-        element.style.transition = "none";
-      });
-    }, elements.length * 100);
-  }, 1000);
-});
+      coverElement.style.opacity = "1";
+    }, 250);
+
+    setTimeout(function () {
+      for (var i = 0; i < elements.length; i++) {
+        elements[i].style.display = "block";
+        elements[i].style.opacity = "0";
+        elements[i].style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        elements[i].style.transform = "translateY(-100px)";
+
+        setTimeout(
+          function (index) {
+            elements[index].style.opacity = "1";
+            elements[index].style.transform = "translateX(0)";
+          },
+          50 * i,
+          i
+        );
+      }
+
+      setTimeout(function () {
+        elements.forEach(function (element) {
+          element.style.transition = "none";
+        });
+      }, elements.length * 100);
+    }, 1000);
+  },
+  { passive: true }
+);
 
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
@@ -448,9 +457,13 @@ function flashElement(elementId, flashCount, delay) {
   flash();
 }
 
-document.getElementById("about-link").addEventListener("click", function () {
-  flashElement("about", 5, 100);
-});
+document.getElementById("about-link").addEventListener(
+  "click",
+  function () {
+    flashElement("about", 5, 100);
+  },
+  { passive: true }
+);
 
 const modal = document.getElementById("ErrModal");
 
@@ -469,23 +482,34 @@ function closeModal() {
   }, 300);
 }
 
-openModalBtns.forEach(function (btn) {
-  btn.addEventListener("click", openModal);
-});
-window.addEventListener("click", function (event) {
-  if (event.target === modal) {
-    closeModal();
-  }
-});
+openModalBtns.forEach(
+  function (btn) {
+    btn.addEventListener("click", openModal);
+  },
+  { passive: true }
+);
+window.addEventListener(
+  "click",
+  function (event) {
+    if (event.target === modal) {
+      closeModal();
+    }
+  },
+  { passive: true }
+);
 
 const textWrap = document.getElementById("wrap-lines");
-textWrap.addEventListener("click", function () {
-  if (document.body.classList.contains("no-wrap")) {
-    document.body.classList.remove("no-wrap");
-  } else {
-    document.body.classList.add("no-wrap");
-  }
-});
+textWrap.addEventListener(
+  "click",
+  function () {
+    if (document.body.classList.contains("no-wrap")) {
+      document.body.classList.remove("no-wrap");
+    } else {
+      document.body.classList.add("no-wrap");
+    }
+  },
+  { passive: true }
+);
 
 const highlightRegions = document.getElementById("highlight-regions");
 highlightRegions.addEventListener("click", function () {

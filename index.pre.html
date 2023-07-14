@@ -491,8 +491,8 @@
             <button class="dropbtn">EDIT</button>
             <div class="dropdown-content">
               <a href="#">Undo (C-x u)</a>
-              <a href="#">Cut (C-w)</a>
-              <a href="#">Copy</a>
+              <a id="cutButton" href="#">Cut (C-w)</a>
+              <a id="copyButton" href="#">Copy</a>
             </div>
           </div>
           <div class="dropdown">
@@ -513,8 +513,8 @@
             <button class="dropbtn">Sh-Script</button>
             <div class="dropdown-content">
               <a href="#">Backslash region (C-c C-\)</a>
-              <a href="#">Set shell type (C-c :)</a>
-              <a href="#">Execute script (C-c C-x)</a>
+              <a id="shell-type" href="#">Set shell type (C-c :)</a>
+              <a id="execute-script" href="#">Execute script (C-c C-x)</a>
             </div>
           </div>
           <div class="dropdown">
@@ -524,6 +524,7 @@
             </div>
           </div>
         </div>
+        <div class="draggable" id="iframe-copy"></div>
         <div class="draggable">
           <div class="move card">
             <h1>TheDen.sh</h1>

@@ -526,3 +526,65 @@ highlightRegions.addEventListener(
   },
   { passive: true }
 );
+
+const shellType = document.getElementById("shell-type");
+shellType.addEventListener(
+  "click",
+  function () {
+    document.querySelector("html").style.cssText =
+      "filter: hue-rotate(" + Math.floor(Math.random() * 361) + "deg)";
+  },
+  { passive: true }
+);
+
+const executeScript = document.getElementById("execute-script");
+executeScript.addEventListener(
+  "click",
+  function () {
+    footer = document.getElementById("footer");
+    defaultFooterText = footer.innerText;
+    footer.style.cssText = "filter: invert(1)";
+    footer.innerHTML = "executing...";
+    setTimeout(function () {
+      footer.innerHTML = defaultFooterText;
+      footer.style.cssText = "filter: invert(0)";
+    }, 2000);
+  },
+  { passive: true }
+);
+
+const copyButton = document.getElementById("copyButton");
+copyButton.addEventListener(
+  "click",
+  function () {
+    iframeCopy = document.getElementById("iframe-copy");
+
+    htmlContent = `
+    <div class="move card" id="added-copy">
+      <iframe
+        src="https://theden.sh"
+        width="200"
+        height="300"
+        scrolling="no"
+        frameborder="0"
+        style="padding: 1.2em 0.5em 0.7em 0.5em;"
+      ></iframe>
+    </div>
+`;
+
+    iframeCopy.innerHTML = htmlContent;
+  },
+  { passive: true }
+);
+
+const cutButton = document.getElementById("cutButton");
+cutButton.addEventListener(
+  "click",
+  function () {
+    iframeCopy = document.getElementById("added-copy");
+    if (iframeCopy !== null) {
+      iframeCopy.remove();
+    }
+  },
+  { passive: true }
+);

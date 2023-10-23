@@ -32,42 +32,42 @@ jobs:
           dry: true
           prettier_options: --log-level debug --check .
 
-    misspell:
-      name: misspell
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v4
-        - name: misspell
-          uses: reviewdog/action-misspell@v1
-          with:
-            github_token: ${{ secrets.github_token }}
-            locale: "US"
-            exclude: |
-              ./.git/*
+  misspell:
+    name: misspell
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: misspell
+        uses: reviewdog/action-misspell@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          locale: "US"
+          exclude: |
+            ./.git/*
 
-    build:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v4
-          with:
-            submodules: recursive
-            fetch-depth: 0
-        - name: Setup Pages
-          id: pages
-          uses: actions/configure-pages@v3
-        - name: Upload artifact
-          uses: actions/upload-pages-artifact@v1
-          with:
-            path: ./dist
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./dist
 
-    deploy:
-      environment:
-        name: github-pages
-        url: ${{ steps.deployment.outputs.page_url }}
-      runs-on: ubuntu-latest
-      needs: build
-      steps:
-        - name: Deploy to GitHub Pages
-          id: deployment
-          uses: actions/deploy-pages@v2
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2

@@ -11,7 +11,7 @@ VENDOR_JS=$(cat scripts/vendor.js)
 export VENDOR_JS
 SCRIPT_JS=$(cat scripts/script.js)
 export SCRIPT_JS
-index.pre.html < envsubst > index.html
+envsubst < index.pre.html > index.html
 
 rm -rf dist/
 rsync --exclude=index.pre.html \

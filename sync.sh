@@ -3,13 +3,15 @@
 # Vendor libs
 (
   echo "vendoring..."
-  cd scripts
+  cd scripts || exit
   cat dayjs-duration-utc.js draggabilly.pkgd.min.js typed.js powerglitch.min.js > vendor.js
 )
 
-export VENDOR_JS=$(cat scripts/vendor.js)
-export SCRIPT_JS=$(cat scripts/script.js)
-cat index.pre.html | envsubst > index.html
+VENDOR_JS=$(cat scripts/vendor.js)
+export VENDOR_JS
+SCRIPT_JS=$(cat scripts/script.js)
+export SCRIPT_JS
+index.pre.html < envsubst > index.html
 
 rm -rf dist/
 rsync --exclude=index.pre.html \

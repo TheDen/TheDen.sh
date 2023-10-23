@@ -11,16 +11,19 @@ export VENDOR_JS=$(cat scripts/vendor.js)
 export SCRIPT_JS=$(cat scripts/script.js)
 cat index.pre.html | envsubst > index.html
 
+rm -rf dist/
 rsync --exclude=index.pre.html \
-  --exclude=sync.sh \
+  --exclude=*.sh \
   --exclude=dist/ \
-  --exclude=.git/ \
-  --exclude=.gitignore \
+  --exclude=.git* \
+  --exclude=.prettierignore \
   --exclude=README.md \
   --delete -av . dist/
 
 echo "run prettier"
 prettier -w .
+
+cpu_cores="$(nproc)"
 
 echo "Minifying everything we can"
 find ./dist/ -type f \( \
@@ -30,7 +33,7 @@ find ./dist/ -type f \( \
   -o -name '*.svg' \
   -o -name "*.xml" \
   -o -name "*.json" \
-  -o -name "*.htm" \
+  -o -name "*.html" \
   \) \
   -and ! -name "*.min*" -print0 |
-  xargs -0 -n1 -P4 -I '{}' sh -c 'minify -o "{}" "{}"'
+  xargs -0 -n1 -P"${cpu_cores}" -I '{}' sh -c 'minify -o "{}" "{}"'

@@ -186,7 +186,7 @@ function scanlines() {
       newPositionDot = windowWidth - dotWidth;
       document.getElementById("cover").style.height = windowHeight + "px";
     },
-    { passive: true }
+    { passive: true },
   );
 }
 
@@ -245,7 +245,7 @@ var styles = [
 
 console.log(
   "%c  ██████╗ ██████╗     ██████╗ \t\n██╔════╝ ╚════██╗   ██╔═████╗\t\n██║█████╗ █████╔╝   ██║██╔██║\t\n██║╚════╝██╔═══╝    ████╔╝██║\t\n╚██████╗ ███████╗██╗╚██████╔╝\t\n ╚═════╝ ╚══════╝╚═╝ ╚═════╝ \t\n",
-  styles
+  styles,
 );
 
 /* Quotes */
@@ -404,7 +404,7 @@ document.addEventListener(
             elements[index].style.transform = "translateX(0)";
           },
           50 * i,
-          i
+          i,
         );
       }
 
@@ -415,7 +415,7 @@ document.addEventListener(
       }, elements.length * 100);
     }, 1000);
   },
-  { passive: true }
+  { passive: true },
 );
 
 function shuffleArray(array) {
@@ -462,7 +462,7 @@ document.getElementById("about-link").addEventListener(
   function () {
     flashElement("about", 5, 100);
   },
-  { passive: true }
+  { passive: true },
 );
 
 const modal = document.getElementById("ErrModal");
@@ -486,7 +486,7 @@ openModalBtns.forEach(
   function (btn) {
     btn.addEventListener("click", openModal);
   },
-  { passive: true }
+  { passive: true },
 );
 window.addEventListener(
   "click",
@@ -495,7 +495,7 @@ window.addEventListener(
       closeModal();
     }
   },
-  { passive: true }
+  { passive: true },
 );
 
 const textWrap = document.getElementById("wrap-lines");
@@ -508,7 +508,7 @@ textWrap.addEventListener(
       document.body.classList.add("no-wrap");
     }
   },
-  { passive: true }
+  { passive: true },
 );
 
 const highlightRegions = document.getElementById("highlight-regions");
@@ -524,7 +524,7 @@ highlightRegions.addEventListener(
       }
     }
   },
-  { passive: true }
+  { passive: true },
 );
 
 const shellType = document.getElementById("shell-type");
@@ -534,7 +534,7 @@ shellType.addEventListener(
     document.querySelector("html").style.cssText =
       "filter: hue-rotate(" + Math.floor(Math.random() * 361) + "deg)";
   },
-  { passive: true }
+  { passive: true },
 );
 
 const executeScript = document.getElementById("execute-script");
@@ -550,7 +550,7 @@ executeScript.addEventListener(
       footer.style.cssText = "filter: invert(0)";
     }, 2000);
   },
-  { passive: true }
+  { passive: true },
 );
 
 const copyButton = document.getElementById("copyButton");
@@ -574,7 +574,7 @@ copyButton.addEventListener(
 
     iframeCopy.innerHTML = htmlContent;
   },
-  { passive: true }
+  { passive: true },
 );
 
 const cutButton = document.getElementById("cutButton");
@@ -586,5 +586,5 @@ cutButton.addEventListener(
       iframeCopy.remove();
     }
   },
-  { passive: true }
+  { passive: true },
 );

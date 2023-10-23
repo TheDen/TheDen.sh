@@ -31,7 +31,7 @@
         "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),
       months:
         "January_February_March_April_May_June_July_August_September_October_November_December".split(
-          "_"
+          "_",
         ),
     },
     m = function (t, e, n) {
@@ -128,8 +128,8 @@
                         r[4] || 0,
                         r[5] || 0,
                         r[6] || 0,
-                        s
-                      )
+                        s,
+                      ),
                     )
                   : new Date(
                       r[1],
@@ -138,7 +138,7 @@
                       r[4] || 0,
                       r[5] || 0,
                       r[6] || 0,
-                      s
+                      s,
                     );
               }
             }
@@ -190,7 +190,7 @@
             $ = function (t, e) {
               var i = O.w(
                 n.$u ? Date.UTC(n.$y, e, t) : new Date(n.$y, e, t),
-                n
+                n,
               );
               return r ? i : i.endOf(a);
             },
@@ -200,9 +200,9 @@
                   .toDate()
                   [t].apply(
                     n.toDate("s"),
-                    (r ? [0, 0, 0, 0] : [23, 59, 59, 999]).slice(e)
+                    (r ? [0, 0, 0, 0] : [23, 59, 59, 999]).slice(e),
                   ),
-                n
+                n,
               );
             },
             y = this.$W,

@@ -408,7 +408,7 @@
             this.el.parentNode &&
               this.el.parentNode.insertBefore(
                 this.cursor,
-                this.el.nextSibling
+                this.el.nextSibling,
               )));
       }),
       t

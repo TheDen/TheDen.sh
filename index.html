@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html class="noselect" lang="en">
   <head>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -491,11 +491,11 @@
             name: "en",
             weekdays:
               "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split(
-                "_"
+                "_",
               ),
             months:
               "January_February_March_April_May_June_July_August_September_October_November_December".split(
-                "_"
+                "_",
               ),
           },
           m = function (t, e, n) {
@@ -601,8 +601,8 @@
                               r[4] || 0,
                               r[5] || 0,
                               r[6] || 0,
-                              s
-                            )
+                              s,
+                            ),
                           )
                         : new Date(
                             r[1],
@@ -611,7 +611,7 @@
                             r[4] || 0,
                             r[5] || 0,
                             r[6] || 0,
-                            s
+                            s,
                           );
                     }
                   }
@@ -663,7 +663,7 @@
                   $ = function (t, e) {
                     var i = O.w(
                       n.$u ? Date.UTC(n.$y, e, t) : new Date(n.$y, e, t),
-                      n
+                      n,
                     );
                     return r ? i : i.endOf(a);
                   },
@@ -673,9 +673,9 @@
                         .toDate()
                         [t].apply(
                           n.toDate("s"),
-                          (r ? [0, 0, 0, 0] : [23, 59, 59, 999]).slice(e)
+                          (r ? [0, 0, 0, 0] : [23, 59, 59, 999]).slice(e),
                         ),
-                      n
+                      n,
                     );
                   },
                   y = this.$W,
@@ -1332,7 +1332,8 @@
                     var l = u.apply(d, e);
                     s = void 0 === s ? l : s;
                   } else o(r + " is not a valid method");
-                } else o(n + " not initialized. Cannot call methods, i.e. " + r);
+                } else
+                  o(n + " not initialized. Cannot call methods, i.e. " + r);
               }),
               void 0 !== s ? s : t
             );
@@ -1663,7 +1664,7 @@
             ? (module.exports = i(
                 t,
                 require("get-size"),
-                require("unidragger")
+                require("unidragger"),
               ))
             : (t.Draggabilly = i(t, t.getSize, t.Unidragger));
         })("undefined" != typeof window ? window : this, function (t, i, e) {
@@ -1977,7 +1978,7 @@
                     (e.stringsElement.style.cssText =
                       "clip: rect(0 0 0 0);clip-path:inset(50%);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px;");
                   var r = Array.prototype.slice.apply(
-                      e.stringsElement.children
+                      e.stringsElement.children,
                     ),
                     o = r.length;
                   if (o)
@@ -2102,7 +2103,7 @@
                     ? this.typewrite(this.pause.curString, this.pause.curStrPos)
                     : this.backspace(
                         this.pause.curString,
-                        this.pause.curStrPos
+                        this.pause.curStrPos,
                       ),
                   this.options.onStart(this.arrayPos, this)));
             }),
@@ -2299,7 +2300,7 @@
                   this.el.parentNode &&
                     this.el.parentNode.insertBefore(
                       this.cursor,
-                      this.el.nextSibling
+                      this.el.nextSibling,
                     )));
             }),
             t
@@ -2454,7 +2455,7 @@
                 }),
                 n
               ),
-              {}
+              {},
             );
           },
           H = (t, e) => {
@@ -2947,7 +2948,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
             }
 
             const matchquery = window.matchMedia(
-              "screen and (max-width: 600px)"
+              "screen and (max-width: 600px)",
             );
             maxwidthcheck(matchquery);
             matchquery.addListener(maxwidthcheck);
@@ -3060,7 +3061,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
                 document.getElementById("cover").style.height =
                   windowHeight + "px";
               },
-              { passive: true }
+              { passive: true },
             );
           }
 
@@ -3119,7 +3120,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
 
           console.log(
             "%c  ██████╗ ██████╗     ██████╗ \t\n██╔════╝ ╚════██╗   ██╔═████╗\t\n██║█████╗ █████╔╝   ██║██╔██║\t\n██║╚════╝██╔═══╝    ████╔╝██║\t\n╚██████╗ ███████╗██╗╚██████╔╝\t\n ╚═════╝ ╚══════╝╚═╝ ╚═════╝ \t\n",
-            styles
+            styles,
           );
 
           /* Quotes */
@@ -3192,7 +3193,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
                   maxHeight: 0.3,
                   hueRotate: false,
                 },
-              }
+              },
             );
             /*  PowerGlitch.glitch(".element", {
     playMode: "always",
@@ -3247,7 +3248,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
               const startIndex = data.indexOf("{");
               const endIndex = data.lastIndexOf("}");
               const jsonData = JSON.parse(
-                data.substring(startIndex, endIndex + 1)
+                data.substring(startIndex, endIndex + 1),
               );
               ipinfo = jsonData;
               if (ipinfo.ip != null) {
@@ -3263,7 +3264,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
             function () {
               var coverElement = document.getElementById("cover");
               var elements = Array.from(
-                document.getElementsByClassName("draggable")
+                document.getElementsByClassName("draggable"),
               );
               shuffleArray(elements);
 
@@ -3288,7 +3289,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
                       elements[index].style.transform = "translateX(0)";
                     },
                     50 * i,
-                    i
+                    i,
                   );
                 }
 
@@ -3299,7 +3300,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
                 }, elements.length * 100);
               }, 1000);
             },
-            { passive: true }
+            { passive: true },
           );
 
           function shuffleArray(array) {
@@ -3346,7 +3347,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
             function () {
               flashElement("about", 5, 100);
             },
-            { passive: true }
+            { passive: true },
           );
 
           const modal = document.getElementById("ErrModal");
@@ -3370,7 +3371,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
             function (btn) {
               btn.addEventListener("click", openModal);
             },
-            { passive: true }
+            { passive: true },
           );
           window.addEventListener(
             "click",
@@ -3379,7 +3380,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
                 closeModal();
               }
             },
-            { passive: true }
+            { passive: true },
           );
 
           const textWrap = document.getElementById("wrap-lines");
@@ -3392,7 +3393,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
                 document.body.classList.add("no-wrap");
               }
             },
-            { passive: true }
+            { passive: true },
           );
 
           const highlightRegions = document.getElementById("highlight-regions");
@@ -3408,7 +3409,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
                 }
               }
             },
-            { passive: true }
+            { passive: true },
           );
 
           const shellType = document.getElementById("shell-type");
@@ -3420,7 +3421,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
                 Math.floor(Math.random() * 361) +
                 "deg)";
             },
-            { passive: true }
+            { passive: true },
           );
 
           const executeScript = document.getElementById("execute-script");
@@ -3436,7 +3437,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
                 footer.style.cssText = "filter: invert(0)";
               }, 2000);
             },
-            { passive: true }
+            { passive: true },
           );
 
           const copyButton = document.getElementById("copyButton");
@@ -3460,7 +3461,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
 
               iframeCopy.innerHTML = htmlContent;
             },
-            { passive: true }
+            { passive: true },
           );
 
           const cutButton = document.getElementById("cutButton");
@@ -3472,7 +3473,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
                 iframeCopy.remove();
               }
             },
-            { passive: true }
+            { passive: true },
           );
         </script>
       </div>

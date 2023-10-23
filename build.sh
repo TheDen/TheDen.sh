@@ -19,6 +19,7 @@ rsync --exclude=index.pre.html \
   --exclude=dist/ \
   --exclude=.git* \
   --exclude=.prettierignore \
+  --exclude=LICENSE \
   --exclude=README.md \
   --delete -av . dist/
 

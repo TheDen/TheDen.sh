@@ -2,9 +2,9 @@
   "object" == typeof exports && "undefined" != typeof module
     ? (module.exports = e())
     : "function" == typeof define && define.amd
-    ? define(e)
-    : ((t = "undefined" != typeof globalThis ? globalThis : t || self).dayjs =
-        e());
+      ? define(e)
+      : ((t = "undefined" != typeof globalThis ? globalThis : t || self).dayjs =
+          e());
 })(this, function () {
   "use strict";
   var t = 1e3,
@@ -426,11 +426,11 @@
   "object" == typeof exports && "undefined" != typeof module
     ? (module.exports = s())
     : "function" == typeof define && define.amd
-    ? define(s)
-    : ((t =
-        "undefined" != typeof globalThis
-          ? globalThis
-          : t || self).dayjs_plugin_duration = s());
+      ? define(s)
+      : ((t =
+          "undefined" != typeof globalThis
+            ? globalThis
+            : t || self).dayjs_plugin_duration = s());
 })(this, function () {
   "use strict";
   var t,
@@ -707,11 +707,11 @@
   "object" == typeof exports && "undefined" != typeof module
     ? (module.exports = i())
     : "function" == typeof define && define.amd
-    ? define(i)
-    : ((t =
-        "undefined" != typeof globalThis
-          ? globalThis
-          : t || self).dayjs_plugin_utc = i());
+      ? define(i)
+      : ((t =
+          "undefined" != typeof globalThis
+            ? globalThis
+            : t || self).dayjs_plugin_utc = i());
 })(this, function () {
   "use strict";
   var t = "minute",
@@ -828,8 +828,8 @@
         return i(t, e);
       })
     : "object" == typeof module && module.exports
-    ? (module.exports = i(t, require("jquery")))
-    : (t.jQueryBridget = i(t, t.jQuery));
+      ? (module.exports = i(t, require("jquery")))
+      : (t.jQueryBridget = i(t, t.jQuery));
 })(window, function (t, i) {
   "use strict";
   var e = Array.prototype.slice,
@@ -1026,9 +1026,9 @@
       "ontouchstart" in t
         ? ((n = "touchstart"), (o = ["touchmove", "touchend", "touchcancel"]))
         : t.PointerEvent
-        ? ((n = "pointerdown"),
-          (o = ["pointermove", "pointerup", "pointercancel"]))
-        : ((n = "mousedown"), (o = ["mousemove", "mouseup"])),
+          ? ((n = "pointerdown"),
+            (o = ["pointermove", "pointerup", "pointercancel"]))
+          : ((n = "mousedown"), (o = ["mousemove", "mouseup"])),
       (s.touchActionValue = "none"),
       (s.bindHandles = function () {
         this._bindHandles("addEventListener", this.touchActionValue);
@@ -1212,10 +1212,10 @@
         "string" == typeof t
           ? (this.handles = this.element.querySelectorAll(t))
           : "object" == typeof t && t.length
-          ? (this.handles = t)
-          : t instanceof HTMLElement
-          ? (this.handles = [t])
-          : (this.handles = [this.element]);
+            ? (this.handles = t)
+            : t instanceof HTMLElement
+              ? (this.handles = [t])
+              : (this.handles = [this.element]);
       });
     const h = ["dragStart", "dragMove", "dragEnd"];
     let a = s.emitEvent;
@@ -1307,8 +1307,8 @@
           return t instanceof HTMLElement
             ? t
             : "string" == typeof t
-            ? document.querySelector(t)
-            : this.element.parentNode;
+              ? document.querySelector(t)
+              : this.element.parentNode;
       }),
       (s.handleDragMove = function (t, i, e) {
         if (!this.isEnabled) return;
@@ -1388,8 +1388,8 @@
   "object" == typeof exports && "undefined" != typeof module
     ? (module.exports = s())
     : "function" == typeof define && define.amd
-    ? define(s)
-    : ((t || self).Typed = s());
+      ? define(s)
+      : ((t || self).Typed = s());
 })(this, function () {
   function t() {
     return (
@@ -1519,10 +1519,10 @@
           return t.attr
             ? t.el.getAttribute(t.attr)
             : t.isInput
-            ? t.el.value
-            : "html" === t.contentType
-            ? t.el.innerHTML
-            : t.el.textContent;
+              ? t.el.value
+              : "html" === t.contentType
+                ? t.el.innerHTML
+                : t.el.textContent;
         }),
         (n.appendCursorAnimationCss = function (t) {
           var s = "data-typed-js-cursor-css";
@@ -1769,10 +1769,10 @@
         this.attr
           ? this.el.setAttribute(this.attr, t)
           : this.isInput
-          ? (this.el.value = t)
-          : "html" === this.contentType
-          ? (this.el.innerHTML = t)
-          : (this.el.textContent = t);
+            ? (this.el.value = t)
+            : "html" === this.contentType
+              ? (this.el.innerHTML = t)
+              : (this.el.textContent = t);
       }),
       (s.bindFocusEvents = function () {
         var t = this;
@@ -2031,10 +2031,10 @@
         typeof t == "string"
           ? (a = Array.from(document.querySelectorAll(t)))
           : t instanceof NodeList
-          ? (a = Array.from(t))
-          : Array.isArray(t)
-          ? (a = t)
-          : t instanceof HTMLElement && (a = [t]);
+            ? (a = Array.from(t))
+            : Array.isArray(t)
+              ? (a = t)
+              : t instanceof HTMLElement && (a = [t]);
         const r = _(n),
           c = a.map((i) => R(i, r, n));
         return {

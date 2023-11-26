@@ -2,9 +2,9 @@
   "object" == typeof exports && "undefined" != typeof module
     ? (module.exports = e())
     : "function" == typeof define && define.amd
-    ? define(e)
-    : ((t = "undefined" != typeof globalThis ? globalThis : t || self).dayjs =
-        e());
+      ? define(e)
+      : ((t = "undefined" != typeof globalThis ? globalThis : t || self).dayjs =
+          e());
 })(this, function () {
   "use strict";
   var t = 1e3,
@@ -426,11 +426,11 @@
   "object" == typeof exports && "undefined" != typeof module
     ? (module.exports = s())
     : "function" == typeof define && define.amd
-    ? define(s)
-    : ((t =
-        "undefined" != typeof globalThis
-          ? globalThis
-          : t || self).dayjs_plugin_duration = s());
+      ? define(s)
+      : ((t =
+          "undefined" != typeof globalThis
+            ? globalThis
+            : t || self).dayjs_plugin_duration = s());
 })(this, function () {
   "use strict";
   var t,
@@ -707,11 +707,11 @@
   "object" == typeof exports && "undefined" != typeof module
     ? (module.exports = i())
     : "function" == typeof define && define.amd
-    ? define(i)
-    : ((t =
-        "undefined" != typeof globalThis
-          ? globalThis
-          : t || self).dayjs_plugin_utc = i());
+      ? define(i)
+      : ((t =
+          "undefined" != typeof globalThis
+            ? globalThis
+            : t || self).dayjs_plugin_utc = i());
 })(this, function () {
   "use strict";
   var t = "minute",

@@ -2,8 +2,8 @@
   "object" == typeof exports && "undefined" != typeof module
     ? (module.exports = s())
     : "function" == typeof define && define.amd
-    ? define(s)
-    : ((t || self).Typed = s());
+      ? define(s)
+      : ((t || self).Typed = s());
 })(this, function () {
   function t() {
     return (
@@ -133,10 +133,10 @@
           return t.attr
             ? t.el.getAttribute(t.attr)
             : t.isInput
-            ? t.el.value
-            : "html" === t.contentType
-            ? t.el.innerHTML
-            : t.el.textContent;
+              ? t.el.value
+              : "html" === t.contentType
+                ? t.el.innerHTML
+                : t.el.textContent;
         }),
         (n.appendCursorAnimationCss = function (t) {
           var s = "data-typed-js-cursor-css";
@@ -383,10 +383,10 @@
         this.attr
           ? this.el.setAttribute(this.attr, t)
           : this.isInput
-          ? (this.el.value = t)
-          : "html" === this.contentType
-          ? (this.el.innerHTML = t)
-          : (this.el.textContent = t);
+            ? (this.el.value = t)
+            : "html" === this.contentType
+              ? (this.el.innerHTML = t)
+              : (this.el.textContent = t);
       }),
       (s.bindFocusEvents = function () {
         var t = this;

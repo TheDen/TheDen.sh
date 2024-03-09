@@ -198,10 +198,9 @@
               return O.w(
                 n
                   .toDate()
-                  [t].apply(
-                    n.toDate("s"),
-                    (r ? [0, 0, 0, 0] : [23, 59, 59, 999]).slice(e),
-                  ),
+                  [
+                    t
+                  ].apply(n.toDate("s"), (r ? [0, 0, 0, 0] : [23, 59, 59, 999]).slice(e)),
                 n,
               );
             },

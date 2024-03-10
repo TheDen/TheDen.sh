@@ -588,3 +588,11 @@ cutButton.addEventListener(
   },
   { passive: true },
 );
+
+// Cat logic
+document.getElementById("showCat").addEventListener("click", () => {
+  document
+    .querySelectorAll(".cat")
+    .forEach((el) => (el.style.display = "block"));
+  document.querySelectorAll(".cat").forEach((el) => el.classList.remove("cat"));
+});

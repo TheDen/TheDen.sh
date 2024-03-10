@@ -74,6 +74,15 @@
                     margin-top: 0.5em;
                   }
 
+                  .cat {
+                    display: none !important;
+                  }
+                  .cat-card {
+                    display: hidden;
+                    width: 100%;
+                    height: auto;
+                  }
+
                   .songstitch-collage {
                     width: 100%;
                     height: auto;
@@ -422,7 +431,11 @@
                     }
                     .songstitch-collage {
                       width: 100%;
-                                            height: auto;
+                      height: auto;
+                    }
+                    .cat-card {
+                      width: 100%;
+                      height: auto;
                     }
                   }
                   .modal {
@@ -2640,6 +2653,15 @@
               >
             </p>
             <p>
+              <a
+                style="text-decoration: underline"
+                target="_blank"
+                id="showCat"
+                rel="noopener"
+                >MEET THE CAT</a
+              >
+            </p>
+            <p>
               <a href="https://github.com/theden" target="_blank" rel="noopener"
                 >GitHub</a
               >
@@ -2857,6 +2879,19 @@
               height="500px"
               src="https://songstitch.art/collage?username=theden_sh&period=1month&artist=true&album=false&playcount=fal
 se&rows=3&columns=3&height=500&width=500&webp=true"
+            />
+          </div>
+        </div>
+        <div class="draggable cat" id="cat">
+          <div class="move card">
+            <h3>Leo Says Hi!</h3>
+            <img
+              loading="lazy"
+              alt="lastFM SongStitch collage"
+              class="cat-card"
+              width="800px"
+              height="504px"
+              src="images/leo-cat.png"
             />
           </div>
         </div>
@@ -3481,6 +3516,16 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
             },
             { passive: true },
           );
+
+          // Cat logic
+          document.getElementById("showCat").addEventListener("click", () => {
+            document
+              .querySelectorAll(".cat")
+              .forEach((el) => (el.style.display = "block"));
+            document
+              .querySelectorAll(".cat")
+              .forEach((el) => el.classList.remove("cat"));
+          });
         </script>
       </div>
       <div id="footer">

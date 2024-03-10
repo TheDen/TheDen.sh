@@ -15,4 +15,4 @@ function updateClock(){const t=dayjs("04/08/2016 17:00:00","DD/MM/YYYY HH:mm:ss"
         style="padding: 1.2em 0.5em 0.7em 0.5em;"
       ></iframe>
     </div>
-`,iframeCopy.innerHTML=htmlContent},{passive:!0});const cutButton=document.getElementById("cutButton");cutButton.addEventListener("click",function(){iframeCopy=document.getElementById("added-copy"),iframeCopy!==null&&iframeCopy.remove()},{passive:!0})
+`,iframeCopy.innerHTML=htmlContent},{passive:!0});const cutButton=document.getElementById("cutButton");cutButton.addEventListener("click",function(){iframeCopy=document.getElementById("added-copy"),iframeCopy!==null&&iframeCopy.remove()},{passive:!0}),document.getElementById("showCat").addEventListener("click",()=>{document.querySelectorAll(".cat").forEach(e=>e.style.display="block"),document.querySelectorAll(".cat").forEach(e=>e.classList.remove("cat"))})

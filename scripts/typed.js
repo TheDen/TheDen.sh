@@ -93,9 +93,9 @@
                 : e.options.stringsElement),
             e.stringsElement)
           ) {
-            (e.strings = []),
+            ((e.strings = []),
               (e.stringsElement.style.cssText =
-                "clip: rect(0 0 0 0);clip-path:inset(50%);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px;");
+                "clip: rect(0 0 0 0);clip-path:inset(50%);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px;"));
             var r = Array.prototype.slice.apply(e.stringsElement.children),
               o = r.length;
             if (o)
@@ -111,7 +111,7 @@
           (e.sequence = []),
           e.strings))
             e.sequence[u] = u;
-          (e.arrayPos = 0),
+          ((e.arrayPos = 0),
             (e.stopNum = 0),
             (e.loop = e.options.loop),
             (e.loopCount = e.options.loopCount),
@@ -127,7 +127,7 @@
             (e.autoInsertCss = e.options.autoInsertCss),
             e.autoInsertCss &&
               (this.appendCursorAnimationCss(e),
-              this.appendFadeOutAnimationCss(e));
+              this.appendFadeOutAnimationCss(e)));
         }),
         (n.getCurrentElContent = function (t) {
           return t.attr
@@ -142,20 +142,20 @@
           var s = "data-typed-js-cursor-css";
           if (t.showCursor && !document.querySelector("[" + s + "]")) {
             var e = document.createElement("style");
-            e.setAttribute(s, "true"),
+            (e.setAttribute(s, "true"),
               (e.innerHTML =
                 "\n        .typed-cursor{\n          opacity: 1;\n        }\n        .typed-cursor.typed-cursor--blink{\n          animation: typedjsBlink 0.7s infinite;\n          -webkit-animation: typedjsBlink 0.7s infinite;\n                  animation: typedjsBlink 0.7s infinite;\n        }\n        @keyframes typedjsBlink{\n          50% { opacity: 0.0; }\n        }\n        @-webkit-keyframes typedjsBlink{\n          0% { opacity: 1; }\n          50% { opacity: 0.0; }\n          100% { opacity: 1; }\n        }\n      "),
-              document.body.appendChild(e);
+              document.body.appendChild(e));
           }
         }),
         (n.appendFadeOutAnimationCss = function (t) {
           var s = "data-typed-fadeout-js-css";
           if (t.fadeOut && !document.querySelector("[" + s + "]")) {
             var e = document.createElement("style");
-            e.setAttribute(s, "true"),
+            (e.setAttribute(s, "true"),
               (e.innerHTML =
                 "\n        .typed-fade-out{\n          opacity: 0;\n          transition: opacity .25s;\n        }\n        .typed-cursor.typed-cursor--blink.typed-fade-out{\n          -webkit-animation: 0;\n          animation: 0;\n        }\n      "),
-              document.body.appendChild(e);
+              document.body.appendChild(e));
           }
         }),
         e
@@ -198,7 +198,7 @@
     })())(); /*#__PURE__*/
   return (function () {
     function t(t, s) {
-      e.load(this, s, t), this.begin();
+      (e.load(this, s, t), this.begin());
     }
     var s = t.prototype;
     return (
@@ -222,10 +222,10 @@
             this.options.onStart(this.arrayPos, this)));
       }),
       (s.destroy = function () {
-        this.reset(!1), this.options.onDestroy(this);
+        (this.reset(!1), this.options.onDestroy(this));
       }),
       (s.reset = function (t) {
-        void 0 === t && (t = !0),
+        (void 0 === t && (t = !0),
           clearInterval(this.timeout),
           this.replaceText(""),
           this.cursor &&
@@ -235,11 +235,11 @@
           (this.strPos = 0),
           (this.arrayPos = 0),
           (this.curLoop = 0),
-          t && (this.insertCursor(), this.options.onReset(this), this.begin());
+          t && (this.insertCursor(), this.options.onReset(this), this.begin()));
       }),
       (s.begin = function () {
         var t = this;
-        this.options.onBegin(this),
+        (this.options.onBegin(this),
           (this.typingComplete = !1),
           this.shuffleStringsIfNeeded(this),
           this.insertCursor(),
@@ -248,7 +248,7 @@
             0 === t.strPos
               ? t.typewrite(t.strings[t.sequence[t.arrayPos]], t.strPos)
               : t.backspace(t.strings[t.sequence[t.arrayPos]], t.strPos);
-          }, this.startDelay));
+          }, this.startDelay)));
       }),
       (s.typewrite = function (t, s) {
         var e = this;
@@ -265,12 +265,12 @@
                 o = t.substring(s);
               if ("^" === o.charAt(0) && /^\^\d+/.test(o)) {
                 var a = 1;
-                (a += (o = /\d+/.exec(o)[0]).length),
+                ((a += (o = /\d+/.exec(o)[0]).length),
                   (i = parseInt(o)),
                   (e.temporaryPause = !0),
                   e.options.onTypingPaused(e.arrayPos, e),
                   (t = t.substring(0, s) + t.substring(s + a)),
-                  e.toggleBlinking(!0);
+                  e.toggleBlinking(!0));
               }
               if ("`" === o.charAt(0)) {
                 for (
@@ -282,14 +282,14 @@
                 var u = t.substring(0, s),
                   p = t.substring(u.length + 1, s + r),
                   c = t.substring(s + r + 1);
-                (t = u + p + c), r--;
+                ((t = u + p + c), r--);
               }
               e.timeout = setTimeout(function () {
-                e.toggleBlinking(!1),
+                (e.toggleBlinking(!1),
                   s >= t.length ? e.doneTyping(t, s) : e.keepTyping(t, s, r),
                   e.temporaryPause &&
                     ((e.temporaryPause = !1),
-                    e.options.onTypingResumed(e.arrayPos, e));
+                    e.options.onTypingResumed(e.arrayPos, e)));
               }, i);
             }, i))
           : this.setPauseStatus(t, s, !0);
@@ -299,18 +299,18 @@
           (this.toggleBlinking(!1),
           this.options.preStringTyped(this.arrayPos, this));
         var n = t.substring(0, (s += e));
-        this.replaceText(n), this.typewrite(t, s);
+        (this.replaceText(n), this.typewrite(t, s));
       }),
       (s.doneTyping = function (t, s) {
         var e = this;
-        this.options.onStringTyped(this.arrayPos, this),
+        (this.options.onStringTyped(this.arrayPos, this),
           this.toggleBlinking(!0),
           (this.arrayPos === this.strings.length - 1 &&
             (this.complete(),
             !1 === this.loop || this.curLoop === this.loopCount)) ||
             (this.timeout = setTimeout(function () {
               e.backspace(t, s);
-            }, this.backDelay));
+            }, this.backDelay)));
       }),
       (s.backspace = function (t, s) {
         var e = this;
@@ -339,13 +339,13 @@
         } else this.setPauseStatus(t, s, !1);
       }),
       (s.complete = function () {
-        this.options.onComplete(this),
-          this.loop ? this.curLoop++ : (this.typingComplete = !0);
+        (this.options.onComplete(this),
+          this.loop ? this.curLoop++ : (this.typingComplete = !0));
       }),
       (s.setPauseStatus = function (t, s, e) {
-        (this.pause.typewrite = e),
+        ((this.pause.typewrite = e),
           (this.pause.curString = t),
-          (this.pause.curStrPos = s);
+          (this.pause.curStrPos = s));
       }),
       (s.toggleBlinking = function (t) {
         this.cursor &&
@@ -371,11 +371,11 @@
           (this.el.className += " " + this.fadeOutClass),
           this.cursor && (this.cursor.className += " " + this.fadeOutClass),
           setTimeout(function () {
-            t.arrayPos++,
+            (t.arrayPos++,
               t.replaceText(""),
               t.strings.length > t.arrayPos
                 ? t.typewrite(t.strings[t.sequence[t.arrayPos]], 0)
-                : (t.typewrite(t.strings[0], 0), (t.arrayPos = 0));
+                : (t.typewrite(t.strings[0], 0), (t.arrayPos = 0)));
           }, this.fadeOutDelay)
         );
       }),

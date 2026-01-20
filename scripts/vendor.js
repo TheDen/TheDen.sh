@@ -1559,7 +1559,6 @@
             for (
               i = "<" === n ? ">" : ";";
               t.substring(s + 1).charAt(0) !== i && !(1 + ++s > t.length);
-
             );
             s++;
           }
@@ -1573,7 +1572,6 @@
             for (
               i = ">" === n ? "<" : "&";
               t.substring(s - 1).charAt(0) !== i && !(--s < 0);
-
             );
             s--;
           }
@@ -1663,7 +1661,6 @@
                   ;
                   "`" !== t.substring(s + r).charAt(0) &&
                   (r++, !(s + r > t.length));
-
                 );
                 var u = t.substring(0, s),
                   p = t.substring(u.length + 1, s + r),

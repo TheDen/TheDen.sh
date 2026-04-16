@@ -518,11 +518,11 @@ document.getElementById("undo-action").addEventListener(
     const footer = document.getElementById("footer");
     const original = footer.innerText;
     const steps = [
-      "Undo! (text insertion)",
-      "Undo! (text deletion)",
-      "Undo! (cursor movement)",
-      "Undo! (mark set)",
-      "No further undo information",
+      "1 change; before #1",
+      "2 changes; before #1",
+      "3 changes; before #1",
+      "Already at oldest change",
+      "Already at oldest change",
     ];
     let i = 0;
     function next() {
@@ -561,7 +561,7 @@ document.getElementById("backslash-region").addEventListener(
   function () {
     const footer = document.getElementById("footer");
     const original = footer.innerText;
-    footer.innerText = original.replace(/\s+/g, "\\ ");
+    footer.innerText = original.replace(/\w/g, "*");
     setTimeout(function () {
       footer.innerText = original;
     }, 2000);
@@ -648,7 +648,7 @@ executeScript.addEventListener(
     footer = document.getElementById("footer");
     defaultFooterText = footer.innerText;
     footer.style.cssText = "filter: invert(1)";
-    footer.innerHTML = "executing...";
+    footer.innerHTML = ":!./run.sh";
     setTimeout(function () {
       footer.innerHTML = defaultFooterText;
       footer.style.cssText = "filter: invert(0)";

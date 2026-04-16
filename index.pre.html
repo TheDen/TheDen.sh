@@ -568,51 +568,51 @@
           <div id="line"><div id="dot"></div></div>
         </div>
         <div id="header">
-          <!-- FILE EDIT OPTIONS BUFFERS TOOLS Sh-Script HELP -->
+          <!-- :e :reg :set :ls :! :help -->
           <div class="dropdown">
-            <button class="dropbtn" onclick="">FILE</button>
+            <button class="dropbtn" onclick="">:e</button>
             <div class="dropdown-content" onclick="">
-              <a class="openModalBtn" href="#">Visit New File (C-X C-F)</a>
-              <a class="openModalBtn" href="#">Open File...</a>
-              <a class="openModalBtn" href="#">Open Directory.... (C-x d)</a>
+              <a class="openModalBtn" href="#">:e [file]</a>
+              <a class="openModalBtn" href="#">:enew</a>
+              <a class="openModalBtn" href="#">:Ex (explore dir)</a>
             </div>
           </div>
           <div class="dropdown">
-            <button class="dropbtn">EDIT</button>
+            <button class="dropbtn">:reg</button>
             <div class="dropdown-content">
-              <a id="undo-action" href="#">Undo (C-x u)</a>
-              <a id="cutButton" href="#">Cut (C-w)</a>
-              <a id="copyButton" href="#">Copy</a>
+              <a id="undo-action" href="#">u (undo)</a>
+              <a id="cutButton" href="#">dd (delete line)</a>
+              <a id="copyButton" href="#">yy (yank line)</a>
             </div>
           </div>
           <div class="dropdown">
-            <button class="dropbtn">OPTIONS</button>
+            <button class="dropbtn">:set</button>
             <div class="dropdown-content">
-              <a id="highlight-regions" href="#">Highlight Active Regions</a>
-              <a id="highlight-parens" href="#"
-                >Highlight Matching Parentheses</a
+              <a id="highlight-regions" href="#">:set hlsearch</a>
+              <a id="highlight-parens" href="#">:set showmatch</a>
+              <a id="wrap-lines" href="#">:set wrap</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">:ls</button>
+            <div class="dropdown-content">
+              <a href="#" onClick="window.location.reload()"
+                >1 %a "TheDen.sh"</a
               >
-              <a id="wrap-lines" href="#">Line Wrapping in This Buffer</a>
             </div>
           </div>
           <div class="dropdown">
-            <button class="dropbtn">BUFFERS</button>
+            <button class="dropbtn">:!</button>
             <div class="dropdown-content">
-              <a href="#" onClick="window.location.reload()">TheDen.sh *</a>
+              <a id="backslash-region" href="#">:s/\w/*/g</a>
+              <a id="shell-type" href="#">:set ft=sh</a>
+              <a id="execute-script" href="#">:!./run.sh</a>
             </div>
           </div>
           <div class="dropdown">
-            <button class="dropbtn">Sh-Script</button>
+            <button class="dropbtn">:help</button>
             <div class="dropdown-content">
-              <a id="backslash-region" href="#">Backslash region (C-c C-\)</a>
-              <a id="shell-type" href="#">Set shell type (C-c :)</a>
-              <a id="execute-script" href="#">Execute script (C-c C-x)</a>
-            </div>
-          </div>
-          <div class="dropdown">
-            <button class="dropbtn">HELP</button>
-            <div class="dropdown-content">
-              <a id="about-link" href="#">About</a>
+              <a id="about-link" href="#">:help about</a>
             </div>
           </div>
         </div>
@@ -910,8 +910,8 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
         </script>
       </div>
       <div id="footer">
-        -uuu:**-F1 TheDen.sh All L42
-        (Shell-script[sh])-----------------------------------------------------------------------------------------------------------------------------------------------------------
+        -- NORMAL -- &nbsp;&nbsp;"TheDen.sh" [unix][sh] &nbsp;&nbsp;1,1
+        &nbsp;&nbsp;All
       </div>
     </div>
   </body>

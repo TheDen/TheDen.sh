@@ -22,7 +22,7 @@ function updateClock() {
   const memPct = 61;
   const tasks = 156;
 
-  _clockEl.innerHTML =
+  _clockEl.textContent =
     currentTime +
     "  up " +
     days +
@@ -107,7 +107,7 @@ function enableDrag() {
 
   const matchquery = window.matchMedia("screen and (max-width: 600px)");
   maxwidthcheck(matchquery);
-  matchquery.addListener(maxwidthcheck);
+  matchquery.addEventListener("change", maxwidthcheck);
 }
 
 enableDrag();
@@ -130,8 +130,10 @@ function startJitter() {
   function start() {
     const sleep = Math.random() * 9000 + 4000;
     setTimeout(jitter, sleep);
-    setTimeout(nojitter, sleep + 200);
-    setTimeout(start, 5000);
+    setTimeout(function () {
+      nojitter();
+      setTimeout(start, 1000);
+    }, sleep + 200);
   }
 
   start();
@@ -142,26 +144,33 @@ startJitter();
 /* Screenglow */
 
 function startScreenGlow() {
-  function screenon() {
-    document.querySelector("html").style.filter =
-      "-webkit-filter: blur(0px)  saturate(10)";
-  }
+  const overlay = document.createElement("div");
+  overlay.style.cssText =
+    "position:fixed;inset:0;background:#009966;opacity:0;" +
+    "pointer-events:none;z-index:99998;";
+  document.body.appendChild(overlay);
 
-  function screenoff() {
-    setTimeout(function () {
-      document.querySelector("html").style.filter = "none";
-    }, 114200);
+  function flash(opacity, transitionMs) {
+    overlay.style.transition =
+      transitionMs > 0 ? "opacity " + transitionMs + "ms ease-out" : "none";
+    overlay.style.opacity = opacity;
   }
 
   function glow() {
-    const ontime = 1500;
-    const flick = 100;
-    setTimeout(screenon, 0);
-    setTimeout(screenoff, flick);
-    setTimeout(screenon, flick * 2);
-    setTimeout(screenoff, ontime);
-    setTimeout(screenon, ontime + flick);
-    setTimeout(screenoff, ontime + flick * 2);
+    // Sharp spike in, quick drop, bigger spike, slow phosphor bloom fade
+    flash(0.12, 0);
+    setTimeout(function () {
+      flash(0, 80);
+    }, 50);
+    setTimeout(function () {
+      flash(0.22, 0);
+    }, 180);
+    setTimeout(function () {
+      flash(0.06, 120);
+    }, 230);
+    setTimeout(function () {
+      flash(0, 900);
+    }, 380);
   }
 
   function startglow() {

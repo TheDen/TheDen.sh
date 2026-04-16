@@ -713,10 +713,20 @@ cutButton.addEventListener(
 
 // Cat logic
 document.getElementById("showCat").addEventListener("click", () => {
-  document
-    .querySelectorAll(".cat")
-    .forEach((el) => (el.style.display = "block"));
-  document.querySelectorAll(".cat").forEach((el) => el.classList.remove("cat"));
+  const isMobile = window.matchMedia("(max-width: 600px)").matches;
+  document.querySelectorAll(".cat").forEach((el) => {
+    el.style.display = "block";
+    el.classList.remove("cat");
+    if (!isMobile) {
+      requestAnimationFrame(() => {
+        el.style.position = "absolute";
+        el.style.left =
+          window.scrollX + window.innerWidth / 2 - el.offsetWidth / 2 + "px";
+        el.style.top =
+          window.scrollY + window.innerHeight / 2 - el.offsetHeight / 2 + "px";
+      });
+    }
+  });
 });
 
 /* Boot sequence */

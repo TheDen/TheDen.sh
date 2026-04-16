@@ -4,46 +4,128 @@ const _clockEl = document.getElementById("clock");
 const _uptimeSince = dayjs("04/08/2016 17:00:00", "DD/MM/YYYY HH:mm:ss");
 const _uptimeSinceDays = dayjs("04-08-2016", "DD-MM-YYYY");
 
-function bar(pct) {
-  const filled = Math.round(pct / 10);
-  return "█".repeat(filled) + "░".repeat(10 - filled);
+// Slowly drifting state
+const _MEM_TOTAL = 7854;
+const _SWP_TOTAL = 2048;
+let _memUsed = 4893;
+let _tasks = 156;
+
+function drift(val, min, max, step) {
+  return Math.min(
+    max,
+    Math.max(min, val + Math.floor(Math.random() * (step * 2 + 1)) - step),
+  );
+}
+
+function htopBar(width, segments) {
+  let bar = "";
+  let used = 0;
+  for (const [pct, char] of segments) {
+    const count = Math.min(Math.round((pct / 100) * width), width - used);
+    if (count > 0) {
+      bar += char.repeat(count);
+      used += count;
+    }
+  }
+  return bar + "\u2591".repeat(Math.max(0, width - used));
 }
 
 function updateClock() {
   const now = dayjs();
   const days = now.diff(_uptimeSinceDays, "days");
   const currentTime = now.format("HH:mm:ss");
-  const loadAverage = [
-    Math.random().toFixed(2),
-    Math.random().toFixed(2),
-    Math.random().toFixed(2),
+
+  _memUsed = drift(_memUsed, 3800, 5600, 25);
+  _tasks = drift(_tasks, 144, 172, 1);
+
+  const BAR = 19;
+
+  const cpu1us = +(Math.random() * 15 + 1).toFixed(1);
+  const cpu1sy = +(Math.random() * 5).toFixed(1);
+  const cpu2us = +(Math.random() * 8).toFixed(1);
+  const cpu2sy = +(Math.random() * 3).toFixed(1);
+
+  const cacheMiB = drift(1300, 1000, 1600, 20);
+  const memPct = (_memUsed / _MEM_TOTAL) * 100;
+  const cachePct = (cacheMiB / _MEM_TOTAL) * 100;
+
+  const running = Math.random() > 0.85 ? 2 : 1;
+  const load = [
+    (Math.random() * 1.8).toFixed(2),
+    (Math.random() * 1.4).toFixed(2),
+    (Math.random() * 1.1).toFixed(2),
   ];
-  const cpuPct = Math.floor(Math.random() * 35 + 5);
-  const memPct = 61;
-  const tasks = 156;
+
+  const procs = [
+    [1337, "den", +(Math.random() * 3 + 0.2).toFixed(1), 1.2, "theden.sh"],
+    [4096, "den", +(Math.random() * 1.5).toFixed(1), 0.8, "vim"],
+    [420, "root", +(Math.random() * 0.4).toFixed(1), 0.3, "sshd"],
+    [1, "root", 0.0, 0.1, "systemd"],
+    [8192, "root", 0.0, 0.1, "[kworker]"],
+  ];
+  procs.sort((a, b) => b[2] - a[2]);
+
+  const procLines = procs
+    .map(
+      ([pid, user, cpu, mem, cmd]) =>
+        String(pid).padStart(5) +
+        " " +
+        user.padEnd(6) +
+        cpu.toFixed(1).padStart(5) +
+        " " +
+        mem.toFixed(1).padStart(4) +
+        " " +
+        cmd,
+    )
+    .join("\n");
 
   _clockEl.textContent =
-    currentTime +
-    "  up " +
+    "  1[" +
+    htopBar(BAR, [
+      [cpu1us, "\u2588"],
+      [cpu1sy, "\u2593"],
+    ]) +
+    (cpu1us + cpu1sy).toFixed(1).padStart(6) +
+    "%]\n" +
+    "  2[" +
+    htopBar(BAR, [
+      [cpu2us, "\u2588"],
+      [cpu2sy, "\u2593"],
+    ]) +
+    (cpu2us + cpu2sy).toFixed(1).padStart(6) +
+    "%]\n" +
+    "Mem[" +
+    htopBar(BAR, [
+      [memPct, "\u2588"],
+      [cachePct, "\u2592"],
+    ]) +
+    String(_memUsed).padStart(5) +
+    "M/" +
+    _MEM_TOTAL +
+    "M]\n" +
+    "Swp[" +
+    htopBar(BAR, []) +
+    "     0M/" +
+    _SWP_TOTAL +
+    "M]\n" +
+    "\n" +
+    "Tasks: " +
+    _tasks +
+    ", " +
+    running +
+    " run  Load: " +
+    load[0] +
+    " " +
+    load[1] +
+    "\n" +
+    "Uptime: " +
     days +
-    " days\n" +
-    "load:  " +
-    loadAverage.join("  ") +
+    " days " +
+    currentTime +
     "\n" +
     "\n" +
-    "tasks: " +
-    tasks +
-    " total,  1 running\n" +
-    "cpu:   [" +
-    bar(cpuPct) +
-    "] " +
-    String(cpuPct).padStart(3) +
-    "%\n" +
-    "mem:   [" +
-    bar(memPct) +
-    "] " +
-    memPct +
-    "%";
+    "  PID USER    CPU%  MEM% COMMAND\n" +
+    procLines;
 }
 
 function uptimeCard() {

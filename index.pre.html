@@ -239,6 +239,24 @@
                     opacity: 0;
                   }
 
+                  .card.typecontent {
+                    min-height: 22em;
+                    min-width: 26em;
+                    overflow: hidden;
+                    padding-top: 0;
+                  }
+
+                  .terminal-bar {
+                    background: #009966;
+                    color: black;
+                    font-size: 0.75em;
+                    padding: 3px 8px;
+                    margin-left: -10px;
+                    margin-right: -10px;
+                    margin-bottom: 10px;
+                    letter-spacing: 0.1em;
+                  }
+
                   .draggable.is-pointer-down {
                     z-index: 1; /* above other draggies */
                     filter: opacity(0.6);
@@ -858,6 +876,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
         </div>
         <div class="draggable">
           <div class="move card typecontent">
+            <div class="terminal-bar">[ Messages ]</div>
             <div class="element"></div>
           </div>
         </div>

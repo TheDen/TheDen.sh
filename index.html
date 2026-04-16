@@ -3570,6 +3570,158 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
               .querySelectorAll(".cat")
               .forEach((el) => el.classList.remove("cat"));
           });
+
+          /* Boot sequence */
+          (function bootSequence() {
+            const lines = [
+              {
+                text: "TheDen BIOS v2.1.0  (C) 1987-2026  All Rights Reserved",
+                delay: 60,
+              },
+              { text: "", delay: 20 },
+              {
+                text: "CPU: 6502 @ 1.79MHz  FPU: None  Cache: None",
+                delay: 40,
+              },
+              {
+                text: "Memory test: 00000K",
+                counter: true,
+                target: 640,
+                delay: 0,
+              },
+              { text: "", delay: 20 },
+              { text: "Detecting hardware...", delay: 40 },
+              {
+                text: "  IRQ0  keyboard controller .............. OK",
+                delay: 30,
+              },
+              {
+                text: "  IRQ1  display adapter [VGA 80x25] ...... OK",
+                delay: 30,
+              },
+              {
+                text: "  IRQ3  network interface [eth0] ......... OK",
+                delay: 30,
+              },
+              {
+                text: "  IRQ8  real-time clock .................. OK",
+                delay: 30,
+              },
+              { text: "", delay: 20 },
+              { text: "Loading THEDEN.SH...", delay: 50 },
+              {
+                text: "  Mounting /dev/hda1                         [  OK  ]",
+                delay: 40,
+              },
+              {
+                text: "  Starting init                               [  OK  ]",
+                delay: 40,
+              },
+              {
+                text: "  Bringing up loopback interface             [  OK  ]",
+                delay: 40,
+              },
+              {
+                text: "  Starting network                            [  OK  ]",
+                delay: 40,
+              },
+              {
+                text: "  Starting theden.sh daemon                  [  OK  ]",
+                delay: 40,
+              },
+              { text: "", delay: 20 },
+              { text: "Press any key to skip...", dim: true, delay: 20 },
+              { text: "", delay: 400 },
+              { text: "> BOOT SUCCESSFUL. WELCOME.", bright: true, delay: 15 },
+            ];
+
+            const overlay = document.createElement("div");
+            overlay.style.cssText =
+              "position:fixed;top:0;left:0;width:100%;height:100%;background:#000;" +
+              "color:#009966;font-family:console,monospace;font-size:1em;padding:2em;" +
+              "z-index:999999;box-sizing:border-box;overflow:hidden;line-height:1.6;";
+            document.body.appendChild(overlay);
+
+            let skipped = false;
+            let lineIndex = 0;
+            let currentTimeout = null;
+
+            function dismiss() {
+              skipped = true;
+              clearTimeout(currentTimeout);
+              fadeOut();
+            }
+
+            function fadeOut() {
+              overlay.style.transition = "opacity 0.6s ease";
+              overlay.style.opacity = "0";
+              setTimeout(() => overlay.remove(), 650);
+              document.removeEventListener("keydown", dismiss);
+              document.removeEventListener("click", dismiss);
+            }
+
+            document.addEventListener("keydown", dismiss);
+            document.addEventListener("click", dismiss);
+
+            function typeNextLine() {
+              if (skipped || lineIndex >= lines.length) {
+                if (!skipped) setTimeout(fadeOut, 300);
+                return;
+              }
+
+              const spec = lines[lineIndex++];
+
+              if (spec.counter) {
+                const el = document.createElement("div");
+                overlay.appendChild(el);
+                let count = 0;
+                const step = Math.ceil(spec.target / 30);
+                function tick() {
+                  count = Math.min(count + step, spec.target);
+                  el.textContent =
+                    "Memory test: " +
+                    String(count).padStart(6, "0") +
+                    "K" +
+                    (count < spec.target ? "" : " OK");
+                  if (count < spec.target) {
+                    currentTimeout = setTimeout(tick, 18);
+                  } else {
+                    currentTimeout = setTimeout(typeNextLine, 120);
+                  }
+                }
+                tick();
+                return;
+              }
+
+              if (spec.text === "") {
+                overlay.appendChild(document.createElement("br"));
+                currentTimeout = setTimeout(typeNextLine, spec.delay);
+                return;
+              }
+
+              const el = document.createElement("div");
+              if (spec.dim) el.style.opacity = "0.45";
+              if (spec.bright) el.style.color = "#00ffaa";
+              overlay.appendChild(el);
+
+              let ci = 0;
+              const charDelay = spec.bright ? 30 : 8;
+
+              function typeChar() {
+                el.textContent = spec.text.substring(0, ci + 1);
+                ci++;
+                if (ci < spec.text.length) {
+                  currentTimeout = setTimeout(typeChar, charDelay);
+                } else {
+                  currentTimeout = setTimeout(typeNextLine, spec.delay);
+                }
+              }
+
+              typeChar();
+            }
+
+            typeNextLine();
+          })();
         </script>
       </div>
       <div id="footer">

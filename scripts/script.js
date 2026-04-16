@@ -276,13 +276,7 @@ console.log(
 
 /* Quotes */
 (function () {
-  var quotes = [
-    {
-      text: "<q>Part of the inhumanity of the computer is that, once it is competently programmed and working smoothly, it is completely honest.</q><br />- Eleanor Roosevelt",
-    },
-    {
-      text: "<q>The Internet is the first thing that humanity has built that humanity doesn&#8217;t understand, the largest experiment in anarchy that we have ever had.</q><br />- Eric Schmidt",
-    },
+  const quotes = [
     {
       text: "<q>It seems probable that once the machine thinking method had started, it would not take long to outstrip our feeble powers... They would be able to converse with each other to sharpen their wits. At some stage therefore, we should have to expect the machines to take control.</q><br />- Alan Turing",
     },
@@ -307,9 +301,20 @@ console.log(
     },
   ];
 
-  var quote = quotes[Math.floor(Math.random() * quotes.length)];
-  document.getElementById("quote").innerHTML =
-    "<aside>" + quote.text + "</aside>";
+  const el = document.getElementById("quote");
+  let index = Math.floor(Math.random() * quotes.length);
+
+  function showQuote() {
+    el.style.opacity = "0";
+    setTimeout(function () {
+      index = (index + 1) % quotes.length;
+      el.innerHTML = "<aside>" + quotes[index].text + "</aside>";
+      el.style.opacity = "0.8";
+    }, 500);
+  }
+
+  el.innerHTML = "<aside>" + quotes[index].text + "</aside>";
+  setInterval(showQuote, 10000);
 })();
 
 /* Glitch */

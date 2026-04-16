@@ -415,15 +415,26 @@
                   }
 
                   @media only screen and (max-width: 600px) {
+                    body {
+                      padding-top: 2.5em;
+                      padding-bottom: 2.5em;
+                    }
                     p {
                       padding-top: 2px;
                       padding-bottom: 2px;
                     }
+                    .card {
+                      font-size: 1em;
+                      margin-left: 0;
+                      width: 100%;
+                      box-sizing: border-box;
+                    }
                     .draggable {
+                      width: 100%;
+                      float: none;
                       max-width: 100% !important;
                       transition: opacity 0.5s ease, transform 0.5s ease;
                     }
-
                     .no-transition {
                       transition: none !important;
                     }
@@ -431,7 +442,11 @@
                       display: none !important;
                     }
                     .dropbtn {
-                      font-size: 1em
+                      font-size: 0.85em;
+                      padding: 6px 5px;
+                    }
+                    #quote {
+                      font-size: 0.65em;
                     }
                     .songstitch-collage {
                       width: 100%;

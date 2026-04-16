@@ -353,47 +353,37 @@ fetch("https://api.ipify.org?format=jsonp&callback=")
   })
   .catch((error) => console.log(error));
 
-/* Loading transition */
-document.addEventListener(
-  "DOMContentLoaded",
-  function () {
-    var coverElement = document.getElementById("cover");
-    var elements = Array.from(document.getElementsByClassName("draggable"));
-    shuffleArray(elements);
+/* Card reveal — called by boot sequence after it finishes */
+function revealCards() {
+  const elements = Array.from(document.getElementsByClassName("draggable"));
+  shuffleArray(elements);
 
-    coverElement.style.opacity = "0";
-    coverElement.style.transition = "opacity 0.5s ease";
+  elements.forEach(function (el, i) {
+    el.style.transition = "none";
+    el.style.opacity = "0";
+    el.style.transform = "scale(0.82)";
 
-    setTimeout(function () {
-      coverElement.style.opacity = "1";
-    }, 250);
+    setTimeout(
+      function () {
+        el.style.transition =
+          "opacity 0.18s ease-out, transform 0.22s cubic-bezier(0.2, 0.9, 0.3, 1)";
+        el.style.opacity = "1";
+        el.style.transform = "scale(1)";
+      },
+      30 + i * 55,
+    );
+  });
 
-    setTimeout(function () {
-      for (var i = 0; i < elements.length; i++) {
-        elements[i].style.display = "block";
-        elements[i].style.opacity = "0";
-        elements[i].style.transition = "opacity 0.5s ease, transform 0.5s ease";
-        elements[i].style.transform = "translateY(-100px)";
-
-        setTimeout(
-          function (index) {
-            elements[index].style.opacity = "1";
-            elements[index].style.transform = "translateX(0)";
-          },
-          50 * i,
-          i,
-        );
-      }
-
-      setTimeout(function () {
-        elements.forEach(function (element) {
-          element.style.transition = "none";
-        });
-      }, elements.length * 100);
-    }, 1000);
-  },
-  { passive: true },
-);
+  setTimeout(
+    function () {
+      elements.forEach(function (el) {
+        el.style.transition = "none";
+        el.style.transform = "";
+      });
+    },
+    30 + elements.length * 55 + 280,
+  );
+}
 
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
@@ -702,6 +692,7 @@ document.getElementById("showCat").addEventListener("click", () => {
     document.removeEventListener("keydown", dismiss);
     document.removeEventListener("click", dismiss);
     document.removeEventListener("touchstart", dismiss);
+    revealCards();
   }
 
   document.addEventListener("keydown", dismiss);

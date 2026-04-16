@@ -151,6 +151,12 @@
                     margin-top: 0.5em;
                   }
 
+                  .clock {
+                    display: block;
+                    white-space: pre;
+                    line-height: 1.6;
+                  }
+
                   .move {
                     cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAA7ElEQVQYlW2PvUpEUQyEZ5Kcuyr4DguCjYVY+/6dYKNYWPjzADYi3r3nJGNxV1zFr0mRIfmGBCzcmksgASgJkFUigJ7KCnOzy22cbz0RzKGcG2pqzfxIljePn/dPwY3j6qyuLyrHTimVBAK0dhKn9V7zw2uAHC70GSxJAAEASPS38dE4FB4liIQSWrf7gVLn3I9FwihAhV/sj0HCFCJMwNrqAH1nyRJKoT+BA4zEMkowCSzQ/skabUoYzSj5LsPaj8r6y9za5AgCwZ52+xwDYtXG1QxmIJjgonH3Ur3TALr75KuwyOLqSUhakoUvgqR82SVPhcIAAAAASUVORK5CYII=),
                       auto;
@@ -3004,18 +3010,44 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
             const duration = dayjs.duration(now.diff(then));
             const days = now.diff(dayjs("04-08-2016", "DD-MM-YYYY"), "days");
             const formattedTime = duration.format("HH:mm:ss");
+            const currentTime = now.format("HH:mm:ss");
             const loadAverage = [
               Math.random().toFixed(2),
               Math.random().toFixed(2),
               Math.random().toFixed(2),
             ];
 
+            const cpuPct = Math.floor(Math.random() * 35 + 5);
+            const memPct = 61;
+            const tasks = 156;
+
+            function bar(pct) {
+              const filled = Math.round(pct / 10);
+              return "█".repeat(filled) + "░".repeat(10 - filled);
+            }
+
             document.getElementById("clock").innerHTML =
+              currentTime +
+              "  up " +
               days +
-              " days " +
-              formattedTime +
-              ", 1 user, load average: " +
-              loadAverage.join(", ");
+              " days\n" +
+              "load:  " +
+              loadAverage.join("  ") +
+              "\n" +
+              "\n" +
+              "tasks: " +
+              tasks +
+              " total,  1 running\n" +
+              "cpu:   [" +
+              bar(cpuPct) +
+              "] " +
+              String(cpuPct).padStart(3) +
+              "%\n" +
+              "mem:   [" +
+              bar(memPct) +
+              "] " +
+              memPct +
+              "%";
           }
 
           function uptimeCard() {

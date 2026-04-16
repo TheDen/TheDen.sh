@@ -6,18 +6,44 @@ function updateClock() {
   const duration = dayjs.duration(now.diff(then));
   const days = now.diff(dayjs("04-08-2016", "DD-MM-YYYY"), "days");
   const formattedTime = duration.format("HH:mm:ss");
+  const currentTime = now.format("HH:mm:ss");
   const loadAverage = [
     Math.random().toFixed(2),
     Math.random().toFixed(2),
     Math.random().toFixed(2),
   ];
 
+  const cpuPct = Math.floor(Math.random() * 35 + 5);
+  const memPct = 61;
+  const tasks = 156;
+
+  function bar(pct) {
+    const filled = Math.round(pct / 10);
+    return "█".repeat(filled) + "░".repeat(10 - filled);
+  }
+
   document.getElementById("clock").innerHTML =
+    currentTime +
+    "  up " +
     days +
-    " days " +
-    formattedTime +
-    ", 1 user, load average: " +
-    loadAverage.join(", ");
+    " days\n" +
+    "load:  " +
+    loadAverage.join("  ") +
+    "\n" +
+    "\n" +
+    "tasks: " +
+    tasks +
+    " total,  1 running\n" +
+    "cpu:   [" +
+    bar(cpuPct) +
+    "] " +
+    String(cpuPct).padStart(3) +
+    "%\n" +
+    "mem:   [" +
+    bar(memPct) +
+    "] " +
+    memPct +
+    "%";
 }
 
 function uptimeCard() {

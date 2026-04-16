@@ -88,10 +88,15 @@ function enableDrag() {
   const draggableElems = document.querySelectorAll(".draggable");
   const draggies = [];
 
+  let topZ = 10;
+
   for (let i = 0; i < draggableElems.length; i++) {
     const draggableElem = draggableElems[i];
     const draggie = new Draggabilly(draggableElem, {});
     draggies.push(draggie);
+    draggie.on("dragStart", function () {
+      draggableElem.style.zIndex = ++topZ;
+    });
   }
 
   function maxwidthcheck(matchquery) {

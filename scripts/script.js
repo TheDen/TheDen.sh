@@ -615,26 +615,11 @@ document.getElementById("showCat").addEventListener("click", () => {
     { text: "  IRQ8  real-time clock .................. OK", delay: 30 },
     { text: "", delay: 20 },
     { text: "Loading THEDEN.SH...", delay: 50 },
-    {
-      text: "  Mounting /dev/hda1                         [  OK  ]",
-      delay: 40,
-    },
-    {
-      text: "  Starting init                               [  OK  ]",
-      delay: 40,
-    },
-    {
-      text: "  Bringing up loopback interface             [  OK  ]",
-      delay: 40,
-    },
-    {
-      text: "  Starting network                            [  OK  ]",
-      delay: 40,
-    },
-    {
-      text: "  Starting theden.sh daemon                  [  OK  ]",
-      delay: 40,
-    },
+    { text: "  Mounting /dev/hda1 ............... [  OK  ]", delay: 40 },
+    { text: "  Starting init .................... [  OK  ]", delay: 40 },
+    { text: "  Loopback interface ............... [  OK  ]", delay: 40 },
+    { text: "  Starting network ................. [  OK  ]", delay: 40 },
+    { text: "  Starting theden.sh daemon ........ [  OK  ]", delay: 40 },
     { text: "", delay: 20 },
     { text: "Press any key to skip...", dim: true, delay: 20 },
     { text: "", delay: 400 },
@@ -644,7 +629,9 @@ document.getElementById("showCat").addEventListener("click", () => {
   const overlay = document.createElement("div");
   overlay.style.cssText =
     "position:fixed;top:0;left:0;width:100%;height:100%;background:#000;" +
-    "color:#009966;font-family:console,monospace;font-size:1em;padding:2em;" +
+    "color:#009966;font-family:console,monospace;" +
+    "font-size:clamp(0.55rem,2.2vw,1rem);" +
+    "padding:clamp(0.75em,3vw,2em);" +
     "z-index:999999;box-sizing:border-box;overflow:hidden;line-height:1.6;";
   document.body.appendChild(overlay);
 
@@ -664,10 +651,12 @@ document.getElementById("showCat").addEventListener("click", () => {
     setTimeout(() => overlay.remove(), 650);
     document.removeEventListener("keydown", dismiss);
     document.removeEventListener("click", dismiss);
+    document.removeEventListener("touchstart", dismiss);
   }
 
   document.addEventListener("keydown", dismiss);
   document.addEventListener("click", dismiss);
+  document.addEventListener("touchstart", dismiss, { passive: true });
 
   function typeNextLine() {
     if (skipped || lineIndex >= lines.length) {

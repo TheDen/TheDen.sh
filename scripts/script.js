@@ -604,6 +604,7 @@ document.getElementById("showCat").addEventListener("click", () => {
       text: "TheDen BIOS v2.1.0  (C) 1987-2026  All Rights Reserved",
       delay: 60,
     },
+    { text: "Press any key to skip...", dim: true, delay: 20 },
     { text: "", delay: 20 },
     { text: "CPU: 6502 @ 1.79MHz  FPU: None  Cache: None", delay: 40 },
     { text: "Memory test: 00000K", counter: true, target: 640, delay: 0 },
@@ -621,7 +622,6 @@ document.getElementById("showCat").addEventListener("click", () => {
     { text: "  Starting network ................. [  OK  ]", delay: 40 },
     { text: "  Starting theden.sh daemon ........ [  OK  ]", delay: 40 },
     { text: "", delay: 20 },
-    { text: "Press any key to skip...", dim: true, delay: 20 },
     { text: "", delay: 400 },
     { text: "> BOOT SUCCESSFUL. WELCOME.", bright: true, delay: 15 },
   ];

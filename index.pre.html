@@ -69,7 +69,7 @@
                   body {
                     overflow-y: scroll;
                     overflow-x: hidden;
-                      cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAA7ElEQVQYlW2PvUpEUQyEZ5Kcuyr4DguCjYVY+/6dYKNYWPjzADYi3r3nJGNxV1zFr0mRIfmGBCzcmksgASgJkFUigJ7KCnOzy22cbz0RzKGcG2pqzfxIljePn/dPwY3j6qyuLyrHTimVBAK0dhKn9V7zw2uAHC70GSxJAAEASPS38dE4FB4liIQSWrf7gVLn3I9FwihAhV/sj0HCFCJMwNrqAH1nyRJKoT+BA4zEMkowCSzQ/skabUoYzSj5LsPaj8r6y9za5AgCwZ52+xwDYtXG1QxmIJjgonH3Ur3TALr75KuwyOLqSUhakoUvgqR82SVPhcIAAAAASUVORK5CYII=),
+                      cursor: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIyMCI+PHBhdGggZD0iTTIsMSAyLDE3IDYsMTMgOSwyMCAxMiwxOSA5LDEyIDE0LDEyWiIgZmlsbD0iIzAwOTk2NiIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+Cg==) 2 1,
                       auto;
                   }
 
@@ -162,8 +162,11 @@
                   }
 
                   .move {
-                    cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAA7ElEQVQYlW2PvUpEUQyEZ5Kcuyr4DguCjYVY+/6dYKNYWPjzADYi3r3nJGNxV1zFr0mRIfmGBCzcmksgASgJkFUigJ7KCnOzy22cbz0RzKGcG2pqzfxIljePn/dPwY3j6qyuLyrHTimVBAK0dhKn9V7zw2uAHC70GSxJAAEASPS38dE4FB4liIQSWrf7gVLn3I9FwihAhV/sj0HCFCJMwNrqAH1nyRJKoT+BA4zEMkowCSzQ/skabUoYzSj5LsPaj8r6y9za5AgCwZ52+xwDYtXG1QxmIJjgonH3Ur3TALr75KuwyOLqSUhakoUvgqR82SVPhcIAAAAASUVORK5CYII=),
-                      auto;
+                    cursor: grab;
+                  }
+
+                  .move:active {
+                    cursor: grabbing;
                   }
 
                   body {
@@ -225,7 +228,7 @@
                     padding: 0;
                   }
                   a {
-                    cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAA7ElEQVQYlW2PvUpEUQyEZ5Kcuyr4DguCjYVY+/6dYKNYWPjzADYi3r3nJGNxV1zFr0mRIfmGBCzcmksgASgJkFUigJ7KCnOzy22cbz0RzKGcG2pqzfxIljePn/dPwY3j6qyuLyrHTimVBAK0dhKn9V7zw2uAHC70GSxJAAEASPS38dE4FB4liIQSWrf7gVLn3I9FwihAhV/sj0HCFCJMwNrqAH1nyRJKoT+BA4zEMkowCSzQ/skabUoYzSj5LsPaj8r6y9za5AgCwZ52+xwDYtXG1QxmIJjgonH3Ur3TALr75KuwyOLqSUhakoUvgqR82SVPhcIAAAAASUVORK5CYII=),
+                    cursor: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIyMCI+PHBhdGggZD0iTTIsMSAyLDE3IDYsMTMgOSwyMCAxMiwxOSA5LDEyIDE0LDEyWiIgZmlsbD0iIzAwOTk2NiIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+Cg==) 2 1,
                       auto;
                     -webkit-user-select: none; /* Chrome all / Safari all */
                     -moz-user-select: none; /* Firefox all */
@@ -328,7 +331,7 @@
                     font-size: 1em;
                     padding: 2px;
                     border: none;
-                      cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAA7ElEQVQYlW2PvUpEUQyEZ5Kcuyr4DguCjYVY+/6dYKNYWPjzADYi3r3nJGNxV1zFr0mRIfmGBCzcmksgASgJkFUigJ7KCnOzy22cbz0RzKGcG2pqzfxIljePn/dPwY3j6qyuLyrHTimVBAK0dhKn9V7zw2uAHC70GSxJAAEASPS38dE4FB4liIQSWrf7gVLn3I9FwihAhV/sj0HCFCJMwNrqAH1nyRJKoT+BA4zEMkowCSzQ/skabUoYzSj5LsPaj8r6y9za5AgCwZ52+xwDYtXG1QxmIJjgonH3Ur3TALr75KuwyOLqSUhakoUvgqR82SVPhcIAAAAASUVORK5CYII=),
+                      cursor: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIyMCI+PHBhdGggZD0iTTIsMSAyLDE3IDYsMTMgOSwyMCAxMiwxOSA5LDEyIDE0LDEyWiIgZmlsbD0iIzAwOTk2NiIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+Cg==) 2 1,
                       auto;
                     z-index: 50;
                     text-shadow: 0px 0px 1px;
@@ -514,6 +517,22 @@
                     100% {
                       opacity: 1;
                     }
+                  }
+
+                  #cursor-glow {
+                    position: fixed;
+                    width: 28px;
+                    height: 28px;
+                    border-radius: 50%;
+                    background: radial-gradient(
+                      circle,
+                      rgba(0, 153, 102, 0.18) 0%,
+                      transparent 70%
+                    );
+                    pointer-events: none;
+                    z-index: 9999998;
+                    transform: translate(-50%, -50%);
+                    transition: left 0.06s ease-out, top 0.06s ease-out;
                   }
 
                   @media only screen and (max-width: 600px) {

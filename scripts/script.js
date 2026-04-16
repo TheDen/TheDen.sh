@@ -758,3 +758,15 @@ document.getElementById("showCat").addEventListener("click", () => {
 
   typeNextLine();
 })();
+
+/* Cursor glow */
+(function () {
+  const glow = document.createElement("div");
+  glow.id = "cursor-glow";
+  document.body.appendChild(glow);
+
+  document.addEventListener("mousemove", function (e) {
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+  });
+})();

@@ -710,7 +710,7 @@ document.getElementById("showCat").addEventListener("click", () => {
 (function bootSequence() {
   const lines = [
     {
-      text: "TheDen BIOS v2.1.0  (C) 1987-2026  All Rights Reserved",
+      text: `TheDen BIOS v2.1.0  (C) 1990-${new Date().getFullYear()}  All Rights Reserved`,
       delay: 60,
     },
     { text: "Press any key to skip...", dim: true, delay: 20 },

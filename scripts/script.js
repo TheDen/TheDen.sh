@@ -711,6 +711,33 @@ cutButton.addEventListener(
   { passive: true },
 );
 
+// Minimise buttons
+document.querySelectorAll(".terminal-bar").forEach((bar) => {
+  const title = document.createElement("span");
+  title.className = "terminal-bar-title";
+  title.textContent = bar.textContent;
+  bar.textContent = "";
+  bar.appendChild(title);
+
+  const btn = document.createElement("button");
+  btn.className = "minimise-btn";
+  btn.textContent = "[-]";
+  btn.setAttribute("aria-label", "Minimise");
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const card = bar.closest(".card");
+    if (!card.classList.contains("minimised")) {
+      card.style.width = card.offsetWidth + "px";
+    }
+    const minimised = card.classList.toggle("minimised");
+    btn.textContent = minimised ? "[+]" : "[-]";
+    if (!minimised) {
+      card.style.width = "";
+    }
+  });
+  bar.appendChild(btn);
+});
+
 // Cat logic
 document.getElementById("showCat").addEventListener("click", () => {
   const isMobile = window.matchMedia("(max-width: 600px)").matches;

@@ -175,6 +175,7 @@
 
                   .card {
                     text-decoration: none;
+                    box-sizing: border-box;
                     padding-left: 10px;
                     padding-right: 10px;
                     padding-bottom: 10px;
@@ -299,6 +300,43 @@
                     margin-right: -10px;
                     margin-bottom: 10px;
                     letter-spacing: 0.1em;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                  }
+
+                  .terminal-bar-title {
+                    flex: 1;
+                  }
+
+                  .minimise-btn {
+                    background: none;
+                    border: none;
+                    color: black;
+                    font-family: inherit;
+                    font-size: inherit;
+                    cursor: pointer;
+                    padding: 0 0 0 8px;
+                    line-height: 1;
+                    flex-shrink: 0;
+                  }
+
+                  .minimise-btn:hover {
+                    opacity: 0.6;
+                  }
+
+                  .card.minimised > *:not(.terminal-bar) {
+                    display: none !important;
+                  }
+
+                  .card.minimised {
+                    min-height: unset !important;
+                    min-width: unset !important;
+                    padding-bottom: 0;
+                  }
+
+                  .card.minimised .terminal-bar {
+                    margin-bottom: 0;
                   }
 
                   .draggable.is-pointer-down {
@@ -3822,6 +3860,33 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
             },
             { passive: true },
           );
+
+          // Minimise buttons
+          document.querySelectorAll(".terminal-bar").forEach((bar) => {
+            const title = document.createElement("span");
+            title.className = "terminal-bar-title";
+            title.textContent = bar.textContent;
+            bar.textContent = "";
+            bar.appendChild(title);
+
+            const btn = document.createElement("button");
+            btn.className = "minimise-btn";
+            btn.textContent = "[-]";
+            btn.setAttribute("aria-label", "Minimise");
+            btn.addEventListener("click", (e) => {
+              e.stopPropagation();
+              const card = bar.closest(".card");
+              if (!card.classList.contains("minimised")) {
+                card.style.width = card.offsetWidth + "px";
+              }
+              const minimised = card.classList.toggle("minimised");
+              btn.textContent = minimised ? "[+]" : "[-]";
+              if (!minimised) {
+                card.style.width = "";
+              }
+            });
+            bar.appendChild(btn);
+          });
 
           // Cat logic
           document.getElementById("showCat").addEventListener("click", () => {

@@ -175,6 +175,7 @@
 
                   .card {
                     text-decoration: none;
+                    box-sizing: border-box;
                     padding-left: 10px;
                     padding-right: 10px;
                     padding-bottom: 10px;
@@ -299,6 +300,43 @@
                     margin-right: -10px;
                     margin-bottom: 10px;
                     letter-spacing: 0.1em;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                  }
+
+                  .terminal-bar-title {
+                    flex: 1;
+                  }
+
+                  .minimise-btn {
+                    background: none;
+                    border: none;
+                    color: black;
+                    font-family: inherit;
+                    font-size: inherit;
+                    cursor: pointer;
+                    padding: 0 0 0 8px;
+                    line-height: 1;
+                    flex-shrink: 0;
+                  }
+
+                  .minimise-btn:hover {
+                    opacity: 0.6;
+                  }
+
+                  .card.minimised > *:not(.terminal-bar) {
+                    display: none !important;
+                  }
+
+                  .card.minimised {
+                    min-height: unset !important;
+                    min-width: unset !important;
+                    padding-bottom: 0;
+                  }
+
+                  .card.minimised .terminal-bar {
+                    margin-bottom: 0;
                   }
 
                   .draggable.is-pointer-down {

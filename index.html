@@ -435,7 +435,17 @@
                   }
 
                   #cover {
-                    background-image: url(data:image/gif;base64,R0lGODlhAgAHAPEDAAAAAAEGBAcYEwAAACH5BAUKAAMALAAAAAACAAcAAAIFjCMpwF0AOw==);
+                    background-image: radial-gradient(
+                        ellipse at 50% 50%,
+                        transparent 40%,
+                        rgba(0, 0, 0, 0.97) 100%
+                      ),
+                      radial-gradient(
+                        ellipse 70% 60% at 50% 50%,
+                        rgba(0, 153, 102, 0.05) 0%,
+                        transparent 100%
+                      ),
+                      url(data:image/gif;base64,R0lGODlhAgAHAPEDAAAAAAEGBAcYEwAAACH5BAUKAAMALAAAAAACAAcAAAIFjCMpwF0AOw==);
                     position: fixed;
                     left: 0;
                     top: 0;

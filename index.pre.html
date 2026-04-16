@@ -56,10 +56,13 @@
 
                   .subheading-info {
                     font-size: 0.7em;
-                    color: rgba(0, 153, 102, 0.7);
+                    font-weight: normal;
+                    color: rgba(0, 153, 102, 0.6);
                     margin-top: 0.9em;
                     margin-bottom: 0.2em;
-                    letter-spacing: 0.05em;
+                    margin-left: 0;
+                    letter-spacing: 0.08em;
+                    text-transform: uppercase;
                   }
 
 
@@ -175,7 +178,7 @@
                     border: 1px solid #009966;
                     vertical-align: middle;
                     float: left;
-                    font-size: 1.3em;
+                    font-size: 1.1em;
                     font-family: "console", "monospace", "Consolas", "Courier";
                     color: #009966;
                     margin-left: 0.5em;
@@ -187,6 +190,7 @@
                   h1 {
                     color: #009966;
                   }
+
                   p {
                     color: black;
                     background-color: #009966;
@@ -195,6 +199,16 @@
                     padding-right: 0.1em;
                     margin-left: 0.1em;
                     margin-right: 0.5em;
+                  }
+
+                  p:not(:has(a)) {
+                    background: none;
+                    color: #009966;
+                    box-shadow: none;
+                    font-size: 0.85em;
+                    opacity: 0.85;
+                    margin-top: 0.1em;
+                    margin-bottom: 0.1em;
                   }
 
 
@@ -604,6 +618,18 @@
         <div class="draggable">
           <div class="move card">
             <div class="terminal-bar">[ TheDen.sh ]</div>
+            <h2 class="subheading-info">About</h2>
+            <p id="about">
+              Independent DevOps x Platform Engineer, Prev @ Sydney
+              Conservatorium, Prev @ CSIRO's Data61
+            </p>
+            <h2 class="subheading-info">Interests</h2>
+            <p>Cats, jazz guitar, *nix, philosophy, design</p>
+            <h2 class="subheading-info">Location</h2>
+            <p>Melbourne, Australia</p>
+            <h2 class="subheading-info">Contact</h2>
+            <p>[wildcard] at theden dot sh</p>
+            <h2 class="subheading-info">Links</h2>
             <p>
               <a
                 href="https://thoughts.theden.sh/"
@@ -656,33 +682,6 @@
                 target="_blank"
                 rel="noopener"
                 >LinkedIn</a
-              >
-            </p>
-            <h2 class="subheading-info">About [now]</h2>
-            <p id="about">
-              DevOps x Platform Engineer, Prev @ Sydney Conservatorium, Prev @
-              CSIRO's Data61
-            </p>
-            <h2 class="subheading-info">Interests [unordered]</h2>
-            <p>
-              Cats, jazz guitar, *nix, philosophy, automation, avant garde
-              design, high fidelity
-            </p>
-            <h2 class="subheading-info">Location [now]</h2>
-            <p>Melbourne, Australia</p>
-            <h2 class="subheading-info">Contact</h2>
-            <p>[wildcard] at theden dot sh</p>
-            <h2 class="subheading-info">PGP</h2>
-            <p>
-              <a
-                href="http://pgp.mit.edu/pks/lookup?op=get&search=0x422C77464A8E7F4A"
-                target="_blank"
-                rel="noopener"
-                >Public Key</a
-              >|<a
-                href="#PGP:178CAB57F5897517B428CAE6422C77464A8E7F4A"
-                target=""
-                >Fingerprint</a
               >
             </p>
             <div id="quote"></div>

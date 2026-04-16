@@ -380,10 +380,40 @@
                     font-family: "console", "monospace", "Consolas", "Courier";
                   }
 
+                  @keyframes scan-y {
+                    0% {
+                      transform: translateY(0);
+                    }
+                    60% {
+                      transform: translateY(calc(100vh - 2px));
+                    }
+                    60.01% {
+                      transform: translateY(0);
+                    }
+                    100% {
+                      transform: translateY(0);
+                    }
+                  }
+
+                  @keyframes scan-x {
+                    0% {
+                      transform: translateX(0);
+                    }
+                    33.33% {
+                      transform: translateX(calc(100vw - 20px));
+                    }
+                    33.34% {
+                      transform: translateX(0);
+                    }
+                    100% {
+                      transform: translateX(0);
+                    }
+                  }
+
                   #line {
-                    position: relative;
-                    top: 0px;
-                    left: 0px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
                     width: 100%;
                     height: 2px;
                     background: #009966;
@@ -391,24 +421,27 @@
                     z-index: 100;
                     box-shadow: 10px 10px 5px #009966;
                     filter: blur(10px);
+                    animation: scan-y 5s linear infinite;
                   }
 
                   #dot {
                     position: relative;
-                    left: 10px;
+                    left: 0;
                     width: 20px;
                     height: 2px;
                     background: #000;
                     opacity: 1;
+                    animation: scan-x 3s linear infinite;
                   }
 
                   #cover {
                     background-image: url(data:image/gif;base64,R0lGODlhAgAHAPEDAAAAAAEGBAcYEwAAACH5BAUKAAMALAAAAAACAAcAAAIFjCMpwF0AOw==);
                     position: fixed;
-                    left: 0px;
-                    top: 0px;
+                    left: 0;
+                    top: 0;
                     width: 100%;
-                    height: 200px;
+                    height: 100vh;
+                    overflow: hidden;
                   }
 
                   #content {
@@ -3012,29 +3045,32 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
         <script type="text/javascript">
           /* Uptime */
 
+          const _clockEl = document.getElementById("clock");
+          const _uptimeSince = dayjs(
+            "04/08/2016 17:00:00",
+            "DD/MM/YYYY HH:mm:ss",
+          );
+          const _uptimeSinceDays = dayjs("04-08-2016", "DD-MM-YYYY");
+
+          function bar(pct) {
+            const filled = Math.round(pct / 10);
+            return "█".repeat(filled) + "░".repeat(10 - filled);
+          }
+
           function updateClock() {
-            const then = dayjs("04/08/2016 17:00:00", "DD/MM/YYYY HH:mm:ss");
             const now = dayjs();
-            const duration = dayjs.duration(now.diff(then));
-            const days = now.diff(dayjs("04-08-2016", "DD-MM-YYYY"), "days");
-            const formattedTime = duration.format("HH:mm:ss");
+            const days = now.diff(_uptimeSinceDays, "days");
             const currentTime = now.format("HH:mm:ss");
             const loadAverage = [
               Math.random().toFixed(2),
               Math.random().toFixed(2),
               Math.random().toFixed(2),
             ];
-
             const cpuPct = Math.floor(Math.random() * 35 + 5);
             const memPct = 61;
             const tasks = 156;
 
-            function bar(pct) {
-              const filled = Math.round(pct / 10);
-              return "█".repeat(filled) + "░".repeat(10 - filled);
-            }
-
-            document.getElementById("clock").innerHTML =
+            _clockEl.innerHTML =
               currentTime +
               "  up " +
               days +
@@ -3062,14 +3098,9 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
             dayjs.extend(window.dayjs_plugin_duration);
             dayjs.extend(window.dayjs_plugin_utc);
             updateClock();
-
-            function update() {
-              updateClock();
-            }
-
-            setInterval(update, 1000);
           }
           uptimeCard();
+          let _clockInterval = setInterval(updateClock, 1000);
 
           /* ASCII typed text */
           var typed = new Typed(".element", {
@@ -3157,90 +3188,6 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
           }
 
           startJitter();
-
-          /* Scanlines */
-
-          function scanlines() {
-            var lineHeight = document.getElementById("line").offsetHeight;
-            var dotWidth = document.getElementById("dot").offsetWidth;
-            var desiredBottom = 0;
-            var lineStart = document.getElementById("line").style.top;
-            var dotStart = document.getElementById("dot").style.left;
-            var lineSpeed = 3000;
-            var dotSpeed = lineSpeed / 3;
-            var loopDelay = 2000;
-
-            var windowHeight =
-              window.innerHeight || document.documentElement.clientHeight;
-            var windowWidth =
-              window.innerWidth || document.documentElement.clientWidth;
-            var newPosition = windowHeight - (lineHeight + desiredBottom);
-            var newPositionDot = windowWidth - dotWidth;
-
-            document.getElementById("cover").style.height = windowHeight + "px";
-
-            function move(timestamp) {
-              var lineElement = document.getElementById("line");
-              var start = null;
-
-              function step(timestamp) {
-                if (!start) start = timestamp;
-                var progress = timestamp - start;
-                lineElement.style.top =
-                  (progress / lineSpeed) * newPosition + "px";
-                if (progress < lineSpeed) {
-                  window.requestAnimationFrame(step);
-                } else {
-                  lineElement.style.top = lineStart;
-                  start = null;
-                  setTimeout(move, loopDelay);
-                }
-              }
-
-              window.requestAnimationFrame(step);
-            }
-
-            function dot_move(timestamp) {
-              var dotElement = document.getElementById("dot");
-              var start = null;
-
-              function step(timestamp) {
-                if (!start) start = timestamp;
-                var progress = timestamp - start;
-                dotElement.style.left =
-                  (progress / dotSpeed) * newPositionDot + "px";
-                if (progress < dotSpeed) {
-                  window.requestAnimationFrame(step);
-                } else {
-                  dotElement.style.left = dotStart;
-                  start = null;
-                  setTimeout(dot_move, loopDelay);
-                }
-              }
-
-              window.requestAnimationFrame(step);
-            }
-
-            move();
-            dot_move();
-
-            window.addEventListener(
-              "resize",
-              function () {
-                windowHeight =
-                  window.innerHeight || document.documentElement.clientHeight;
-                windowWidth =
-                  window.innerWidth || document.documentElement.clientWidth;
-                newPosition = windowHeight - (lineHeight + desiredBottom);
-                newPositionDot = windowWidth - dotWidth;
-                document.getElementById("cover").style.height =
-                  windowHeight + "px";
-              },
-              { passive: true },
-            );
-          }
-
-          scanlines();
 
           /* Screenglow */
 
@@ -3420,6 +3367,26 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
           }
 
           handleTabFocus();
+
+          /* Pause expensive work when tab is hidden */
+          document.addEventListener("visibilitychange", function () {
+            if (document.hidden) {
+              clearInterval(_clockInterval);
+              typed.stop();
+              document.getElementById("line").style.animationPlayState =
+                "paused";
+              document.getElementById("dot").style.animationPlayState =
+                "paused";
+            } else {
+              updateClock();
+              _clockInterval = setInterval(updateClock, 1000);
+              typed.start();
+              document.getElementById("line").style.animationPlayState =
+                "running";
+              document.getElementById("dot").style.animationPlayState =
+                "running";
+            }
+          });
 
           /* Visitor Info */
           fetch("https://api.ipify.org?format=jsonp&callback=")

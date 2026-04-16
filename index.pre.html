@@ -380,10 +380,40 @@
                     font-family: "console", "monospace", "Consolas", "Courier";
                   }
 
+                  @keyframes scan-y {
+                    0% {
+                      transform: translateY(0);
+                    }
+                    60% {
+                      transform: translateY(calc(100vh - 2px));
+                    }
+                    60.01% {
+                      transform: translateY(0);
+                    }
+                    100% {
+                      transform: translateY(0);
+                    }
+                  }
+
+                  @keyframes scan-x {
+                    0% {
+                      transform: translateX(0);
+                    }
+                    33.33% {
+                      transform: translateX(calc(100vw - 20px));
+                    }
+                    33.34% {
+                      transform: translateX(0);
+                    }
+                    100% {
+                      transform: translateX(0);
+                    }
+                  }
+
                   #line {
-                    position: relative;
-                    top: 0px;
-                    left: 0px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
                     width: 100%;
                     height: 2px;
                     background: #009966;
@@ -391,24 +421,27 @@
                     z-index: 100;
                     box-shadow: 10px 10px 5px #009966;
                     filter: blur(10px);
+                    animation: scan-y 5s linear infinite;
                   }
 
                   #dot {
                     position: relative;
-                    left: 10px;
+                    left: 0;
                     width: 20px;
                     height: 2px;
                     background: #000;
                     opacity: 1;
+                    animation: scan-x 3s linear infinite;
                   }
 
                   #cover {
                     background-image: url(data:image/gif;base64,R0lGODlhAgAHAPEDAAAAAAEGBAcYEwAAACH5BAUKAAMALAAAAAACAAcAAAIFjCMpwF0AOw==);
                     position: fixed;
-                    left: 0px;
-                    top: 0px;
+                    left: 0;
+                    top: 0;
                     width: 100%;
-                    height: 200px;
+                    height: 100vh;
+                    overflow: hidden;
                   }
 
                   #content {

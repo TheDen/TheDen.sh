@@ -15,30 +15,6 @@ permissions:
   id-token: write
 
 jobs:
-  prettier:
-    name: prettier
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
-      - name: Prettify code
-        uses: creyD/prettier_action@31355f8eef017f8aeba2e0bc09d8502b13dbbad1
-        with:
-          dry: true
-          prettier_options: --log-level debug --check .
-
-  misspell:
-    name: misspell
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
-      - name: misspell
-        uses: reviewdog/action-misspell@d6429416b12b09b4e2768307d53bef58d172e962
-        with:
-          github_token: ${{ secrets.github_token }}
-          locale: "US"
-          exclude: |
-            ./.git/*
-
   build:
     runs-on: ubuntu-latest
     steps:

@@ -491,7 +491,80 @@ function flashElement(elementId, flashCount, delay) {
 document.getElementById("about-link").addEventListener(
   "click",
   function () {
-    flashElement("about", 5, 100);
+    const el = document.getElementById("about");
+    let flashes = 0;
+    const interval = setInterval(function () {
+      if (flashes % 2 === 0) {
+        el.style.color = "black";
+        el.style.backgroundColor = "#009966";
+      } else {
+        el.style.color = "";
+        el.style.backgroundColor = "";
+      }
+      flashes++;
+      if (flashes >= 8) {
+        clearInterval(interval);
+        el.style.color = "";
+        el.style.backgroundColor = "";
+      }
+    }, 120);
+  },
+  { passive: true },
+);
+
+document.getElementById("undo-action").addEventListener(
+  "click",
+  function () {
+    const footer = document.getElementById("footer");
+    const original = footer.innerText;
+    const steps = [
+      "Undo! (text insertion)",
+      "Undo! (text deletion)",
+      "Undo! (cursor movement)",
+      "Undo! (mark set)",
+      "No further undo information",
+    ];
+    let i = 0;
+    function next() {
+      if (i < steps.length) {
+        footer.innerText = steps[i++];
+        setTimeout(next, 400);
+      } else {
+        setTimeout(function () {
+          footer.innerText = original;
+        }, 600);
+      }
+    }
+    next();
+  },
+  { passive: true },
+);
+
+document.getElementById("highlight-parens").addEventListener(
+  "click",
+  function () {
+    const footer = document.getElementById("footer");
+    const original = footer.innerHTML;
+    footer.innerHTML = original.replace(
+      /\(([^)]+)\)/g,
+      '<span style="background:#fff;color:#000;font-weight:bold">($1)</span>',
+    );
+    setTimeout(function () {
+      footer.innerHTML = original;
+    }, 2500);
+  },
+  { passive: true },
+);
+
+document.getElementById("backslash-region").addEventListener(
+  "click",
+  function () {
+    const footer = document.getElementById("footer");
+    const original = footer.innerText;
+    footer.innerText = original.replace(/\s+/g, "\\ ");
+    setTimeout(function () {
+      footer.innerText = original;
+    }, 2000);
   },
   { passive: true },
 );

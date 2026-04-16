@@ -580,7 +580,7 @@
           <div class="dropdown">
             <button class="dropbtn">EDIT</button>
             <div class="dropdown-content">
-              <a href="#">Undo (C-x u)</a>
+              <a id="undo-action" href="#">Undo (C-x u)</a>
               <a id="cutButton" href="#">Cut (C-w)</a>
               <a id="copyButton" href="#">Copy</a>
             </div>
@@ -589,7 +589,9 @@
             <button class="dropbtn">OPTIONS</button>
             <div class="dropdown-content">
               <a id="highlight-regions" href="#">Highlight Active Regions</a>
-              <a href="#">Highlight Matching Parentheses</a>
+              <a id="highlight-parens" href="#"
+                >Highlight Matching Parentheses</a
+              >
               <a id="wrap-lines" href="#">Line Wrapping in This Buffer</a>
             </div>
           </div>
@@ -602,7 +604,7 @@
           <div class="dropdown">
             <button class="dropbtn">Sh-Script</button>
             <div class="dropdown-content">
-              <a href="#">Backslash region (C-c C-\)</a>
+              <a id="backslash-region" href="#">Backslash region (C-c C-\)</a>
               <a id="shell-type" href="#">Set shell type (C-c :)</a>
               <a id="execute-script" href="#">Execute script (C-c C-x)</a>
             </div>

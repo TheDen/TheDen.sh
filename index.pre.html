@@ -243,7 +243,6 @@
                     min-height: 22em;
                     min-width: 26em;
                     overflow: hidden;
-                    padding-top: 0;
                   }
 
                   .terminal-bar {
@@ -251,6 +250,7 @@
                     color: black;
                     font-size: 0.75em;
                     padding: 3px 8px;
+                    margin-top: 0;
                     margin-left: -10px;
                     margin-right: -10px;
                     margin-bottom: 10px;
@@ -576,7 +576,7 @@
         <div class="draggable" id="iframe-copy"></div>
         <div class="draggable">
           <div class="move card">
-            <h1>TheDen.sh</h1>
+            <div class="terminal-bar">[ TheDen.sh ]</div>
             <p>
               <a
                 href="https://thoughts.theden.sh/"
@@ -667,7 +667,7 @@
         </div>
         <div class="draggable">
           <div class="move card">
-            <h3>Projects</h3>
+            <div class="terminal-bar">[ Projects ]</div>
             <p>
               <a
                 href="https://catmatch.theden.sh/"
@@ -793,7 +793,7 @@
         </div>
         <div class="draggable">
           <div class="move card">
-            <h3>Friends</h3>
+            <div class="terminal-bar">[ Friends ]</div>
             <p>
               <a
                 href="https://samuelunicomb.com/"
@@ -835,13 +835,13 @@
         </div>
         <div class="draggable">
           <div class="move card">
-            <h4><strong>[root@TheDen ~]# uptime</strong></h4>
+            <div class="terminal-bar">[root@TheDen ~]# uptime</div>
             <span id="clock" class="clock"></span>
           </div>
         </div>
         <div class="draggable">
           <div class="move card">
-            <h3>Currently listening to</h3>
+            <div class="terminal-bar">[ Now Playing ]</div>
             <img
               alt="lastFM SongStitch collage"
               class="songstitch-collage"
@@ -854,7 +854,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
         </div>
         <div class="draggable cat" id="cat">
           <div class="move card">
-            <h3>Finn Says Hi!</h3>
+            <div class="terminal-bar">[ Finn Says Hi! ]</div>
             <img
               loading="lazy"
               alt="Cat Picture"
@@ -870,7 +870,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
         </div>
         <div class="draggable">
           <div class="move card ipinfo">
-            <h4><strong>Visitor IP Address</strong></h4>
+            <div class="terminal-bar">[ Visitor IP ]</div>
             <p class="ipaddress"></p>
           </div>
         </div>

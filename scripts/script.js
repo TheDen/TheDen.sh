@@ -793,10 +793,12 @@ document.getElementById("showCat").addEventListener("click", () => {
   let skipped = false;
   let lineIndex = 0;
   let currentTimeout = null;
+  let currentFrame = null;
 
   function dismiss() {
     skipped = true;
     clearTimeout(currentTimeout);
+    cancelAnimationFrame(currentFrame);
     fadeOut();
   }
 
@@ -814,9 +816,28 @@ document.getElementById("showCat").addEventListener("click", () => {
   document.addEventListener("click", dismiss);
   document.addEventListener("touchstart", dismiss, { passive: true });
 
+  // Progress is derived from elapsed wall-clock time rather than from a
+  // count of timer ticks, so the sequence takes the same real duration in
+  // every browser. A slower engine draws fewer intermediate frames instead
+  // of running the whole animation in slow motion.
+  function animate(durationFor, draw, done) {
+    const start = performance.now();
+    const total = durationFor();
+
+    function frame(now) {
+      if (skipped) return;
+      const progress = total <= 0 ? 1 : Math.min(1, (now - start) / total);
+      draw(progress);
+      if (progress < 1) currentFrame = requestAnimationFrame(frame);
+      else done();
+    }
+
+    currentFrame = requestAnimationFrame(frame);
+  }
+
   function typeNextLine() {
     if (skipped || lineIndex >= lines.length) {
-      if (!skipped) setTimeout(fadeOut, 300);
+      if (!skipped) currentTimeout = setTimeout(fadeOut, 300);
       return;
     }
 
@@ -825,22 +846,26 @@ document.getElementById("showCat").addEventListener("click", () => {
     if (spec.counter) {
       const el = document.createElement("div");
       overlay.appendChild(el);
-      let count = 0;
       const step = Math.ceil(spec.target / 30);
-      function tick() {
-        count = Math.min(count + step, spec.target);
-        el.textContent =
-          "Memory test: " +
-          String(count).padStart(6, "0") +
-          "K" +
-          (count < spec.target ? "" : " OK");
-        if (count < spec.target) {
-          currentTimeout = setTimeout(tick, 18);
-        } else {
+      const steps = Math.ceil(spec.target / step);
+
+      animate(
+        () => steps * 18,
+        (p) => {
+          const count = Math.min(
+            spec.target,
+            Math.max(1, Math.ceil(p * steps)) * step,
+          );
+          el.textContent =
+            "Memory test: " +
+            String(count).padStart(6, "0") +
+            "K" +
+            (count < spec.target ? "" : " OK");
+        },
+        () => {
           currentTimeout = setTimeout(typeNextLine, 120);
-        }
-      }
-      tick();
+        },
+      );
       return;
     }
 
@@ -855,20 +880,18 @@ document.getElementById("showCat").addEventListener("click", () => {
     if (spec.bright) el.style.color = "#00ffaa";
     overlay.appendChild(el);
 
-    let ci = 0;
     const charDelay = spec.bright ? 30 : 8;
 
-    function typeChar() {
-      el.textContent = spec.text.substring(0, ci + 1);
-      ci++;
-      if (ci < spec.text.length) {
-        currentTimeout = setTimeout(typeChar, charDelay);
-      } else {
+    animate(
+      () => spec.text.length * charDelay,
+      (p) => {
+        const shown = Math.max(1, Math.ceil(p * spec.text.length));
+        el.textContent = spec.text.substring(0, shown);
+      },
+      () => {
         currentTimeout = setTimeout(typeNextLine, spec.delay);
-      }
-    }
-
-    typeChar();
+      },
+    );
   }
 
   typeNextLine();

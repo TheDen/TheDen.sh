@@ -1,8 +1,13 @@
 /* Uptime */
 
 const _clockEl = document.getElementById("clock");
-const _uptimeSince = dayjs("04/08/2016 17:00:00", "DD/MM/YYYY HH:mm:ss");
-const _uptimeSinceDays = dayjs("04-08-2016", "DD-MM-YYYY");
+// 4 Aug 2016, local midnight — the day theden.sh came up
+const _uptimeSince = new Date(2016, 7, 4).getTime();
+const _DAY_MS = 864e5;
+
+function pad2(n) {
+  return n < 10 ? "0" + n : "" + n;
+}
 
 // Slowly drifting state
 const _MEM_TOTAL = 7854;
@@ -31,9 +36,14 @@ function htopBar(width, segments) {
 }
 
 function updateClock() {
-  const now = dayjs();
-  const days = now.diff(_uptimeSinceDays, "days");
-  const currentTime = now.format("HH:mm:ss");
+  const now = new Date();
+  const days = Math.floor((now.getTime() - _uptimeSince) / _DAY_MS);
+  const currentTime =
+    pad2(now.getHours()) +
+    ":" +
+    pad2(now.getMinutes()) +
+    ":" +
+    pad2(now.getSeconds());
 
   _memUsed = drift(_memUsed, 3800, 5600, 25);
   _tasks = drift(_tasks, 144, 172, 1);
@@ -128,67 +138,99 @@ function updateClock() {
     procLines;
 }
 
-function uptimeCard() {
-  dayjs.extend(window.dayjs_plugin_duration);
-  dayjs.extend(window.dayjs_plugin_utc);
-  updateClock();
-}
-uptimeCard();
+updateClock();
 let _clockInterval = setInterval(updateClock, 1000);
 
 /* ASCII typed text */
-var typed = new Typed(".element", {
+const _typedOptions = {
   strings: [
-    "<span style='color:#009966;'><pre>      ___     <br>     /      <br>    /::     <br>   /:/:    <br>  /:/  :   <br> /:/__/ :__<br> :   /:/  /<br>  :  /:/  / <br>   :/:/  /  <br>    ::/  /   <br>     /__/    <br></pre>",
+    "      ___     \n     /      \n    /::     \n   /:/:    \n  /:/  :   \n /:/__/ :__\n :   /:/  /\n  :  /:/  / \n   :/:/  /  \n    ::/  /   \n     /__/    \n",
 
-    "<span style='color:#009966;'><pre> ██████╗██╗   ██╗██████╗ ██╗               <br>██╔════╝██║   ██║██╔══██╗██║               <br>██║     ██║   ██║██████╔╝██║               <br>██║     ██║   ██║██╔══██╗██║               <br>╚██████╗╚██████╔╝██║  ██║███████╗          <br> ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝          <br>                                           <br>       ██╗██╗      █████╗ ██████╗ ██╗   ██╗<br>      ██╔╝██║     ██╔══██╗██╔══██╗╚██╗ ██╔╝<br>     ██╔╝ ██║     ███████║██║  ██║ ╚████╔╝ <br>    ██╔╝  ██║     ██╔══██║██║  ██║  ╚██╔╝  <br>██╗██╔╝   ███████╗██║  ██║██████╔╝   ██║   <br>╚═╝╚═╝    ╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝   <br></pre>",
+    " ██████╗██╗   ██╗██████╗ ██╗               \n██╔════╝██║   ██║██╔══██╗██║               \n██║     ██║   ██║██████╔╝██║               \n██║     ██║   ██║██╔══██╗██║               \n╚██████╗╚██████╔╝██║  ██║███████╗          \n ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝          \n                                           \n       ██╗██╗      █████╗ ██████╗ ██╗   ██╗\n      ██╔╝██║     ██╔══██╗██╔══██╗╚██╗ ██╔╝\n     ██╔╝ ██║     ███████║██║  ██║ ╚████╔╝ \n    ██╔╝  ██║     ██╔══██║██║  ██║  ╚██╔╝  \n██╗██╔╝   ███████╗██║  ██║██████╔╝   ██║   \n╚═╝╚═╝    ╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝   \n",
 
-    "<span style='color:#009966;'><pre>       (    (      <br>   (   ) ) ) )   <br> ( ) (()/((()/(   <br> )((_) /(_))/(_))  <br>((_)_ (_)) (_))_   <br> | _ )/ __| |     <br> | _ \\__  | |) | <br> |___/|___/ |___/ <br></pre>",
+    "       (    (      \n   (   ) ) ) )   \n ( ) (()/((()/(   \n )((_) /(_))/(_))  \n((_)_ (_)) (_))_   \n | _ )/ __| |     \n | _ \\__  | |) | \n |___/|___/ |___/ \n",
 
-    "<span style='color:#009966;'><pre>___/~~____/~~~~~___/~~~~~~__/~~~~~ <br>__/~~____/~~_/~~_/~~_/~~_/~~_/~~   <br>_/~~~~~___/~~~~~_____/~~~___/~~~~~<br>/~~_/~~_/~~_/~~_/~~_/~~_/~~_/~~   <br>_/~~~~~___/~~~~~___/~~~~~~__/~~~~~   <br>_/~~~~~____/~~_____/~~~~~_____/~~~~~<br>/~~_/~~__/~~~____/~~_/~~___/~~_/~~<br>_/~~~~~____/~~___/~~___/~~_/~~___/~~<br>___/~~_____/~~____/~~_/~~___/~~_/~~<br>__/~~____/~~~~~~___/~~~~~_____/~~~~~<br></pre>",
+    "___/~~____/~~~~~___/~~~~~~__/~~~~~ \n__/~~____/~~_/~~_/~~_/~~_/~~_/~~   \n_/~~~~~___/~~~~~_____/~~~___/~~~~~\n/~~_/~~_/~~_/~~_/~~_/~~_/~~_/~~   \n_/~~~~~___/~~~~~___/~~~~~~__/~~~~~   \n_/~~~~~____/~~_____/~~~~~_____/~~~~~\n/~~_/~~__/~~~____/~~_/~~___/~~_/~~\n_/~~~~~____/~~___/~~___/~~_/~~___/~~\n___/~~_____/~~____/~~_/~~___/~~_/~~\n__/~~____/~~~~~~___/~~~~~_____/~~~~~\n",
 
-    "<span style='color:#009966;'><pre>█████████████████████████████████████<br>█████████████████████████████████████<br>████ ▄▄▄▄▄ █▀▄█▀ ▀▄ █▀█▄ █ ▄▄▄▄▄ ████<br>████ █   █ █▄   ▄▀ ▀▀▄▀  █ █   █ ████<br>████ █▄▄▄█ █ ▀█▀█▄▄ ▄▄▄ ██ █▄▄▄█ ████<br>████▄▄▄▄▄▄▄█ ▀▄█ █ ▀ ▀▄█▄█▄▄▄▄▄▄▄████<br>████ ▄▀▄█▀▄▄▀█ ▀█ ▀██▄▀█▀█▄▄▄▀▄▄▀████<br>████  ▀▄▀█▄█▀▄▄██ ██ ▄▄▄▄▀ ▄▀█▀▀█████<br>████▀█▀ ▀ ▄ ▄█▀▀  █▀█  ▀▀▄ ██▀█ ▄████<br>████▄▄▄▀▄▄▄▄▀▄██  ▄█▄▀▄█ ▄ ▄███ ▄████<br>████▄▀▀█▄▄▄▄▄██▄█ ▀  █▀▄▄█▀ ▄▀█▀▄████<br>████▄█▀███▄▀▄ █▀█▄ █▄ █▀▄  ▄█▄▄▄ ████<br>████▄████▄▄▄ ▀    ▄█▀█▀█ ▄▄▄ ▄▄▀█████<br>████ ▄▄▄▄▄ █▄▄▀  ▀███▄▄▀ █▄█ ▀  █████<br>████ █   █ █▀█▀ ▄  ▀▄██▀ ▄  ▄▄█ █████<br>████ █▄▄▄█ █▀█▀ ▀▀ ██ █▀▀▄██▄██▀▄████<br>████▄▄▄▄▄▄▄█▄▄▄▄██▄█▄▄▄█▄▄██▄▄█▄█████<br>█████████████████████████████████████<br>█████████████████████████████████████<br></pre>",
+    "█████████████████████████████████████\n█████████████████████████████████████\n████ ▄▄▄▄▄ █▀▄█▀ ▀▄ █▀█▄ █ ▄▄▄▄▄ ████\n████ █   █ █▄   ▄▀ ▀▀▄▀  █ █   █ ████\n████ █▄▄▄█ █ ▀█▀█▄▄ ▄▄▄ ██ █▄▄▄█ ████\n████▄▄▄▄▄▄▄█ ▀▄█ █ ▀ ▀▄█▄█▄▄▄▄▄▄▄████\n████ ▄▀▄█▀▄▄▀█ ▀█ ▀██▄▀█▀█▄▄▄▀▄▄▀████\n████  ▀▄▀█▄█▀▄▄██ ██ ▄▄▄▄▀ ▄▀█▀▀█████\n████▀█▀ ▀ ▄ ▄█▀▀  █▀█  ▀▀▄ ██▀█ ▄████\n████▄▄▄▀▄▄▄▄▀▄██  ▄█▄▀▄█ ▄ ▄███ ▄████\n████▄▀▀█▄▄▄▄▄██▄█ ▀  █▀▄▄█▀ ▄▀█▀▄████\n████▄█▀███▄▀▄ █▀█▄ █▄ █▀▄  ▄█▄▄▄ ████\n████▄████▄▄▄ ▀    ▄█▀█▀█ ▄▄▄ ▄▄▀█████\n████ ▄▄▄▄▄ █▄▄▀  ▀███▄▄▀ █▄█ ▀  █████\n████ █   █ █▀█▀ ▄  ▀▄██▀ ▄  ▄▄█ █████\n████ █▄▄▄█ █▀█▀ ▀▀ ██ █▀▀▄██▄██▀▄████\n████▄▄▄▄▄▄▄█▄▄▄▄██▄█▄▄▄█▄▄██▄▄█▄█████\n█████████████████████████████████████\n█████████████████████████████████████\n",
 
-    "<span style='color:#009966;'><pre>+---[RSA 4096]----+<br>|#E*....          |<br>|%#++ .           |<br>|@*O.=            |<br>|O*.B . .         |<br>|*o. o . S        |<br>|oo . . .         |<br>|o .   .          |<br>|.                |<br>|                 |<br>+----[SHA256]-----+<br></pre>",
+    "+---[RSA 4096]----+\n|#E*....          |\n|%#++ .           |\n|@*O.=            |\n|O*.B . .         |\n|*o. o . S        |\n|oo . . .         |\n|o .   .          |\n|.                |\n|                 |\n+----[SHA256]-----+\n",
   ],
-  contentType: "html",
+  // Plain text, not html: typed.js assigns textContent per character
+  // instead of re-parsing innerHTML. The <pre> target supplies the
+  // preformatted layout the markup used to.
+  contentType: "text",
   typeSpeed: 3,
   loop: true,
   shuffle: true,
   showCursor: false,
   autoInsertCss: false,
   smartBackspace: false,
-});
+};
+
+// The card is display:none below 600px, so there's no point animating it
+// there — it was the heaviest thing on the page, running invisibly.
+const _typedQuery = window.matchMedia("screen and (max-width: 600px)");
+let typed = null;
+
+function syncTyped() {
+  if (_typedQuery.matches) {
+    if (typed) {
+      typed.destroy();
+      typed = null;
+    }
+    return;
+  }
+  if (!typed) {
+    typed = new Typed("#ascii-art", _typedOptions);
+  }
+}
+
+syncTyped();
+_typedQuery.addEventListener("change", syncTyped);
 
 /* Drag */
 function enableDrag() {
-  const draggableElems = document.querySelectorAll(".draggable");
-  const draggies = [];
+  const matchquery = window.matchMedia("screen and (max-width: 600px)");
 
-  let topZ = 10;
+  // Built on first use, so narrow viewports — where dragging is off — never
+  // pay for the instances or their pointer listeners at all.
+  let draggies = null;
 
-  for (let i = 0; i < draggableElems.length; i++) {
-    const draggableElem = draggableElems[i];
-    const draggie = new Draggabilly(draggableElem, {});
-    draggies.push(draggie);
-    draggie.on("dragStart", function () {
-      draggableElem.style.zIndex = ++topZ;
-    });
-  }
+  function build() {
+    const draggableElems = document.querySelectorAll(".draggable");
+    let topZ = 10;
+    draggies = [];
 
-  function maxwidthcheck(matchquery) {
-    const len = draggies.length;
-    for (let i = 0; i < len; i++) {
-      if (matchquery.matches) {
-        draggies[i].disable();
-      } else {
-        draggies[i].enable();
-      }
+    for (let i = 0; i < draggableElems.length; i++) {
+      const draggableElem = draggableElems[i];
+      const draggie = new Draggabilly(draggableElem, {});
+      draggies.push(draggie);
+      draggie.on("dragStart", function () {
+        draggableElem.style.zIndex = ++topZ;
+      });
     }
   }
 
-  const matchquery = window.matchMedia("screen and (max-width: 600px)");
-  maxwidthcheck(matchquery);
+  function maxwidthcheck() {
+    if (matchquery.matches) {
+      if (draggies === null) return;
+      for (let i = 0; i < draggies.length; i++) {
+        draggies[i].disable();
+      }
+      return;
+    }
+
+    if (draggies === null) {
+      build();
+      return;
+    }
+    for (let i = 0; i < draggies.length; i++) {
+      draggies[i].enable();
+    }
+  }
+
+  maxwidthcheck();
   matchquery.addEventListener("change", maxwidthcheck);
 }
 
@@ -384,7 +426,13 @@ function glitch() {
   }); */
 }
 
-setTimeout(glitch, 0);
+// Wraps every link in a container element, so it waits for idle time rather
+// than competing with the boot sequence.
+if (window.requestIdleCallback) {
+  requestIdleCallback(glitch, { timeout: 2000 });
+} else {
+  setTimeout(glitch, 0);
+}
 
 /* Title and favicon change */
 function handleTabFocus() {
@@ -408,32 +456,39 @@ handleTabFocus();
 document.addEventListener("visibilitychange", function () {
   if (document.hidden) {
     clearInterval(_clockInterval);
-    typed.stop();
+    if (typed) typed.stop();
     document.getElementById("line").style.animationPlayState = "paused";
     document.getElementById("dot").style.animationPlayState = "paused";
   } else {
     updateClock();
     _clockInterval = setInterval(updateClock, 1000);
-    typed.start();
+    if (typed) typed.start();
     document.getElementById("line").style.animationPlayState = "running";
     document.getElementById("dot").style.animationPlayState = "running";
   }
 });
 
-/* Visitor Info */
-fetch("https://api.ipify.org?format=jsonp&callback=")
-  .then((response) => response.text())
-  .then((data) => {
-    const startIndex = data.indexOf("{");
-    const endIndex = data.lastIndexOf("}");
-    const jsonData = JSON.parse(data.substring(startIndex, endIndex + 1));
-    ipinfo = jsonData;
-    if (ipinfo.ip != null) {
-      document.querySelector(".ipaddress").innerHTML = ipinfo.ip;
-      document.querySelector(".ipinfo").style.display = "revert";
-    }
-  })
-  .catch((error) => console.log(error));
+/* Visitor Info — third party, so it waits until the main thread is idle */
+function fetchVisitorIp() {
+  fetch("https://api.ipify.org?format=jsonp&callback=")
+    .then((response) => response.text())
+    .then((data) => {
+      const startIndex = data.indexOf("{");
+      const endIndex = data.lastIndexOf("}");
+      const jsonData = JSON.parse(data.substring(startIndex, endIndex + 1));
+      if (jsonData.ip != null) {
+        document.querySelector(".ipaddress").textContent = jsonData.ip;
+        document.querySelector(".ipinfo").style.display = "revert";
+      }
+    })
+    .catch((error) => console.log(error));
+}
+
+if (window.requestIdleCallback) {
+  requestIdleCallback(fetchVisitorIp, { timeout: 3000 });
+} else {
+  setTimeout(fetchVisitorIp, 1000);
+}
 
 /* Card reveal — called by boot sequence after it finishes */
 function revealCards() {
@@ -785,14 +840,9 @@ document.getElementById("showCat").addEventListener("click", () => {
     { text: "> BOOT SUCCESSFUL. WELCOME.", bright: true, delay: 15 },
   ];
 
-  const overlay = document.createElement("div");
-  overlay.style.cssText =
-    "position:fixed;top:0;left:0;width:100%;height:100%;background:#000;" +
-    "color:#009966;font-family:console,monospace;" +
-    "font-size:clamp(0.55rem,2.2vw,1rem);" +
-    "padding:clamp(0.75em,3vw,2em);" +
-    "z-index:999999;box-sizing:border-box;overflow:hidden;line-height:1.6;";
-  document.body.appendChild(overlay);
+  // Already in the document and painted before this script runs, so the
+  // cards never flash behind it.
+  const overlay = document.getElementById("boot");
 
   let skipped = false;
   let lineIndex = 0;
@@ -884,8 +934,27 @@ document.getElementById("showCat").addEventListener("click", () => {
   glow.id = "cursor-glow";
   document.body.appendChild(glow);
 
-  document.addEventListener("mousemove", function (e) {
-    glow.style.left = e.clientX + "px";
-    glow.style.top = e.clientY + "px";
-  });
+  // Positioned with a composited transform and written at most once per
+  // frame, so a fast mouse can't outrun the renderer.
+  let x = 0;
+  let y = 0;
+  let queued = false;
+
+  function paint() {
+    queued = false;
+    glow.style.transform = "translate3d(" + x + "px," + y + "px,0)";
+  }
+
+  document.addEventListener(
+    "mousemove",
+    function (e) {
+      x = e.clientX;
+      y = e.clientY;
+      if (!queued) {
+        queued = true;
+        requestAnimationFrame(paint);
+      }
+    },
+    { passive: true },
+  );
 })();

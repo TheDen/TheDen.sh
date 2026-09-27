@@ -4,7 +4,7 @@
 (
   echo "vendoring..."
   cd scripts || exit
-  cat dayjs-duration-utc.js draggabilly.pkgd.min.js typed.js powerglitch.min.js > vendor.js
+  cat draggabilly.pkgd.min.js typed.js powerglitch.min.js > vendor.js
 )
 
 VENDOR_JS=$(cat scripts/vendor.js)
@@ -14,6 +14,7 @@ export SCRIPT_JS
 envsubst < index.pre.html > index.html
 
 rm -rf dist/
+# scripts/ is inlined into index.html, so the copies are never requested
 rsync --exclude=index.pre.html \
   --exclude=*.sh \
   --exclude=dist/ \
@@ -21,6 +22,9 @@ rsync --exclude=index.pre.html \
   --exclude=.prettierignore \
   --exclude=LICENSE \
   --exclude=README.md \
+  --exclude=scripts/ \
+  --exclude=node_modules/ \
+  --exclude=.DS_Store \
   --delete -av . dist/
 
 echo "run prettier"

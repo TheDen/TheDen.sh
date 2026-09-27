@@ -1,9 +1,17 @@
 <!doctype html>
 <html class="noselect" lang="en">
   <head>
+    <meta charset="UTF-8" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link type="text/plain" rel="author" href="https://theden.sh/humans.txt" />
-    <meta charset="UTF-8" />
+    <link
+      rel="preload"
+      href="px437_toshibasat_9x16.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://songstitch.art" crossorigin />
     <meta
       name="Keywords"
       content="TheDen, theden.sh, khoshaba, denis, denis khoshaba"
@@ -27,23 +35,17 @@
       content="https://theden.sh/images/portrait.png"
     />
     <meta name="theme-color" content="#009966" />
-    <style type="text/css">
+    <style>
                   @font-face {
                     font-family: "console";
                       src: url("px437_toshibasat_9x16.woff2") format("woff2"),
-                      url("px437_toshibasat_9x16.woff") format("woff"),
-                      url("px437_toshibasat_9x16.ttf") format("truetype");
+                      url("px437_toshibasat_9x16.woff") format("woff");
                     font-display: swap;
                   }
 
                   html {
                     -webkit-font-smoothing: antialiased;
-                    background: black no-repeat center center fixed;
-                    background-attachment: fixed;
-                    -webkit-background-size: cover;
-                    -moz-background-size: cover;
-                    -o-background-size: cover;
-                    background-size: cover;
+                    background: black;
                     font-family: "console", "monospace", "Consolas", "Courier";
                     min-height: 100%;
                     text-shadow: 0px 0px 1px;
@@ -120,9 +122,6 @@
                     background-color: #009966;
                     z-index: 1000;
                     font-size: 1em;
-                    box-shadow: 0 0 5px #009966;
-                    -webkit-box-shadow: 0px 0px 279px 0px rgba(0, 153, 102, 1);
-                    -moz-box-shadow: 0px 0px 279px 0px rgba(0, 153, 102, 1);
                     box-shadow: 0px 0px 279px 0px rgba(0, 153, 102, 1);
                     display: inline-flex;
                   }
@@ -139,9 +138,6 @@
                     background-color: #009966;
                     z-index: 1000;
                     font-size: 1em;
-                    box-shadow: 0 0 5px #009966;
-                    -webkit-box-shadow: 0px 0px 279px 0px rgba(0, 153, 102, 1);
-                    -moz-box-shadow: 0px 0px 279px 0px rgba(0, 153, 102, 1);
                     box-shadow: 0px 0px 279px 0px rgba(0, 153, 102, 1);
                   }
 
@@ -463,6 +459,9 @@
                     box-shadow: 10px 10px 5px #009966;
                     filter: blur(10px);
                     animation: scan-y 5s linear infinite;
+                    /* Keep the blurred bar on its own composited layer so the
+                       scan doesn't re-rasterize the blur every frame. */
+                    will-change: transform;
                   }
 
                   #dot {
@@ -473,6 +472,7 @@
                     background: #000;
                     opacity: 1;
                     animation: scan-x 3s linear infinite;
+                    will-change: transform;
                   }
 
                   #cover {
@@ -559,8 +559,13 @@
 
                   #cursor-glow {
                     position: fixed;
+                    top: 0;
+                    left: 0;
                     width: 28px;
                     height: 28px;
+                    /* Centred on the pointer with margins, so the transform is
+                       free to carry position alone and stay composited. */
+                    margin: -14px 0 0 -14px;
                     border-radius: 50%;
                     background: radial-gradient(
                       circle,
@@ -569,8 +574,28 @@
                     );
                     pointer-events: none;
                     z-index: 9999998;
-                    transform: translate(-50%, -50%);
-                    transition: left 0.06s ease-out, top 0.06s ease-out;
+                    transform: translate3d(-100px, -100px, 0);
+                    transition: transform 0.06s ease-out;
+                    will-change: transform;
+                  }
+
+                  /* Boot overlay. Static markup rather than script-built, so
+                     the first paint is already the boot screen. */
+                  #boot {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: #000;
+                    color: #009966;
+                    font-family: "console", monospace;
+                    font-size: clamp(0.55rem, 2.2vw, 1rem);
+                    padding: clamp(0.75em, 3vw, 2em);
+                    z-index: 999999;
+                    box-sizing: border-box;
+                    overflow: hidden;
+                    line-height: 1.6;
                   }
 
                   @media only screen and (max-width: 600px) {
@@ -653,11 +678,19 @@
       filter: sepia(1)
                   }
     </style>
-    <script type="text/javascript">
-      ${VENDOR_JS}
-    </script>
+    <noscript>
+      <style>
+        #boot {
+          display: none;
+        }
+        .draggable {
+          opacity: 1;
+        }
+      </style>
+    </noscript>
   </head>
   <body>
+    <div id="boot"></div>
     <div id="ErrModal" class="modal">
       <div class="modal-content">
         <h2>ERROR!</h2>
@@ -972,10 +1005,10 @@
             <img
               alt="lastFM SongStitch collage"
               class="songstitch-collage"
-              width="500px"
-              height="500px"
-              src="https://songstitch.art/collage?username=theden_sh&metho=album&period=1month&artist=true&album=false&playcount=fal
-se&rows=3&columns=3&height=500&width=500&webp=true"
+              width="500"
+              height="500"
+              decoding="async"
+              src="https://songstitch.art/collage?username=theden_sh&metho=album&period=1month&artist=true&album=false&playcount=false&rows=3&columns=3&height=500&width=500&webp=true"
             />
           </div>
         </div>
@@ -988,7 +1021,7 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
         <div class="draggable">
           <div class="move card typecontent">
             <div class="terminal-bar">[ Messages ]</div>
-            <div class="element"></div>
+            <div class="element"><pre id="ascii-art"></pre></div>
           </div>
         </div>
         <div class="draggable cat" id="cat">
@@ -996,9 +1029,12 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
             <div class="terminal-bar">[ Finn Says Hi! ]</div>
             <img
               loading="lazy"
+              decoding="async"
               alt="Cat Picture"
               class="cat-card"
-              src="images/finn-cat.png"
+              width="600"
+              height="645"
+              src="images/finn-cat.webp"
             />
             <p>
               <a href="https://leo.theden.sh" target="_blank" rel="noopener"
@@ -1007,14 +1043,18 @@ se&rows=3&columns=3&height=500&width=500&webp=true"
             </p>
           </div>
         </div>
-        <script type="text/javascript">
-          ${SCRIPT_JS}
-        </script>
       </div>
       <div id="footer">
         -- NORMAL -- &nbsp;&nbsp;"TheDen.sh" [unix][sh] &nbsp;&nbsp;1,1
         &nbsp;&nbsp;All
       </div>
     </div>
+    <!-- Kept at the end of the body so neither bundle blocks the first paint. -->
+    <script>
+      ${VENDOR_JS}
+    </script>
+    <script>
+      ${SCRIPT_JS}
+    </script>
   </body>
 </html>

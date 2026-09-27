@@ -25,6 +25,7 @@ rsync --exclude=index.pre.html \
   --exclude=scripts/ \
   --exclude=node_modules/ \
   --exclude=.DS_Store \
+  --exclude=*.ttf \
   --delete -av . dist/
 
 echo "run prettier"

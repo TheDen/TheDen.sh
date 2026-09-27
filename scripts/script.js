@@ -374,7 +374,7 @@ console.log(
 /* Glitch */
 
 function glitch() {
-  const { startGlitch, stopGlitch } = PowerGlitch.glitch("a, .dropbtn", {
+  PowerGlitch.glitch("a, .dropbtn", {
     playMode: "hover",
     createContainers: true,
     hideOverflow: true,
@@ -400,30 +400,6 @@ function glitch() {
       hueRotate: false,
     },
   });
-  /*  PowerGlitch.glitch(".element", {
-    playMode: "always",
-    createContainers: true,
-    hideOverflow: false,
-    timing: {
-      duration: 6000,
-    },
-    glitchTimeSpan: {
-      start: 0.5,
-      end: 0.7,
-    },
-    shake: {
-      velocity: 15,
-      amplitudeX: 0.2,
-      amplitudeY: 0.2,
-    },
-    slice: {
-      count: 38,
-      velocity: 15,
-      minHeight: 0.02,
-      maxHeight: 0.15,
-      hueRotate: true,
-    },
-  }); */
 }
 
 // Wraps every link in a container element, so it waits for idle time rather
@@ -529,36 +505,6 @@ function shuffleArray(array) {
     array[i] = array[j];
     array[j] = temp;
   }
-}
-
-function flashElement(elementId, flashCount, delay) {
-  const element = document.getElementById(elementId);
-
-  const originalColor = element.style.color;
-  const originalBackgroundColor = element.style.backgroundColor;
-
-  const newColor = "#096";
-  const newBackgroundColor = "black";
-
-  let count = 0;
-
-  function flash() {
-    element.style.color = newColor;
-    element.style.backgroundColor = newBackgroundColor;
-
-    setTimeout(() => {
-      element.style.color = originalColor;
-      element.style.backgroundColor = originalBackgroundColor;
-
-      count++;
-
-      if (count < flashCount) {
-        setTimeout(flash, delay);
-      }
-    }, delay);
-  }
-
-  flash();
 }
 
 document.getElementById("about-link").addEventListener(

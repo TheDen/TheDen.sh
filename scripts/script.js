@@ -713,6 +713,39 @@ cutButton.addEventListener(
 );
 
 // Minimise buttons
+const _minimiseMobileQuery = window.matchMedia("screen and (max-width: 600px)");
+
+// Desktop lays the cards out as floats, so a card that collapses lets its
+// neighbours reflow into the freed space. Pinning the card and its wrapper to
+// the size they had while open keeps everything else still. Mobile is a single
+// stacked column that sizes itself from CSS — it wants to close the gap, and a
+// pixel width there would fight `.card { width: 100% }`, so it pins nothing.
+function pinSize(card) {
+  if (_minimiseMobileQuery.matches) return;
+  const wrapper = card.closest(".draggable");
+  card.style.width = card.offsetWidth + "px";
+  if (wrapper) {
+    wrapper.style.width = wrapper.offsetWidth + "px";
+    wrapper.style.height = wrapper.offsetHeight + "px";
+  }
+}
+
+function unpinSize(card) {
+  const wrapper = card.closest(".draggable");
+  card.style.width = "";
+  if (wrapper) {
+    wrapper.style.width = "";
+    wrapper.style.height = "";
+  }
+}
+
+_minimiseMobileQuery.addEventListener("change", () => {
+  if (!_minimiseMobileQuery.matches) return;
+  // Crossing down into the stacked layout: the pinned desktop pixel sizes would
+  // leave minimised cards stranded at their old width, so let them all go.
+  document.querySelectorAll(".card").forEach(unpinSize);
+});
+
 document.querySelectorAll(".terminal-bar").forEach((bar) => {
   const title = document.createElement("span");
   title.className = "terminal-bar-title";
@@ -728,12 +761,12 @@ document.querySelectorAll(".terminal-bar").forEach((bar) => {
     e.stopPropagation();
     const card = bar.closest(".card");
     if (!card.classList.contains("minimised")) {
-      card.style.width = card.offsetWidth + "px";
+      pinSize(card);
     }
     const minimised = card.classList.toggle("minimised");
     btn.textContent = minimised ? "[+]" : "[-]";
     if (!minimised) {
-      card.style.width = "";
+      unpinSize(card);
     }
   });
   bar.appendChild(btn);

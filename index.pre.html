@@ -264,6 +264,12 @@
         float: left;
         display: inline-table;
         opacity: 0;
+        /* #cover paints the CRT vignette and scanlines from inside #content,
+           so only positioned siblings land on top of it. Draggabilly sets this
+           on desktop when it takes a card over; declaring it here covers the
+           mobile breakpoint too, where dragging is off and the cards would
+           otherwise be painted under the overlay. */
+        position: relative;
       }
 
       .card.typecontent {
